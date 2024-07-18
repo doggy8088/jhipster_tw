@@ -1,34 +1,34 @@
 ---
 layout: default
-title: JHipster v7 升级提示
+title: JHipster v7 升級提示
 sitemap:
 priority: 0.1
 lastmod: 2020-12-19T08:30:00-00:00
 ---
 
-# JHipster v7 升级提示
+# JHipster v7 升級提示
 
-**提示提交者： [@kaidohallik](https://github.com/kaidohallik)**
+**提示送出者： [@kaidohallik](https://github.com/kaidohallik)**
 
 ## **格式化HTML**
 
-我们为HTML启用了Prettier。 您可以在升级前运行启用了html的Prettier，然后将更改提交到Git，以查看升级后HTML文件中的实际更改。
+我們為HTML啟用了Prettier。 您可以在升級前執行啟用了html的Prettier，然後將更改送出到Git，以檢視升級後HTML檔案中的實際更改。
 
-## **Angular客户端中的翻译指令更改**
+## **Angular用戶端中的翻譯指令更改**
 
-我们已经将`jhiTranslate`指令从[ng-jhipster](https://github.com/jhipster/ng-jhipster/blob/main/src/language/jhi-translate.directive.ts) 移到了生成的应用程序中。 如果您的`jhiPrefix`与`jhi`不同，那么您可能希望将所有`jhiTranslate`替换为`yourprefixTranslate`并在升级前提交对Git的更改，以减少升级后显示的更改。
+我們已經將`jhiTranslate`指令從[ng-jhipster](https://github.com/jhipster/ng-jhipster/blob/main/src/language/jhi-translate.directive.ts) 移到了生成的應用程式中。 如果您的`jhiPrefix`與`jhi`不同，那麼您可能希望將所有`jhiTranslate`替換為`yourprefixTranslate`並在升級前提交對Git的更改，以減少升級後顯示的更改。
 
-## **在Angular客户端中重命名的文件**
+## **在Angular用戶端中重新命名的檔案**
 
-在Angular客户端中，许多文件已重命名，并且测试移到了被测文件同一目录中。
+在Angular用戶端中，許多檔案已重新命名，並且測試移到了被測檔案同一目錄中。
 
-在 [手动升级]({{ site.url }}/upgrading-an-application/#manual_upgrade) 中说明页是部分 **有关重命名文件的提示** - 这可以帮助升级。
+在 [手動升級]({{ site.url }}/upgrading-an-application/#manual_upgrade) 中說明頁是部分 **有關重新命名檔案的提示** - 這可以幫助升級。
 
-如果先前的提示未提供满意的结果，则可以在升级之前执行以下操作：
-* 将重命名的文件移动到其最终位置
-* 之后提交更改
+如果先前的提示未提供滿意的結果，則可以在升級之前執行以下操作：
+* 將重新命名的檔案移動到其最終位置
+* 之後送出更改
 
-### 用于移动实体文件的Helper node脚本
+### 用於移動實體檔案的Helper node指令碼
 ```node
 const fs = require('fs');
 const path = require('path');
@@ -99,7 +99,7 @@ moveEntityFilesToV7Location('appPath');
 // moveEntityFilesToV7Location(folder);
 ```
 
-### 用于移动主文件的Helper node脚本
+### 用於移動主檔案的Helper node指令碼
 ```node
 const fs = require('fs');
 const path = require('path');
@@ -185,7 +185,7 @@ moveMainFilesToV7Location('appPath');
 // moveMainFilesToV7Location(folder);
 ```
 
-### 复制测试文件到相应目录的Helper脚本
+### 複製測試檔案到相應目錄的Helper指令碼
 
 ```node
 const fs = require('fs');

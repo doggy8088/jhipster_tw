@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 发布 v5.0.0
+title: 發布 v5.0.0
 ---
 
 JHipster release v5.0.0
@@ -77,69 +77,69 @@ As we also improved our database schema, our initial Liquibase changelog has bee
 - JDL v2 with application generation support [#7339](https://github.com/jhipster/generator-jhipster/pull/7339)
     - As a result, the language evolved dramatically, and you can now build full applications using the JDL, and not just entities. This is a huge news if you want to share and reuse your JHipster configuration.
 - New JHipster blueprints
-    - The blueprints system allows to easily extends and/or replace JHipster templates. This is how the new [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) works. This isn’t well-documented yet, but JHipster Kotlin already gives a nice working example.
+    - The blueprints system allows to easily extends and/or replace JHipster templates. This is how the new [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) works. This isn」t well-documented yet, but JHipster Kotlin already gives a nice working example.
 - New Sub-generator to deploy to AWS containers [#7035](https://github.com/jhipster/generator-jhipster/pull/7035)
 - Initial [Istio](https://istio.io/) support [#7337](https://github.com/jhipster/generator-jhipster/issues/7337) has been added in [#7695](https://github.com/jhipster/generator-jhipster/pull/7695) by [Ray Tsang](https://github.com/saturnism) from Google, and [#7697](https://github.com/jhipster/generator-jhipster/pull/7697) by [Srinivasa Vasu](https://github.com/srinivasa-vasu). With the help of [Pierre Besson](https://github.com/PierreBesson).
 - Google App Engine support for monoliths by [Ray Tsang](https://github.com/saturnism) from Google, see [#7765](https://github.com/jhipster/generator-jhipster/pull/7765).
 
-关闭的工单与合并请求
+關閉的工單與合併請求
 ------------
-一如既往, __[你可以在此处查看所有已关闭的工单与已接受合并请求](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.0.0+is%3Aclosed)__.
+一如既往, __[你可以在此處檢視所有已關閉的工單與已接受合併請求](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.0.0+is%3Aclosed)__.
 
 更新指引
 ------------
 
-**自动升级**
+**自動升級**
 
-在已存在的项目上使用[JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/)自动升级:
+在已存在的專案上使用[JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/)自動升級:
 
-升级Jhipster版本:
+升級Jhipster版本:
 
 ```
 yarn global upgrade generator-jhipster
 ```
 
-然后升级子生成器:
+然後升級子產生器:
 
 ```
 jhipster upgrade
 ```
 
-**手动升级**
+**手動升級**
 
-选择手动升级, 需要先升级你的Jhipster版本:
+選擇手動升級, 需要先升級你的Jhipster版本:
 
 ```
 yarn global upgrade generator-jhipster
 ```
 
-如果你已经有了一个项目, 将会继续使用当时项目生成的Jhipster版本.
-如果需要升级你的项目, 你需要先删除`node_modules`文件夹再运行:
+如果你已經有了一個專案, 將會繼續使用當時專案生成的Jhipster版本.
+如果需要升級你的專案, 你需要先刪除`node_modules`資料夾再執行:
 
 ```
 jhipster
 ```
 
-更新你的项目和所有的实体类
+更新你的專案和所有的實體類
 
 ```
 jhipster --with-entities
 ```
 
-你也可以使用实体类子生成器挨个更新你的实体类, 例如你的实体类名字是_Foo_
+你也可以使用實體類子產生器挨個更新你的實體類, 例如你的實體類別名稱字是_Foo_
 
 ```
 jhipster entity Foo
 ```
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们:
+如果您發現這個版本的任何問題, 請隨時聯絡我們:
 
-- 在我们的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)添加一个缺陷报告
-- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)提交问题
+- 在我們的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)新增一個缺陷報告
+- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)送出問題
 
-如果您遇到的问题是紧急错误或安全问题，请：
+如果您遇到的問題是緊急錯誤或安全問題，請：
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)

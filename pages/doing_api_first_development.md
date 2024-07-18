@@ -1,6 +1,6 @@
 ---
 layout: default
-title: API优先开发
+title: API優先開發
 permalink: /doing-api-first-development/
 redirect_from:
   - /doing-api-first-development.html
@@ -9,33 +9,33 @@ sitemap:
     lastmod: 2018-06-11T00:00:00-00:00
 ---
 
-# <i class="fa fa-search"></i> API优先开发
+# <i class="fa fa-search"></i> API優先開發
 
-生成JHipster应用程序时，在提示您选择其他技术时, 可以选择`使用OpenAPI-generator进行API优先开发`。此选项将配置您的构建工具以使用[OpenAPI-generator](https://github.com/OpenAPITools/openapi-generator)从OpenAPI（Swagger）定义文件生成API代码。
-Swagger v2和OpenAPI v3格式均受支持。
+生成JHipster應用程式時，在提示您選擇其他技術時, 可以選擇`使用OpenAPI-generator進行API優先開發`。此選項將設定您的建立工具以使用[OpenAPI-generator](https://github.com/OpenAPITools/openapi-generator)從OpenAPI（Swagger）定義檔案生成API程式碼。
+Swagger v2和OpenAPI v3格式均受支援。
 
-### API优先开发的理由
+### API優先開發的理由
 
-在API优先开发中，您需要先编写规范，然后再从中生成代码，而不是从代码中生成文档。
-这具有以下优点：
+在API優先開發中，您需要先編寫規範，然後再從中生成程式碼，而不是從程式碼中生成文件。
+這具有以下優點：
 
-- 您可以为使用者设计API，而不必考虑其实现。
-- 您可以使用规范文件在新服务器端点发布之前模拟它们，因此，可以进一步的分离前端和后端开发。
-- 您不需要在线服务器即可使用OpenAPI文档。
+- 您可以為使用者設計API，而不必考慮其實現。
+- 您可以使用規範文件在新服務器端點發布之前模擬它們，因此，可以進一步的分離前端和後端開發。
+- 您不需要線上伺服器即可使用OpenAPI文件。
 
-### 使用OpenAPI生成器插件
+### 使用OpenAPI產生器外掛
 
-OpenAPI规范文件位于src/main/resources/swagger/api.yml，用于生成可以实现的端点接口。这些接口具有默认方法，这些方法会返回`501 Not implemented`HTTP状态和空消息体。使用诸如[swagger-editor](http://editor.swagger.io)之类的工具编写您的规范，将其放在`src/main/resources/swagger/api.yml`中，然后运行：
+OpenAPI規範文件位於src/main/resources/swagger/api.yml，用於生成可以實現的端點介面。這些介面具有預設方法，這些方法會回傳`501 Not implemented`HTTP狀態和空訊息體。使用諸如[swagger-editor](http://editor.swagger.io)之類的工具編寫您的規範，將其放在`src/main/resources/swagger/api.yml`中，然後執行：
 ```bash
 ./mvnw generate-sources
 ```
-或用于gradle：
+或用於gradle：
 ```bash
 ./gradlew openApiGenerate
 ```
-然后使用`@Service`类实现在`${buildDirectory}/generated-sources/openapi/src/main/java/${package}/web/api/`中生成的"Delegate"接口。
+然後使用`@Service`類實現在`${buildDirectory}/generated-sources/openapi/src/main/java/${package}/web/api/`中生成的"Delegate"介面。
 
-为著名的[petstore](http://petstore.swagger.io)编写代码的示例：
+為著名的[petstore](http://petstore.swagger.io)編寫程式碼的範例：
 
 ```java
 @Service
@@ -53,9 +53,9 @@ public class PetApiDelegateImpl implements PetApiDelegate {
     }
 }
 ```
-如果将`NativeWebRequest` bean提供给delegate接口，则将为尚未重写的方法（仍然带有501 HTTP状态代码）返回基本示例主体。
+如果將`NativeWebRequest` bean提供給delegate介面，則將為尚未重寫的方法（仍然帶有501 HTTP狀態程式碼）回傳基本範例主體。
 
-在提供实际实现之前，这对模拟端点很有用。
+在提供實際實現之前，這對模擬端點很有用。
 ```java
 @Service
 public class PetApiDelegateImpl implements PetApiDelegate {
@@ -72,7 +72,7 @@ public class PetApiDelegateImpl implements PetApiDelegate {
     }
 }
 ```
-然后你可以得到例子
+然後你可以得到例子
 ```sh
 $ curl -X GET --header 'Accept: application/json' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
 {  "photoUrls" : [ "photoUrls", "photoUrls" ],  "name" : "doggie",  "id" : 0,  "category" : {    "name" : "name",    "id" : 6  },  "tags" : [ {    "name" : "name",    "id" : 1  }, {    "name" : "name",    "id" : 1  } ],  "status" : "available"}%
@@ -80,20 +80,20 @@ $ curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/v2/pet/f
 <Pet>  <id>123456789</id>  <name>doggie</name>  <photoUrls>    <photoUrls>aeiou</photoUrls>  </photoUrls>  <tags>  </tags>  <status>aeiou</status></Pet>%
 ```
 
-可能是您的IDE从源中排除了输出文件夹。 确保重新加载配置以检测生成的类。 可以通过您的IDE UI或命令来完成。
+可能是您的IDE從源中排除了輸出資料夾。 確保重新載入設定以檢測生成的類。 可以透過您的IDE UI或指令來完成。
 
-使用Eclipse或VSCode时
+使用Eclipse或VSCode時
 * with maven
 ```bash
 ./mvnw eclipse:clean eclipse:eclipse
 ```
-使用IntelliJ时
+使用IntelliJ時
 * with maven
 ```bash
 ./mvnw idea:idea
 ```
 
-### 使用 `openapi-client` 子生成器
+### 使用 `openapi-client` 子產生器
 
-JHipster还使用支持OpenAPI/Swagger规范的[Spring-Cloud FeignClients]（https://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-feign）生成客户端代码。
-生成的FeignClient可以在单体和微服务应用程序中使用，并支持Swagger v2和OpenAPI v3定义。 要调用此子生成器，请运行`jhipster openapi-client`。
+JHipster還使用支援OpenAPI/Swagger規範的[Spring-Cloud FeignClients]（https://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-feign）生成用戶端程式碼。
+生成的FeignClient可以在單體和微服務應用程式中使用，並支援Swagger v2和OpenAPI v3定義。 要呼叫此子產生器，請執行`jhipster openapi-client`。

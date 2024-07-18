@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 发布 v2.11.1
+title: 發布 v2.11.1
 ---
 
 JHipster release 2.11.1
@@ -13,7 +13,7 @@ Documentation
 
 Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
-更新日志
+更新日誌
 ----------
 
 This is a minor release, which validates that our new [Heroku](https://www.heroku.com/home) support is now out of beta!
@@ -25,13 +25,13 @@ In the last 4 days, we've had more than 100 applications deployed on Heroku (thi
 更新指引
 ------------
 
-使用以下命令更新Jhipster:
+使用以下指令更新Jhipster:
 
 ```
 npm update -g generator-jhipster
 ```
 
-使用以下命令更新你的项目
+使用以下指令更新你的專案
 
 ```
 yo jhipster
@@ -43,11 +43,11 @@ You can also update your entities by running again the entity sub-generator, for
 yo jhipster:entity Foo
 ```
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们:
+如果您發現這個版本的任何問題, 請隨時聯絡我們:
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
-- 在我们的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)添加一个缺陷报告
-- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)提交问题
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)
+- 在我們的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)新增一個缺陷報告
+- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)送出問題

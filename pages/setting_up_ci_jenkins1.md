@@ -1,24 +1,24 @@
 ---
 layout: default
-title: 设置Jenkins 1
+title: 設定Jenkins 1
 permalink: /setting-up-ci-jenkins1/
 sitemap:
     priority: 0.7
     lastmod: 2016-11-03T12:40:00-00:00
 ---
 
-# <i class="fa fa-wrench"></i> 设置Jenkins服务器
+# <i class="fa fa-wrench"></i> 設定Jenkins伺服器
 
-要为JHipster配置Jenkins服务器，请参考以下指南：
+要為JHipster設定Jenkins伺服器，請參考以下指南：
 
-- [在Linux设置Jenkins 1]({{ site.url }}/setting-up-ci-linux/)
-- [在Windows设置Jenkins 1]({{ site.url }}/setting-up-ci-windows/)
+- [在Linux設定Jenkins 1]({{ site.url }}/setting-up-ci-linux/)
+- [在Windows設定Jenkins 1]({{ site.url }}/setting-up-ci-windows/)
 
-# <i class="fa fa-sliders"></i> Jenkins配置
+# <i class="fa fa-sliders"></i> Jenkins設定
 
-要在Jenkins中设置JHipster项目，请使用以下配置：
+要在Jenkins中設定JHipster專案，請使用以下設定：
 
-## 对于Maven:
+## 對於Maven:
 
 ```
 * Project name: `yourApplicationName`
@@ -42,7 +42,7 @@ sitemap:
     * Publish JUnit test result report / Test Report XMLs: `build/test-results/*.xml`
 ```
 
-## 对于Gradle:
+## 對於Gradle:
 ```
 * Project name: `yourApplicationName`
 * Source Code Management

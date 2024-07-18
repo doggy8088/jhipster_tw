@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Shell插件
+title: Shell外掛
 permalink: /shell-plugins/
 redirect_from:
   - /shell-plugins.html
@@ -9,11 +9,11 @@ sitemap:
     lastmod: 2016-08-14T18:40:00-00:00
 ---
 
-# <i class="fa fa-terminal"></i> JHipster Shell插件
+# <i class="fa fa-terminal"></i> JHipster Shell外掛
 
-Shell插件带来了使用JHipster的其他快捷方式，从而使其更快捷，更易于使用。如果您看到大家拥有漂亮的、出色的自动完成功能和超便捷的快捷键Shell，这就是魔术！
+Shell外掛帶來了使用JHipster的其他快捷方式，從而使其更快捷，更易於使用。如果您看到大家擁有漂亮的、出色的自動完成功能和超便捷的快捷鍵Shell，這就是魔術！
 
-当前有两个shell插件：
+當前有兩個shell外掛：
 
-* [Oh-My-Zsh](https://ohmyz.sh/)的[Oh-My-Zsh JHipster插件]({{ site.url }}/oh-my-zsh/) 
-* [Fisher](https://github.com/jorgebucaran/fisher)的[Fisher JHipster插件]({{ site.url }}/fisher/)
+* [Oh-My-Zsh](https://ohmyz.sh/)的[Oh-My-Zsh JHipster外掛]({{ site.url }}/oh-my-zsh/) 
+* [Fisher](https://github.com/jorgebucaran/fisher)的[Fisher JHipster外掛]({{ site.url }}/fisher/)

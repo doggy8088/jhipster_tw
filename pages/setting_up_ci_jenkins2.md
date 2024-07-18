@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 在Jenkins上设置持续集成 2
+title: 在Jenkins上設定持續整合 2
 permalink: /setting-up-ci-jenkins2/
 redirect_from:
   - /setting_up_ci_jenkins2.html
@@ -9,32 +9,32 @@ sitemap:
     lastmod: 2017-01-19T14:15:00-00:00
 ---
 
-# <i class="fa fa-stethoscope"></i> 在Jenkins上设置持续集成 2
+# <i class="fa fa-stethoscope"></i> 在Jenkins上設定持續整合 2
 
-## 安装Jenkins 2
+## 安裝Jenkins 2
 
-### 标准步骤
+### 標準步驟
 
-在计算机上安装JDK 8。
+在電腦上安裝JDK 8。
 
-转到官方网站[https://jenkins.io/2.0/](https://jenkins.io/2.0/)
+轉到官方網站[https://jenkins.io/2.0/](https://jenkins.io/2.0/)
 
-下载`jenkins.war`
+下載`jenkins.war`
 
 ### 使用Docker
 
-启动[Docker镜像](https://hub.docker.com/r/jenkins/jenkins)
-(_由于JHipster应用程序配置为在8080_上运行，因此默认端口已更改为18080_)
+啟動[Docker映象](https://hub.docker.com/r/jenkins/jenkins)
+(_由於JHipster應用程式設定為在8080_上執行，因此預設連接埠已更改為18080_)
 
 `docker container run -d --name jenkins2 -p 18080:8080 -p 50000:50000 jenkins/jenkins`
 
-然后，您可以在以下位置访问Jenkins仪表盘
+然後，您可以在以下位置訪問Jenkins儀表盤
 - http://localhost:18080 (on MacOS & Linux)
 - http://192.168.99.100:18080 (on Windows)
-    - 如果这样不起作用，请更换 `192.168.99.100` 使用docker的默认IP地址: `docker-machine ip default`
+    - 如果這樣不起作用，請更換 `192.168.99.100` 使用docker的預設IP地址: `docker-machine ip default`
 
-注意：在容器启动过程中，系统会要求您提供`initialAdminPassword`，您可以在日志中找到它。
-您也可以通过`docker logs jenkins2`访问它
+注意：在容器啟動過程中，系統會要求您提供`initialAdminPassword`，您可以在日誌中找到它。
+您也可以透過`docker logs jenkins2`訪問它
 
 ```
 *************************************************************
@@ -55,17 +55,17 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
 
 ## 建立新Job
 
-- 新增条目
-    - 输入条目名称
-    - 选择pipeline
-    - 点击OK
+- 新增條目
+    - 輸入條目名稱
+    - 選擇pipeline
+    - 點選OK
 
 ![Jenkins2 item]({{ site.url }}/images/jenkins2_add_item.png)
 
 - Definition: Pipeline script from SCM
 - SCM: Git
 - Repositories
-    - Repository URL: 选择仓库
+    - Repository URL: 選擇倉庫
 
 ![Jenkins2 pipeline]({{ site.url }}/images/jenkins2_pipeline.png)
 

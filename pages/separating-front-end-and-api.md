@@ -1,80 +1,80 @@
 ---
 layout: default
-title: 分离前端和API服务器
+title: 分離前端和API伺服器
 permalink: /separating-front-end-and-api/
 sitemap:
     priority: 0.7
     lastmod: 2019-01-29T00:00:00-00:00
 ---
 
-# <i class="fa fa-unlink"></i> 分离前端和API服务器
+# <i class="fa fa-unlink"></i> 分離前端和API伺服器
 
-## 介绍
+## 介紹
 
-JHipster是一个全栈开发工具，其目标是使您可以有效地使用前端代码（Angular/React）和后端代码（Spring Boot）。
+JHipster是一個全棧開發工具，其目標是使您可以有效地使用前端程式碼（Angular/React）和後端程式碼（Spring Boot）。
 
-但是，通常需要分离前端和后端代码，这通常是因为它们由不同的团队开发并且具有不同的生命周期。
+但是，通常需要分離前端和後端程式碼，這通常是因為它們由不同的團隊開發並且具有不同的生命週期。
 
-**请注意** 这不是JHipster的默认工作方式：这并不复杂，并且效果很好，但这是一个高级主题。如果您刚刚开始使用JHipster，我们建议您首先使用我们的标准工作方式。
+**請注意** 這不是JHipster的預設工作方式：這並不複雜，並且效果很好，但這是一個高階主題。如果您剛剛開始使用JHipster，我們建議您首先使用我們的標準工作方式。
 
-## 仅生成前端或后端应用程序
+## 僅生成前端或後端應用程式
 
-您可以选择仅生成JHipster后端或JHipster前端应用程序。在生成时，这仅是选择标志的问题，这些标志在我们的[应用程序生成文档]({{ site.url }}/creating-an-app/)中进行了说明：
+您可以選擇僅生成JHipster後端或JHipster前端應用程式。在生成時，這僅是選擇標誌的問題，這些標誌在我們的[應用程式生成文件]({{ site.url }}/creating-an-app/)中進行了說明：
 
-- `jhipster --skip-client` 只会生成一个后端应用程序（这通常是JHipster微服务）
-- `jhipster --skip-server [options]` 只会生成一个前端应用程序(例如：`jhipster --skip-server --db=sql --auth=jwt`)
+- `jhipster --skip-client` 只會生成一個後端應用程式（這通常是JHipster微服務）
+- `jhipster --skip-server [options]` 只會生成一個前端應用程式(例如：`jhipster --skip-server --db=sql --auth=jwt`)
 
-这仅适用于monoliths，因为这对于微服务（无论如何都没有前端）和网关（启用了Spring Cloud Gateway服务）没有多大意义。
+這僅適用於monoliths，因為這對於微服務（無論如何都沒有前端）和閘道器（啟用了Spring Cloud Gateway服務）沒有多大意義。
 
-## 目录布局
+## 目錄佈局
 
-JHipster使用标准的Maven目录布局。在后端上工作时，您只需阅读[Maven标准目录布局文档](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)即可。
+JHipster使用標準的Maven目錄佈局。在後端上工作時，您只需閱讀[Maven標準目錄佈局文件](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)即可。
 
-在前端工作时，您需要知道两个目录：
+在前端工作時，您需要知道兩個目錄：
 
-- `src/main/webapp` 是开发前端应用程序的地方
-- `target/static` 是您的前端应用程序将被打包的位置
+- `src/main/webapp` 是開發前端應用程式的地方
+- `target/static` 是您的前端應用程式將被打包的位置
 
-如果您有分别在前端和后端工作的团队，则有两种解决方案：
+如果您有分別在前端和後端工作的團隊，則有兩種解決方案：
 
-- 两个团队可以从事同一个项目。由于目录是分开的，因此团队之间不会有太多冲突。为了使事情变得更加清洁，两个团队可以在不同的分支上开发。
+- 兩個團隊可以從事同一個專案。由於目錄是分開的，因此團隊之間不會有太多衝突。為了使事情變得更加清潔，兩個團隊可以在不同的分支上開發。
 
-- 前端代码可以存储在一个特定的Git项目中，然后作为Git子模块导入到主后端项目中。这将需要移动前端构建脚本。
+- 前端程式碼可以儲存在一個特定的Git專案中，然後作為Git子模組匯入到主後端專案中。這將需要移動前端建立指令碼。
 
-## HTTP请求路由和缓存
+## HTTP請求路由和緩存
 
-一旦前端和后端分离，问题将是如何处理HTTP请求：
+一旦前端和後端分離，問題將是如何處理HTTP請求：
 
-- 所有API调用都将使用`/api`前缀。如果您使用的是Angular，则还可以在`webpack.common.js`配置中定义一个特定的`SERVER_API_URL`常量，该常量可以丰富此前缀配置。例如，您可以将`"http://api.jhipster.tech:8081/"`用作后端API服务器（如果这样做，请阅读下面有关CORS的文档）。
-- 调用`/`提供的静态资源（从前端），而不应由浏览器缓存。
-- 对`/app`（包含前端应用程序）和`/content`（包含静态内容，如图像和CSS）的调用应在生产中进行缓存，因为这些资产是经过哈希处理的。
-- 调用不存在的路由应将请求转发到`index.html`。这通常在后端通过`ClientForwardController`处理。单独部署前端时，需要进行额外配置。有关几个示例，请参见[Angular](https://angular.io/guide/deployment#server-configuration)或[React](https://facebook.github.io/create-react-app/docs/deployment)文档。
+- 所有API呼叫都將使用`/api`字首。如果您使用的是Angular，則還可以在`webpack.common.js`設定中定義一個特定的`SERVER_API_URL`常數，該常數可以豐富此前綴設定。例如，您可以將`"http://api.jhipster.tech:8081/"`用作後端API伺服器（如果這樣做，請閱讀下面有關CORS的文件）。
+- 呼叫`/`提供的靜態資源（從前端），而不應由瀏覽器快取。
+- 對`/app`（包含前端應用程式）和`/content`（包含靜態內容，如圖像和CSS）的呼叫應在生產中進行快取，因為這些資產是經過雜湊處理的。
+- 呼叫不存在的路由應將請求轉發到`index.html`。這通常在後端透過`ClientForwardController`處理。單獨部署前端時，需要進行額外設定。有關幾個範例，請參見[Angular](https://angular.io/guide/deployment#server-configuration)或[React](https://facebook.github.io/create-react-app/docs/deployment)文件。
 
 # 使用BrowserSync
 
-在`dev`模式下，JHipster使用BrowserSync来热重载前端应用程序。BrowserSync有一个代理（[这里是其文档](https://www.browsersync.io/docs/options#option-proxy)），该代理会将请求从`/api`路由到后端服务器（默认情况下为`http://127.0.0.1:8080`）。
+在`dev`模式下，JHipster使用BrowserSync來熱過載前端應用程式。BrowserSync有一個代理（[這裡是其文件](https://www.browsersync.io/docs/options#option-proxy)），該代理會將請求從`/api`路由到後端伺服器（預設情況下為`http://127.0.0.1:8080`）。
 
-这仅在`dev`模式下有效，但这是从前端访问不同API服务器的非常有效的方法。
+這僅在`dev`模式下有效，但這是從前端訪問不同API伺服器的非常有效的方法。
 
 ## 使用CORS
 
-CORS（[跨域请求共享](https://wikipedia.org/wiki/Cross-origin_resource_sharing))允许访问相同前端下的不同后端服务器，而无需配置代理。
+CORS（[跨域請求共享](https://wikipedia.org/wiki/Cross-origin_resource_sharing))允許訪問相同前端下的不同後端伺服器，而無需設定代理。
 
-这是一个易于使用的解决方案，但是在生产中可能不太安全。
+這是一個易於使用的解決方案，但是在生產中可能不太安全。
 
-JHipster提供了开箱即用的CORS配置：
+JHipster提供了開箱即用的CORS設定：
 
-- 可以使用[jHipster通用应用程序属性]({{ site.url }}/common-application-properties/)中定义的`jhipster.cors`属性来配置CORS。
-- 默认情况下，在`dev`模式下对monoliths和网关启用该功能。对于微服务，默认情况下关闭此功能，因为您应该通过网关访问它们。
-- 出于安全原因，在`prod`模式下默认关闭该功能。
+- 可以使用[jHipster通用應用程式屬性]({{ site.url }}/common-application-properties/)中定義的`jhipster.cors`屬性來設定CORS。
+- 預設情況下，在`dev`模式下對monoliths和閘道器啟用該功能。對於微服務，預設情況下關閉此功能，因為您應該透過閘道器訪問它們。
+- 出於安全原因，在`prod`模式下預設關閉該功能。
 
 ## 使用NGinx
 
-分离前端代码和后端代码的另一种解决方案是使用代理服务器。这在生产中很常见，有些团队也在开发中使用了该技术。
+分離前端程式碼和後端程式碼的另一種解決方案是使用代理伺服器。這在生產中很常見，有些團隊也在開發中使用了該技術。
 
-此配置将根据您的特定用例进行更改，因此生成器无法自动进行此配置，这在下面的可用配置下。
+此設定將根據您的特定用例進行更改，因此產生器無法自動進行此設定，這在下面的可用設定下。
 
-创建一个`src/main/docker/nginx.yml`Docker Compose文件：
+建立一個`src/main/docker/nginx.yml`Docker Compose檔案：
 
     version: '2'
     services:
@@ -86,12 +86,12 @@ JHipster提供了开箱即用的CORS配置：
         ports:
         - "8000:80"
 
-此Docker镜像将配置NGinx服务器，该服务器从`target/static`读取静态资源：这是默认情况下生成JHipster前端应用程序的位置。在生产环境中，您可能为此需要一个特定的文件夹。
+此Docker映象將設定NGinx伺服器，該服務器從`target/static`讀取靜態資源：這是預設情況下生成JHipster前端應用程式的位置。在生產環境中，您可能為此需要一個特定的資料夾。
 
-它还读取一个`./nginx/site.conf`文件：这是NGinx特定的配置文件。
+它還讀取一個`./nginx/site.conf`檔案：這是NGinx特定的設定檔案。
 
-### 配置lambda
-这是一个示例`site.conf`：
+### 設定lambda
+這是一個範例`site.conf`：
 
     server {
         listen 80;
@@ -122,20 +122,20 @@ JHipster提供了开箱即用的CORS配置：
         }
     }
 
-此配置意味着：
+此設定意味著：
 
-- NGinx将在端口`80`上运行
-- 它将读取文件夹`/usr/share/nginx/html`中的静态资源，并且
-- 它将作为从`/api`到`http://api.jhipster.tech/services/back`的代理
-- 任何未处理的请求将转发到`index.html`
+- NGinx將在連接埠`80`上執行
+- 它將讀取資料夾`/usr/share/nginx/html`中的靜態資源，並且
+- 它將作為從`/api`到`http://api.jhipster.tech/services/back`的代理
+- 任何未處理的請求將轉發到`index.html`
 
-根据您的特定需求，此配置将需要进行一些调整，但对于大多数应用程序来说，这应该是一个足够好的起点。
+根據您的特定需求，此設定將需要進行一些調整，但對於大多數應用程式來說，這應該是一個足夠好的起點。
 
-### 使用Oauth 2.0和traefik进行配置
+### 使用Oauth 2.0和traefik進行設定
 
-这是Oauth 2.0的示例`site.conf`：
-如果服务器基本名称为`back`，并且托管traefik的服务器名称为`api.jhipster.tech`。
-如果此配置用于docker镜像，请不要使用`localhost`代替`api.jhipster.tech`，因为它是在容器而不是主机中解析的。
+這是Oauth 2.0的範例`site.conf`：
+如果伺服器基本名稱為`back`，並且託管traefik的伺服器名稱為`api.jhipster.tech`。
+如果此設定用於docker映象，請不要使用`localhost`代替`api.jhipster.tech`，因為它是在容器而不是主機中解析的。
 
     server {
         listen 80;
@@ -172,10 +172,10 @@ JHipster提供了开箱即用的CORS配置：
         }
     }
 
-此配置意味着：
+此設定意味著：
 
-- NGinx将在端口`80`上运行
-- 它将读取文件夹`/usr/share/nginx/html`中的静态资源，并且
-- 它将作为从`/api`到`http://api.jhipster.tech/services/back`的代理
-- traefik提供了`http://api.jhipster.tech/services/back`的负载均衡
-- 任何未处理的请求将转发到`index.html`
+- NGinx將在連接埠`80`上執行
+- 它將讀取資料夾`/usr/share/nginx/html`中的靜態資源，並且
+- 它將作為從`/api`到`http://api.jhipster.tech/services/back`的代理
+- traefik提供了`http://api.jhipster.tech/services/back`的負載均衡
+- 任何未處理的請求將轉發到`index.html`

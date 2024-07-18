@@ -8,20 +8,20 @@ sitemap:
 ---
 
 # <i class="fa fa-html5"></i> 使用Vue
-本节引用JavaScript库**Vue.js**。
+本節引用JavaScript函式庫**Vue.js**。
 
-## 项目结构
+## 專案結構
 
-可以在`src/main/webapp`下找到JHipster前端代码。
+可以在`src/main/webapp`下找到JHipster前端程式碼。
 
-如果您对我们的应用程序结构，文件名，TypeScript约定有任何疑问，请先阅读本指南。
+如果您對我們的應用程式結構，檔案名，TypeScript約定有任何疑問，請先閱讀本指南。
 
-请注意，在生成的Vue应用程序中使用TypeScript，我们遵循[vue-class-component](https://github.com/vuejs/vue-class-component)样式和准则。
+請注意，在生成的Vue應用程式中使用TypeScript，我們遵循[vue-class-component](https://github.com/vuejs/vue-class-component)樣式和準則。
 
-对于Vue路由，我们遵循双引号命名约定，以便URL干净且一致。
-当您生成实体时，将根据此约定生成路由名称，路由URL和REST API端点URL，并且实体名称也会在需要时自动复数。
+對於Vue路由，我們遵循雙引號命名約定，以便URL乾淨且一致。
+當您生成實體時，將根據此約定生成路由名稱，路由URL和REST API端點URL，並且實體名稱也會在需要時自動複數。
 
-这是主要的项目结构：
+這是主要的專案結構：
 
 ```
 webapp
@@ -48,7 +48,7 @@ webapp
 └── robots.txt                      - Configuration for bots and Web crawlers
 ```
 
-使用[实体子生成器]({{ site.url }}/creating-an-entity/)创建名为`Foo`的新实体会在`src/main/webapp`下生成以下前端文件：
+使用[實體子產生器]({{ site.url }}/creating-an-entity/)建立名為`Foo`的新實體會在`src/main/webapp`下生成以下前端檔案：
 
 ```
 webapp
@@ -76,26 +76,26 @@ webapp
 
 Please note that the default language translations would be based on what you have choosen during app generation. 'en' and 'fr' are shown here only for demonstration.
 
-## 使用VuexStore进行存储
+## 使用VuexStore進行儲存
 
-应用程序将使用存储[VuexStore](https://vuex.vuejs.org/guide/state.html)来维护应用程序内的状态。
+應用程式將使用儲存[VuexStore](https://vuex.vuejs.org/guide/state.html)來維護應用程式內的狀態。
 
-该存储启动时在`app/config/config.ts:initVueXStore`中配置。请参考Vuex文档以添加新状态或变异。
+該儲存啟動時在`app/config/config.ts:initVueXStore`中設定。請參考Vuex文件以新增新狀態或變異。
 
-该应用程序将使用存储来维护：
+該應用程式將使用儲存來維護：
 
-* 用户认证信息
-* 语言和翻译
-* 通知和警报信息
-* 活动配置文件数据
+* 使用者認證訊息
+* 語言和翻譯
+* 通知和警報訊息
+* 活動設定檔案資料
 
-## 鉴权
+## 鑑權
 
-JHipster使用[Vue路由器](https://router.vuejs.org/)来组织应用程序的不同部分。
+JHipster使用[Vue路由器](https://router.vuejs.org/)來組織應用程式的不同部分。
 
-对于需要身份验证的路由，将在所需路由上使用`authorities`元数据。该组件将阻止任何未经身份验证或未经授权的用户访问路由。
+對於需要身份驗證的路由，將在所需路由上使用`authorities`元資料。該組件將阻止任何未經身份驗證或未經授權的使用者訪問路由。
 
-这是PrivateRoute用法的示例：
+這是PrivateRoute用法的範例：
 
 ``` typescript
 const Routes = () => [{
@@ -111,13 +111,13 @@ const Routes = () => [{
     }];
 ```
 
-如您所见，未经身份验证的用户可以访问`/public`，但是访问`/private`至少需要登录。
+如您所見，未經身份驗證的使用者可以訪問`/public`，但是訪問`/private`至少需要登入。
 
-请注意，拦截器使用`$store.getters.authenticated`存储值来了解用户是否已通过身份验证。
+請注意，攔截器使用`$store.getters.authenticated`儲存值來了解使用者是否已透過身份驗證。
 
-## 校验系统
+## 校驗系統
 
-为了执行表单验证，我们使用[Vuelidate](https://vuelidate.netlify.com/)库。除了添加校验约束之外，还提供了一些过滤器，它们可以对表单进行全面验证。自定义验证可以这样添加：
+為了執行表單驗證，我們使用[Vuelidate](https://vuelidate.netlify.com/)函式庫。除了新增校驗約束之外，還提供了一些過濾器，它們可以對錶單進行全面驗證。自定義驗證可以這樣新增：
 
 ```typescript
 import { required } from 'vuelidate/lib/validators';
@@ -137,6 +137,6 @@ export default class FooComponent extends Vue {
 }
 ```
 
-## Bootswatch主题
+## Bootswatch主題
 
-可以使用[Bootswatch](https://bootswatch.com)主题直接完成Bootstrap主题设置。现在，我们在生成期间提供选择，以选择Bootswatch提供的众多主题之一。
+可以使用[Bootswatch](https://bootswatch.com)主題直接完成Bootstrap主題設定。現在，我們在生成期間提供選擇，以選擇Bootswatch提供的眾多主題之一。

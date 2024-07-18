@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-pencil"></i> 美工
 
-我们所有的美工都可以在[美工仓库](https://github.com/jhipster/jhipster-artwork)中找到。
+我們所有的美工都可以在[美工倉庫](https://github.com/jhipster/jhipster-artwork)中找到。
 
 ## JHipster Logo
 <img src="/jhipster-artwork/logos/JHipster%20bowtie%20-%20square.png"
@@ -26,7 +26,7 @@ sitemap:
 
 ## JHipster家族
 
-以下是JHipster家族成员的一些示例。
+以下是JHipster家族成員的一些範例。
 
 <div width="500" align="center">
   <img src="/jhipster-artwork/family/jhipster_family_member_0.svg" width="200">
@@ -37,10 +37,10 @@ sitemap:
 
 ## 包容性
 
-与所有JHipster项目一样，JHipster Artwork项目也遵循[JHipster行为准则](https://github.com/jhipster/generator-jhipster/blob/main/CODE_OF_CONDUCT.md)。我们的目标之一是制作广泛兼容的美工作品：目前，“ JHipster家族”只有几个成员，但想法是，正如我们的行为准则所表达的那样，这个家族不断壮大，成员众多。如果您想为该项目提供帮助，则可以以艺术家的身份参加（所有图像的源文件都可以在github仓库中找到），也可以以赞助者的身份参加（因此我们可以付钱给艺术家来创建这些新图像）。
+與所有JHipster專案一樣，JHipster Artwork專案也遵循[JHipster行為準則](https://github.com/jhipster/generator-jhipster/blob/main/CODE_OF_CONDUCT.md)。我們的目標之一是製作廣泛相容的美工作品：目前，『 JHipster家族』只有幾個成員，但想法是，正如我們的行為準則所表達的那樣，這個家族不斷壯大，成員眾多。如果您想為該專案提供幫助，則可以以藝術家的身份參加（所有影象的源檔案都可以在github倉庫中找到），也可以以贊助者的身份參加（因此我們可以付錢給藝術家來建立這些新影象）。
 
-所有图像均由[Audrey Neveu](https://twitter.com/Audrey_Neveu)验证，他在Java社区中以参与[Devoxx4Kids](http://www.devoxx4kids.org/)和[Duchess France](https://www.duchess-france.org/)而闻名。
+所有影象均由[Audrey Neveu](https://twitter.com/Audrey_Neveu)驗證，他在Java社群中以參與[Devoxx4Kids](http://www.devoxx4kids.org/)和[Duchess France](https://www.duchess-france.org/)而聞名。
 
-## Logo和图片用法
+## Logo和圖片用法
 
-所有Logo和图像都可以在[Apache 2许可](LICENSE.txt)下获得，并且属于JHipster项目。
+所有Logo和影象都可以在[Apache 2許可](LICENSE.txt)下獲得，並且屬於JHipster專案。

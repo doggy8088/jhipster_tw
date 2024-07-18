@@ -1,23 +1,23 @@
 ---
 layout: default
-title: LDAP身份认证
+title: LDAP身份認證
 sitemap:
 priority: 0.5
 lastmod: 2018-05-9T22:22:00-00:00
 ---
 
-# LDAP身份认证
+# LDAP身份認證
 
-__提交者 [@mleneveut](https://github.com/mleneveut)__ 更新者 [@iliasnaamane](https://github.com/iliasnaamane)__
+__送出者 [@mleneveut](https://github.com/mleneveut)__ 更新者 [@iliasnaamane](https://github.com/iliasnaamane)__
 
-要将LDAP身份验证添加到您的JHipster应用程序，请按照下列步骤操作：
+要將LDAP身份驗證新增到您的JHipster應用程式，請按照下列步驟操作：
 
-  * 添加依赖项spring-ldap-core和spring-security-ldap。 gradle在build.gradle中的示例：
+  * 新增依賴項spring-ldap-core和spring-security-ldap。 gradle在build.gradle中的範例：
 
 ```
     compile group: 'org.springframework.security', name: 'spring-security-ldap', version: spring_security_version
 ```
-  * 修改SecurityConfiguration.java，添加方法configureGlobal(AuthenticationManagerBuilder auth)和getContextSource()
+  * 修改SecurityConfiguration.java，新增方法configureGlobal(AuthenticationManagerBuilder auth)和getContextSource()
 
 ```
     @Inject
@@ -50,7 +50,7 @@ __提交者 [@mleneveut](https://github.com/mleneveut)__ 更新者 [@iliasnaaman
     	return ldapUser.getUsername();
     }
 ```
-  * 添加一个新的CustomAuthenticationManager类，该类实现AuthenticationManager接口并覆盖身份验证方法，以强制身份验证过程通过LDAP对用户进行身份验证。
+  * 新增一個新的CustomAuthenticationManager類，該類別實現AuthenticationManager介面並覆蓋身份驗證方法，以強制身份驗證過程透過LDAP對使用者進行身份驗證。
 
 ```
 

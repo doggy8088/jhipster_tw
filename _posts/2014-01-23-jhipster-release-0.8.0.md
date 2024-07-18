@@ -1,61 +1,61 @@
 ---
 layout: default
-title: 发布 0.8.0
+title: 發布 0.8.0
 ---
 
 JHipster release 0.8.0
 ==================
 
-*JHipster为您提供集Yeoman + Maven + Spring + AngularJS于一体的应用生成器.*
+*JHipster為您提供集Yeoman + Maven + Spring + AngularJS於一體的應用產生器.*
 
-更新日志
+更新日誌
 ----------
 
-这是我们至今以来最大的一个更新.
+這是我們至今以來最大的一個更新.
 
-我们从"正常"的Spring完全迁移至[Spring Boot](http://projects.spring.io/spring-boot/). 所以带来了许多新变更:
+我們從"正常"的Spring完全遷移至[Spring Boot](http://projects.spring.io/spring-boot/). 所以帶來了許多新變更:
 
-- 需要运行应用, 可以从你的IDE中运行"Application"类, 或者执行"mvn spring-boot:run". 底层使用Tomcat.
-- Java项目配置包名从"conf"重命名为"config"
-- Yaml格式配置文件
-- liquibase配置文件现在移到src/main/resources/config/liquibase目录
+- 需要執行應用, 可以從你的IDE中執行"Application"類, 或者執行"mvn spring-boot:run". 底層使用Tomcat.
+- Java專案設定套件名從"conf"重新命名為"config"
+- Yaml格式設定檔案
+- liquibase設定檔案現在移到src/main/resources/config/liquibase目錄
 
-我们将所有库都已更新至最新版本!
+我們將所有函式庫都已更新至最新版本!
 
-Spring Boot是一门新技术, 希望大家谨慎升级:
+Spring Boot是一門新技術, 希望大家謹慎升級:
 
-### 好消息
+### 好訊息
 
-- IDE可以脱离Maven运行应用. 更快(无需启动Maven)并且和debugger一起更容易运行
-- 更精简的配置文件. 很难量化我们的提升程度, 大约精简了200~300行代码
-- Yaml格式配置带来更好的可读性与使用便利
-- Spring Boot Actuator带来许多特性, 我们计划下次更新添加更多这些特性
+- IDE可以脫離Maven執行應用. 更快(無需啟動Maven)並且和debugger一起更容易執行
+- 更精簡的設定檔案. 很難量化我們的提升程度, 大約精簡了200~300行程式碼
+- Yaml格式設定帶來更好的可讀性與使用便利
+- Spring Boot Actuator帶來許多屬性, 我們計劃下次更新新增更多這些屬性
 
-### 坏消息
+### 壞訊息
 
-- 使用Tomcat启动会比之前慢２秒(Jetty没有问题): 貌似是由于没有web.xml导致Tomcat出现这个问题
+- 使用Tomcat啟動會比之前慢２秒(Jetty沒有問題): 貌似是由於沒有web.xml導致Tomcat出現這個問題
 
 
 更新指引
 ------------
 
-使用以下命令更新Jhipster:
+使用以下指令更新Jhipster:
 
 ```
 npm update -g generator-jhipster
 ```
 
-使用以下命令更新你的项目
+使用以下指令更新你的專案
 
 ```
 yo jhipster
 ```
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们:
+如果您發現這個版本的任何問題, 請隨時聯絡我們:
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
-- 在我们的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)添加一个缺陷报告
-- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)提交问题
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)
+- 在我們的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)新增一個缺陷報告
+- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)送出問題

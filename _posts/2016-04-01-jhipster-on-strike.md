@@ -1,6 +1,6 @@
 ---
 layout: default
-title: JHipster停摆 (2016年愚人节)
+title: JHipster停擺 (2016年愚人節)
 ---
 
 April Fools 2016

@@ -1,27 +1,27 @@
 ---
 layout: default
-title: 创建实体
+title: 建立實體
 sitemap:
 priority: 0.5
 lastmod: 2021-01-07T08:40:00-00:00
 ---
 
-# 创建实体
+# 建立實體
 
-## 介绍
+## 介紹
 
-JHipster Quarkus实体创建允许生成
+JHipster Quarkus實體建立允許生成
 
-* 数据库表
-* Liquibase变更集
-* JPA实体
-* Quarkus Panache活动记录或存储库
+* 資料庫表
+* Liquibase變更集
+* JPA實體
+* Quarkus Panache活動記錄或儲存庫
 * Resteasy控制器，具有基本的CRUD操作
-* 数据传输对象（DTO）
-* 分页
-* 测试
+* 數據傳輸物件（DTO）
+* 分頁
+* 測試
 
-并将客户端组件生成委托给JHipster
+並將用戶端元件生成委託給JHipster
 
 ### 例子
 
@@ -77,5 +77,5 @@ Everything is configured, generating the entity...
 
 ## JHipster UML 和 JDL Studio
 
-JHipster Quarkus支持JDL导入。
-请参考以下内容中相应的JHipster UML和JDL Studio部分： *[创建实体](http://localhost:4000/creating-an-entity/)* 。
+JHipster Quarkus支援JDL匯入。
+請參考以下內容中相應的JHipster UML和JDL Studio部分： *[建立實體](http://localhost:4000/creating-an-entity/)* 。

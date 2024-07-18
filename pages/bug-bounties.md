@@ -1,55 +1,55 @@
 ---
 layout: default
-title: 漏洞悬赏
+title: 漏洞懸賞
 permalink: /bug-bounties/
 sitemap:
     priority: 0.1
     lastmod: 2018-07-20T00:00:00-00:00
 ---
-# <i class="fa fa-usd"></i> 漏洞悬赏
+# <i class="fa fa-usd"></i> 漏洞懸賞
 
-## 介绍
+## 介紹
 
-在这里[JHipster bug tracker](https://github.com/jhipster/generator-jhipster/issues)处于opened状态, 带有"\$\$ bug-bounty \$\$"标签的问题: 谁解决了这些问题就可以获得赏金, 根据问题程度不同赏金从 $100、$200、$300到$500!
+在這裡[JHipster bug tracker](https://github.com/jhipster/generator-jhipster/issues)處於opened狀態, 帶有"\$\$ bug-bounty \$\$"標籤的問題: 誰解決了這些問題就可以獲得賞金, 根據問題程度不同賞金從 $100、$200、$300到$500!
 
-## 谁可以创建漏洞悬赏?
+## 誰可以建立漏洞懸賞?
 
-- [银牌、金牌和白金赞助商]({{ site.url }}/sponsors/)
-- 三个[核心开发团队组长]({{ site.url }}/team/), [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105)和[@pascalgrimaud](https://github.com/pascalgrimaud).
+- [銀牌、金牌和白金贊助商]({{ site.url }}/sponsors/)
+- 三個[核心開發團隊組長]({{ site.url }}/team/), [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105)和[@pascalgrimaud](https://github.com/pascalgrimaud).
 
-## 漏洞悬赏赏金有多少？?
+## 漏洞懸賞賞金有多少？?
 
-"$$ bug-bounty $$"标签旁边应有一个"$100", "$200", "$300"或者"$500"标签，告诉了您该漏洞值多少赏金。
+"$$ bug-bounty $$"標籤旁邊應有一個"$100", "$200", "$300"或者"$500"標籤，告訴了您該漏洞值多少賞金。
 
-## 当前有效的漏洞赏金清单在哪里?
+## 當前有效的漏洞賞金清單在哪裡?
 
-漏洞赏金主要在主项目上提供，但也会在GitHub上的JHipster组织下的子项目中提供。
+漏洞賞金主要在主專案上提供，但也會在GitHub上的JHipster組織下的子專案中提供。
 
-- [所有项目的漏洞悬赏](https://github.com/search?l=&p=1&q=is%3Aissue+is%3Aopen+label%3A%22%24%24+bug-bounty+%24%24%22+user%3Ajhipster+state%3Aopen&ref=advsearch&type=Issues&utf8=%E2%9C%93)
-- [主项目的漏洞悬赏](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24)
-- [JHipster VueJS子项目的漏洞悬赏](https://github.com/jhipster/jhipster-vuejs/labels/%24%24%20bug-bounty%20%24%24)
+- [所有專案的漏洞懸賞](https://github.com/search?l=&p=1&q=is%3Aissue+is%3Aopen+label%3A%22%24%24+bug-bounty+%24%24%22+user%3Ajhipster+state%3Aopen&ref=advsearch&type=Issues&utf8=%E2%9C%93)
+- [主專案的漏洞懸賞](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24)
+- [JHipster VueJS子專案的漏洞懸賞](https://github.com/jhipster/jhipster-vuejs/labels/%24%24%20bug-bounty%20%24%24)
 
-漏洞狩猎愉快 :-)
+漏洞狩獵愉快 :-)
 
-## 漏洞悬赏创建流程
+## 漏洞懸賞建立流程
 
-创建问题后，需要以下两个步骤来获取漏洞悬赏标签:
+建立問題後，需要以下兩個步驟來獲取漏洞懸賞標籤:
 
-- 银牌赞助商或者金牌赞助商在问题下添加评论，要求添加漏洞悬赏标签, 并在Github通知[@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105)或者[@pascalgrimaud](https://github.com/pascalgrimaud).
-- [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) or [@pascalgrimaud](https://github.com/pascalgrimaud) 会直接添加标签, 如果他们认为这是一项重要的新功能、严重的Bug、长期存在的问题或一项耗时的任务. 如果您正在处理某个问题，并且认为应该得到赏金，请毫不犹豫地询问项目负责人
+- 銀牌贊助商或者金牌贊助商在問題下新增評論，要求新增漏洞懸賞標籤, 並在Github通知[@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105)或者[@pascalgrimaud](https://github.com/pascalgrimaud).
+- [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) or [@pascalgrimaud](https://github.com/pascalgrimaud) 會直接新增標籤, 如果他們認為這是一項重要的新功能、嚴重的Bug、長期存在的問題或一項耗時的任務. 如果您正在處理某個問題，並且認為應該得到賞金，請毫不猶豫地詢問專案負責人
 
-为了有效性, 漏洞悬赏的标签[\$\$ bug-bounty \$\$](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24) 应该由
-[@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) 或者[@pascalgrimaud](https://github.com/pascalgrimaud)来添加. 同时也应该有一个“$100”、“$200”、“$300”或“$500”标签来标识悬赏金额, 如果忘记添加了标签, 默认为"$100".
+為了有效性, 漏洞懸賞的標籤[\$\$ bug-bounty \$\$](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24) 應該由
+[@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) 或者[@pascalgrimaud](https://github.com/pascalgrimaud)來新增. 同時也應該有一個『$100』、『$200』、『$300』或『$500』標籤來標識懸賞金額, 如果忘記新增了標籤, 預設為"$100".
 
-## 如何获得赏金
+## 如何獲得賞金
 
-创建漏洞悬赏之后，任何人都可以提出修复建议（甚至包括[@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105)或[@pascalgrimaud](https://github.com/pascalgrimaud)). 我们的目标是花费这笔钱，以便尽快解决问题.
+建立漏洞懸賞之後，任何人都可以提出修復建議（甚至包括[@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105)或[@pascalgrimaud](https://github.com/pascalgrimaud)). 我們的目標是花費這筆錢，以便儘快解決問題.
 
-为了可以正常获得赏金, 你必须:
+為了可以正常獲得賞金, 你必須:
 
-- 创建一个Pull Request，用"\$\$ bug-bounty \$\$"标签标识已修复.
-- 为了自动关闭问题，必须在提交日志中包含"Fix"关键字，例如，`Fix #1234`将关闭`#1234`问题
-- 该Pull Request必须由核心团队中的某人合并。如果有多个Pull Request，核心团队成员则会选择最新的还是最好的一个-由团队成员来决定最适合项目的提交。
-- 然后，您可以在JHipster的OpenCollective上增加一个$100，$200，$300或$500的支付费用。您必须在说明中添加Pull Request的链接（例如：`$100 bug bounty claim for https://github.com/jhipster/generator-jhipster/pull/1234`).
-- 然后，您必须在Pull Request上添加注释，告知您已领取款项，并附带指向OpenCollective费用的链接。这可以确保解决此问题并和取得款项的是同一个人.
-- 然后，这笔费用将通过[@jdubois](https://github.com/jdubois)、[@deepu105](https://github.com/deepu105)或者[@pascalgrimaud](https://github.com/pascalgrimaud)进行验证，您将从您的Paypal帐户中收到款项.
+- 建立一個Pull Request，用"\$\$ bug-bounty \$\$"標籤標識已修復.
+- 為了自動關閉問題，必須在送出日誌中包含"Fix"關鍵字，例如，`Fix #1234`將關閉`#1234`問題
+- 該Pull Request必須由核心團隊中的某人合併。如果有多個Pull Request，核心團隊成員則會選擇最新的還是最好的一個-由團隊成員來決定最適合專案的送出。
+- 然後，您可以在JHipster的OpenCollective上增加一個$100，$200，$300或$500的支付費用。您必須在說明中新增Pull Request的連結（例如：`$100 bug bounty claim for https://github.com/jhipster/generator-jhipster/pull/1234`).
+- 然後，您必須在Pull Request上新增註解，告知您已領取款項，並附帶指向OpenCollective費用的連結。這可以確保解決此問題並和取得款項的是同一個人.
+- 然後，這筆費用將透過[@jdubois](https://github.com/jdubois)、[@deepu105](https://github.com/deepu105)或者[@pascalgrimaud](https://github.com/pascalgrimaud)進行驗證，您將從您的Paypal帳戶中收到款項.

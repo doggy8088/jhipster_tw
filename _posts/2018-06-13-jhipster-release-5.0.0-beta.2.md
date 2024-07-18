@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 发布 v5.0.0-beta.2
+title: 發布 v5.0.0-beta.2
 ---
 
 JHipster release v5.0.0-beta.2
@@ -12,7 +12,7 @@ It has [204 closed tickets and pull requests on the main project](https://github
 
 _It is not available through the usual channels as this is a beta release, please read below for more information!_
 
-更新日志?
+更新日誌?
 ----------
 
 - React support is now complete, and at the same level of quality as our Angular support.
@@ -33,7 +33,7 @@ Do you want to know more?
 
 All those new features will be showcased at the upcoming [JHipster Conf](https://jhipster-conf.github.io/) where most of the core development team will present their work. Join us in Paris on June, 21st!
 
-安装方法
+安裝方法
 ------------
 
 This is the first time we use a BETA tag on NPM, so please note this is new for everyone!
@@ -55,20 +55,20 @@ However, as this is a BETA release it will not be available using our other usua
 - Chocolatey
 - [JHipster Devbox](https://github.com/jhipster/jhipster-devbox)
 
-You also won’t be able to use the `jhipster upgrade` sub-generator, as it won’t “see” the BETA release, which is distributed through a specific beta channel on NPM.
+You also won」t be able to use the `jhipster upgrade` sub-generator, as it won」t 『see』 the BETA release, which is distributed through a specific beta channel on NPM.
 
-关闭的工单与合并请求
+關閉的工單與合併請求
 ------------
-一如既往, __[你可以在此处查看所有已关闭的工单与已接受合并请求](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.0.0-beta.2+is%3Aclosed)__.
+一如既往, __[你可以在此處檢視所有已關閉的工單與已接受合併請求](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.0.0-beta.2+is%3Aclosed)__.
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们:
+如果您發現這個版本的任何問題, 請隨時聯絡我們:
 
-- 在我们的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)添加一个缺陷报告
-- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)提交问题
+- 在我們的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)新增一個缺陷報告
+- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)送出問題
 
-如果您遇到的问题是紧急错误或安全问题，请：
+如果您遇到的問題是緊急錯誤或安全問題，請：
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)

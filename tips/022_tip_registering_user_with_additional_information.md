@@ -1,25 +1,25 @@
 ---
 layout: default
-title: 用户注册时附加其他信息
+title: 使用者註冊時附加其他訊息
 sitemap:
 priority: 0.5
 lastmod: 2017-02-15T22:30:00-00:00
 ---
 
-# 用户注册时附加其他信息
+# 使用者註冊時附加其他訊息
 
-__提交者 [@Paul-Etienne](https://github.com/Paul-Etienne)__
+__送出者 [@Paul-Etienne](https://github.com/Paul-Etienne)__
 
-如果我们需要存储的信息比JHipster默认提供的信息更多，则需要进行一些调整。
+如果我們需要儲存的訊息比JHipster預設提供的訊息更多，則需要進行一些調整。
 
-为了说明这一点，假设我们要存储用户的电话号码。
+為了說明這一點，假設我們要儲存使用者的電話號碼。
 
-## 与JHI_User建立一对一关系的新实体
+## 與JHI_User建立一對一關係的新實體
 
-添加默认JHipster用户无法处理的信息的最佳方法是，在通过一对一关系与其链接的新实体中使用聚合。
+新增預設JHipster使用者無法處理的訊息的最佳方法是，在透過一對一關係與其連結的新實體中使用聚合。
 
-创建此实体后，我们将其称为UserExtra，处理其ID的最佳方法是将其映射到JHI_User的ID。 这样，我们的UserExtra将具有与用户相同的ID，从而加速了不同的请求。
-为此，您将需要使用@MapsId注解：
+建立此實體後，我們將其稱為UserExtra，處理其ID的最佳方法是將其對映到JHI_User的ID。 這樣，我們的UserExtra將具有與使用者相同的ID，從而加速了不同的請求。
+為此，您將需要使用@MapsId註解：
 
 ```
 public class UserExtra implements Serializable {
@@ -40,13 +40,13 @@ public class UserExtra implements Serializable {
 }
 ```
 
-请注意，需要删除ID上的@GeneratedValue注解。
+請注意，需要刪除ID上的@GeneratedValue註解。
 
-## 更新注册HTML页面以考虑此更改
+## 更新註冊HTML頁面以考慮此更改
 
-现在已经存在一个实体来存储电话号码，我们需要在注册表单中添加输入以询问用户的电话号码。
+現在已經存在一個實體來儲存電話號碼，我們需要在登錄檔單中新增輸入以詢問使用者的電話號碼。
 
-如此简单，只需更新webapp/app/account/register/register.html以添加一个输入字段，该输入字段绑定到已经用于存储基本信息（vm.registerAccount）的变量：
+如此簡單，只需更新webapp/app/account/register/register.html以新增一個輸入欄位，該輸入欄位繫結到已經用於儲存基本訊息（vm.registerAccount）的變數：
 
 ```
 <input class="form-control" id="phone" ng-model="vm.registerAccount.phone" placeholder="{{'global.form.phone.placeholder' | translate}}" />
@@ -54,10 +54,10 @@ public class UserExtra implements Serializable {
 
 ## 更新 ManagedUserVM
 
-来自java/com.mycompany.myapp/web/rest/AccountResource的registerAccount()方法接收注册页面的请求。
-它的唯一参数是ManagedUserVM对象，该对象包含来自客户端的vm.registerAccount变量中最初包含的信息。
+來自java/com.mycompany.myapp/web/rest/AccountResource的registerAccount()方法接收註冊頁面的請求。
+它的唯一引數是ManagedUserVM物件，該物件包含來自用戶端的vm.registerAccount變數中最初包含的訊息。
 
-位于web/rest/vm中的ManagedUserVM类也必须进行更新，以便保存客户端发送的电话号码。 唯一要做的就是添加电话号码属性及其getter：
+位於web/rest/vm中的ManagedUserVM類也必須進行更新，以便儲存用戶端傳送的電話號碼。 唯一要做的就是新增電話號碼屬性及其getter：
 
 ```
 public class ManagedUserVM extends UserDTO {
@@ -77,9 +77,9 @@ public class ManagedUserVM extends UserDTO {
 
 ## 更新AccountResource中registerAccount()方法
 
-现在，registerAccount()方法将接收一个ManagedUserVM对象，该对象还包含用户的电话号码。 剩下要做的就是将此电话号码保存到与JHipster用户关联的新UserExtra中。
+現在，registerAccount()方法將接收一個ManagedUserVM物件，該物件還包含使用者的電話號碼。 剩下要做的就是將此電話號碼儲存到與JHipster使用者關聯的新UserExtra中。
 
-为此，我们将把phone参数从UserService添加到createUser()方法中。 但首先，在registerAccount()中调用此函数的位置添加此参数：
+為此，我們將把phone引數從UserService新增到createUser()方法中。 但首先，在registerAccount()中呼叫此函式的位置新增此引數：
 
 ```
 public ResponseEntity<?> registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
@@ -107,9 +107,9 @@ public ResponseEntity<?> registerAccount(@Valid @RequestBody ManagedUserVM manag
 
 ## 更新UserService中的createUser()方法
 
-最后，我们更新了保存JHI_User的服务层功能，现在也保存了UserExtra。建议您使用其他参数来创建一个新方法，而不是更新现有方法。
+最後，我們更新了儲存JHI_User的服務層功能，現在也儲存了UserExtra。建議您使用其他引數來建立一個新方法，而不是更新現有方法。
 
-不要忘记注入UserExtra的Repository：
+不要忘記注入UserExtra的Repository：
 
 ```
 @Inject

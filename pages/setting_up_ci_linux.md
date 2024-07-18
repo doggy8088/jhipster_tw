@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 在Linux设置Jenkins 1
+title: 在Linux設定Jenkins 1
 permalink: /setting-up-ci-linux/
 redirect_from:
   - /setting_up_ci_linux.html
@@ -9,13 +9,13 @@ sitemap:
     lastmod: 2015-01-09T12:40:00-00:00
 ---
 
-# <i class="fa fa-stethoscope"></i> 在Linux设置Jenkins 1
+# <i class="fa fa-stethoscope"></i> 在Linux設定Jenkins 1
 
-以下说明适用于Red Hat/CentOS服务器，但也可以适用于其他Linux发行版。
+以下說明適用於Red Hat/CentOS伺服器，但也可以適用於其他Linux發行版。
 
-## 安装Jenkins
+## 安裝Jenkins
 
-请遵循[https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions)中的说明
+請遵循[https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions)中的說明
 
 ~~~~
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
@@ -25,36 +25,36 @@ sudo yum install jenkins
 sudo service jenkins start
 ~~~~
 
-已创建一个`jenkins`用户，其主目录为`/var/lib/jenkins`
+已建立一個`jenkins`使用者，其主目錄為`/var/lib/jenkins`
 
-## 配置Jenkins
+## 設定Jenkins
 
-### 安装JDK 8
+### 安裝JDK 8
 
-通过Jenkins管理，添加JDK 8自动安装程序。
+透過Jenkins管理，新增JDK 8自動安裝程式。
 
-### 安装Maven
+### 安裝Maven
 
-通过Jenkins管理，从Apache站点添加Maven自动安装程序。
+透過Jenkins管理，從Apache站點新增Maven自動安裝程式。
 
-### 安装NodeJS
+### 安裝NodeJS
 
-您可以全局安装NodeJS，但也可能希望为不同的项目安装不同版本的NodeJS。
+您可以全域安裝NodeJS，但也可能希望為不同的專案安裝不同版本的NodeJS。
 
-我们建议以下2种选择，选择您喜欢的一种。
+我們建議以下2種選擇，選擇您喜歡的一種。
 
-#### Jenkins NodeJS插件
+#### Jenkins NodeJS外掛
 
-安装Jenkins NodeJS插件。
+安裝Jenkins NodeJS外掛。
 
-通过Jenkins管理，添加NodeJS安装：
+透過Jenkins管理，新增NodeJS安裝：
 
-- 来自nodejs.org的自动安装程序，使用最新的LTS（长期支持）64位版本
-- 要安装的全局NPM软件包：bower gulp
+- 來自nodejs.org的自動安裝程式，使用最新的LTS（長期支援）64位版本
+- 要安裝的全域NPM軟體套件：bower gulp
 
-#### 本地NodeJS安装
+#### 本地NodeJS安裝
 
-使用以下脚本在本地安装NodeJS，然后更新Jenkins PATH以使用它。
+使用以下指令碼在本地安裝NodeJS，然後更新Jenkins PATH以使用它。
 
 ~~~ bash
 # specify which version we want
@@ -84,4 +84,4 @@ gulp --version
 # 3.9.1
 ~~~
 
-确保您更新了Jenkins PATH。
+確保您更新了Jenkins PATH。

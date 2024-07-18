@@ -1,21 +1,21 @@
 ---
 layout: default
-title: 安装JHipster Quarkus
+title: 安裝JHipster Quarkus
 sitemap:
 priority: 0.5
 lastmod: 2021-01-07T08:40:00-00:00
 ---
 
-# 安装JHipster Quarkus
+# 安裝JHipster Quarkus
 
-在使用JHipster Quarkus之前，您必须准备环境（Java，Node）并安装JHipster。
+在使用JHipster Quarkus之前，您必須準備環境（Java，Node）並安裝JHipster。
 
-请参阅文档https://www.jhipster.tech/installation/的 *使用NPM进行本地安装（建议普通用户使用）* 一节。
+請參閱文件https://www.jhipster.tech/installation/的 *使用NPM進行本地安裝（建議普通使用者使用）* 一節。
 
-现在，您可以安装JHipster Quarkus方案：
+現在，您可以安裝JHipster Quarkus方案：
 
 `npm install -g generator-jhipster-quarkus`
 
-您可以通过检查命令`jhipster-quarkus`的存在来验证安装：`which jhipster-quarkus`（对于Mac / Linux）。
+您可以透過檢查指令`jhipster-quarkus`的存在來驗證安裝：`which jhipster-quarkus`（對於Mac / Linux）。
 
-你完成了。 现在，您可以开始使用JHipster创建Quarkus应用程序。
+你完成了。 現在，您可以開始使用JHipster建立Quarkus應用程式。

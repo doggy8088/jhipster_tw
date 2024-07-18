@@ -1,80 +1,80 @@
 ---
 layout: default
-title: 筛选
+title: 篩選
 permalink: /entities-filtering/
 sitemap:
     priority: 0.7
     lastmod: 2017-08-22T00:00:00-00:00
 ---
 
-# <i class="fa fa-filter"></i> 筛选实体
+# <i class="fa fa-filter"></i> 篩選實體
 
-## 介绍
+## 介紹
 
-在为实体实现基本的CRUD功能之后，非常常见的请求是为实体的属性创建各种过滤器，因此可以更有效地使用服务。
-这些过滤器应作为请求参数发送，因此任何前端-和任何浏览器-都可以使用它。
-此外，这些过滤器应遵循合理而简洁的模式，并且必须允许它们自由组合。
+在為實體實現基本的CRUD功能之後，非常常見的請求是為實體的屬性建立各種過濾器，因此可以更有效地使用服務。
+這些過濾器應作為請求引數傳送，因此任何前端-和任何瀏覽器-都可以使用它。
+此外，這些過濾器應遵循合理而簡潔的模式，並且必須允許它們自由組合。
 
-## 如何激活
+## 如何啟用
 
-使用`jhipster entity`命令生成实体时，请选择服务或服务实现以对此实体启用过滤。
+使用`jhipster entity`指令生成實體時，請選擇服務或服務實現以對此實體啟用過濾。
 
-如果要启用对现有实体的过滤，可以通过将`service`从`no`设置为`serviceClass`或`serviceImpl`并将`jpaMetamodelFiltering`设置为`true`，然后使用`jhipster entity <entity name>`>重新生成，来修改项目`.jhipster`目录中的实体配置。
+如果要啟用對現有實體的過濾，可以透過將`service`從`no`設定為`serviceClass`或`serviceImpl`並將`jpaMetamodelFiltering`設定為`true`，然後使用`jhipster entity <entity name>`>重新生成，來修改專案`.jhipster`目錄中的實體設定。
 
-使用JDL时，请在您的JDL文件中添加一行`filter <entity name>`，然后使用`jhipster import-jdl`命令重新导入定义。
+使用JDL時，請在您的JDL檔案中新增一行`filter <entity name>`，然後使用`jhipster import-jdl`指令重新匯入定義。
 
-## 公共接口
+## 公共介面
 
-对于每个实体，您可以在实体生成器中启用过滤，然后，可以使用以下参数调用`/api/my-entity`GET端点：
+對於每個實體，您可以在實體產生器中啟用過濾，然後，可以使用以下引數呼叫`/api/my-entity`GET端點：
 
-* 对于每个*xyz*字段
+* 對於每個*xyz*欄位
     * *xyz.equals=someValue*
-        - 列出所有xyz等于'someValue'的实体
+        - 列出所有xyz等於'someValue'的實體
     * *xyz.in=someValue,otherValue*
-        - 列出所有xyz等于'someValue'或'otherValue'的实体
+        - 列出所有xyz等於'someValue'或'otherValue'的實體
     * *xyz.specified=true*
-        - 列出所有xyz不为null的实体
+        - 列出所有xyz不為null的實體
     * *xyz.specified=false*
-        - 列出所有xyz为null的实体
-* 如果*xyz*类型为字符串:
+        - 列出所有xyz為null的實體
+* 如果*xyz*型別為字串:
     * *xyz.contains=something*
-        - 列出所有实体，其中xyz包含'something'
-* 如果*xyz*是任何数字类型或日期类型
+        - 列出所有實體，其中xyz包含'something'
+* 如果*xyz*是任何數字型別或日期型別
     * *xyz.greaterThan=someValue*
-        - 列出所有实体，其中xyz大于'someValue'
+        - 列出所有實體，其中xyz大於'someValue'
     * *xyz.lessThan=someValue*
-        - 列出所有实体，其中xyz小于'someValue'
+        - 列出所有實體，其中xyz小於'someValue'
     * *xyz.greaterOrEqualThan=someValue*
-        - 列出所有实体，其中xyz大于或等于'someValue'
+        - 列出所有實體，其中xyz大於或等於'someValue'
     * *xyz.lessOrEqualThan=someValue*
-        - 列出所有实体，其中xyz小于或等于'someValue'
+        - 列出所有實體，其中xyz小於或等於'someValue'
 
-它们可以自由组合。
+它們可以自由組合。
 
-体验此过滤器API的表达力的一种好方法是在JHipster应用程序的API文档页面的swagger-ui中使用它。
+體驗此過濾器API的表達力的一種好方法是在JHipster應用程式的API文件頁面的swagger-ui中使用它。
 
 ![]({{ site.url }}/images/entities_filtering_swagger.png)
 
-## 实现
+## 實現
 
-启用此功能后，将生成一个名为`EntityQueryService`和`EntityCriteria`的新服务。Spring会将请求参数转换为`EntityCriteria`类的字段。
+啟用此功能後，將生成一個名為`EntityQueryService`和`EntityCriteria`的新服務。Spring會將請求引數轉換為`EntityCriteria`類別的欄位。
 
-在`EntityQueryService`中，我们将条件对象转换为静态对象、类型安全的JPA查询对象。为此，**需要**在构建中**启用静态元模型生成**。有关详细信息，请参见[JPA静态元模型生成器文档](http://docs.jboss.org/hibernate/orm/current/topical/html_single/metamodelgen/MetamodelGenerator.html)。
+在`EntityQueryService`中，我們將條件物件轉換為靜態物件、型別安全的JPA查詢物件。為此，**需要**在建立中**啟用靜態元模型生成**。有關詳細訊息，請參見[JPA靜態元模型產生器文件](http://docs.jboss.org/hibernate/orm/current/topical/html_single/metamodelgen/MetamodelGenerator.html)。
 
-为了证明所生成的条件是正确的，并且Spring配置正确，对`EntityResourceIntTest`进行了扩展，增加了许多测试用例，每个过滤器一个测试用例。
+為了證明所生成的條件是正確的，並且Spring設定正確，對`EntityResourceIntTest`進行了擴充套件，增加了許多測試用例，每個過濾器一個測試用例。
 
 ### Angular
-使用Angular时，利用此有用功能的正确方法如下所示：
+使用Angular時，利用此有用功能的正確方法如下所示：
 * Equals (`contains` 和 `notEquals`相同)
 ```javascript
 this.bookService.query({'title.equals':someValue}).subscribe(...);
 ```
-* greaterThan (同样适用于`lessThan`、`greaterOrEqualThan`、`lessOrEqualThan`，数据类型`date` 和 `number` 适用)
+* greaterThan (同樣適用於`lessThan`、`greaterOrEqualThan`、`lessOrEqualThan`，資料型別`date` 和 `number` 適用)
 ```javascript
 this.bookService.query({'id.greaterThan':value}).subscribe(...);
 this.bookService.query({'birthday.lessOrEqualThan':value}).subscribe(...);
 ```
-* In (同样适用于`notIn`)
+* In (同樣適用於`notIn`)
 ```javascript
 this.bookService.query({'id.in':[value1, value2]}).subscribe(...);
 ```
@@ -83,6 +83,6 @@ this.bookService.query({'id.in':[value1, value2]}).subscribe(...);
 this.bookService.query({'author.specified':true}).subscribe(...);
 ```
 
-## 局限性
+## 侷限性
 
-当前，仅支持SQL数据库（带有JPA）以及单独的服务或单独的服务实现/接口组合。
+當前，僅支援SQL資料庫（帶有JPA）以及單獨的服務或單獨的服務實現/介面組合。

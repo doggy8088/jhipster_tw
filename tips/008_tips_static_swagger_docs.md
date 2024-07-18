@@ -1,25 +1,25 @@
 ---
 layout: default
-title: 静态API文档
+title: 靜態API文件
 sitemap:
 priority: 0.5
 lastmod: 2015-07-31T18:40:00-00:00
 ---
 
-# 带有Swagger2Markup的静态API文档
+# 帶有Swagger2Markup的靜態API文件
 
-__提交者 [@atomfrede](https://github.com/atomfrede)__
+__送出者 [@atomfrede](https://github.com/atomfrede)__
 
-> 您应该使用新的 [swagger2markup](https://github.com/atomfrede/generator-jhipster-swagger2markup) 模块，而不是遵循此提示！ 见 [JHipster Marketplace](https://www.jhipster.tech/modules/marketplace/) 有关模块系统的详细信息。
+> 您應該使用新的 [swagger2markup](https://github.com/atomfrede/generator-jhipster-swagger2markup) 模組，而不是遵循此提示！ 見 [JHipster Marketplace](https://www.jhipster.tech/modules/marketplace/) 有關模組系統的詳細訊息。
 
-如果要生成静态API文档（并将其与手写文档结合在一起），则[Swagger2Markup](https://swagger2markup.readme.io/) 提供了一种简便的方法来组合由以下人员生成的自动生成的API文档：
-将手写文档，翻译成HTML，PDF和EPUB格式的最新，易于阅读的在线和离线用户指南。
+如果要生成靜態API文件（並將其與手寫文件結合在一起），則[Swagger2Markup](https://swagger2markup.readme.io/) 提供了一種簡便的方法來組合由以下人員生成的自動生成的API文件：
+將手寫文件，翻譯成HTML，PDF和EPUB格式的最新，易於閱讀的線上和離線使用者指南。
 
-## 添加所需的依赖项，插件和测试类
+## 新增所需的依賴項，外掛和測試類
 
 ### Maven
 
-将以下内容添加到您的项目依赖项中：
+將以下內容新增到您的專案依賴項中：
 
     <dependency>
         <groupId>io.springfox</groupId>
@@ -28,7 +28,7 @@ __提交者 [@atomfrede](https://github.com/atomfrede)__
         <scope>test</scope>
     </dependency>
 
-将以下内容添加到插件部分：
+將以下內容新增到外掛部分：
 
     <plugin>
       <groupId>org.asciidoctor</groupId>
@@ -77,7 +77,7 @@ __提交者 [@atomfrede](https://github.com/atomfrede)__
       </configuration>
     </plugin>
 
-在 `src/test/rest`中创建一个名为 `Swagger2MarkupTest`的类：
+在 `src/test/rest`中建立一個名為 `Swagger2MarkupTest`的類：
 
     @RunWith(SpringJUnit4ClassRunner.class)
     @SpringApplicationConfiguration(classes = Application.class)
@@ -119,20 +119,20 @@ __提交者 [@atomfrede](https://github.com/atomfrede)__
 
 ### Gradle
 
-将以下依赖项添加到您的项目依赖项中：
+將以下依賴項新增到您的專案依賴項中：
 
     testCompile group: 'io.springfox', name:'springfox-staticdocs', version: springfox_version
 
-将以下内容添加到您的构建脚本依赖项中：
+將以下內容新增到您的建立指令碼依賴項中：
 
     classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.2'
     classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.8'
 
-应用`asciidoctor convert`插件：
+應用`asciidoctor convert`外掛：
 
     apply plugin: 'org.asciidoctor.convert'
 
-添加以下内容以生成HTML和PDF：
+新增以下內容以生成HTML和PDF：
 
     ext {
         generatedAsciidoc = file("${buildDir}/docs/asciidoc/generated")
@@ -156,7 +156,7 @@ __提交者 [@atomfrede](https://github.com/atomfrede)__
         ]
     }
 
-在`src/test/rest`中创建一个名为 `Swagger2MarkupTest`的测试类：
+在`src/test/rest`中建立一個名為 `Swagger2MarkupTest`的測試類：
 
     @RunWith(SpringJUnit4ClassRunner.class)
     @SpringApplicationConfiguration(classes = Application.class)
@@ -196,20 +196,20 @@ __提交者 [@atomfrede](https://github.com/atomfrede)__
         }
     }
 
-## 创建index.adoc文件
+## 建立index.adoc檔案
 
-使用以下内容在`src/docs/asciidoc`中创建`index.adoc`：
+使用以下內容在`src/docs/asciidoc`中建立`index.adoc`：
 
     include::{generated}/overview.adoc[]
     include::{generated}/paths.adoc[]
     include::{generated}/definitions.adoc[]
 
-## 生成静态文档
+## 生成靜態文件
 
-静态文档是在项目的测试阶段生成的。 您可以在`src/target/docs/html`或`build/asciidoc/html5`中找到它。
+靜態文件是在專案的測試階段生成的。 您可以在`src/target/docs/html`或`build/asciidoc/html5`中找到它。
 
 ![Example documentation](../images/008_tips_static_swagger_docs_01.png)
 
 ## 更多
 
-有关更多信息（例如，如何添加手写文档），请参见[官方参考文档](https://swagger2markup.readme.io/) 。
+有關更多訊息（例如，如何新增手寫文件），請參見[官方參考文件](https://swagger2markup.readme.io/) 。

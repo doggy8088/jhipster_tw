@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 聚会
+title: 聚會
 permalink: /meetups/
 redirect_from:
   - /meetups.html
@@ -9,42 +9,42 @@ sitemap:
     lastmod: 2017-05-15T00:00:00-00:00
 ---
 
-# <i class="fa fa-meetup "></i> JHipster聚会
+# <i class="fa fa-meetup "></i> JHipster聚會
 
-我们目前正在世界各地创建JHipster聚会。
+我們目前正在世界各地建立JHipster聚會。
 
-- 如果您想创建自己的聚会，只需在[此网页上](https://github.com/jhipster/jhipster.github.io/blob/main/pages/meetups.md)执行Pull Request即可直接添加您的聚会。
-- 聚会没有规则：您可以在需要时安排聚会，在需要的地方举办聚会并邀请想要的人。
-- JHipster团队将竭尽全力为您提供支持：我们将在Twitter上转发您，将您的活动发布到我们的主页上，等等。
+- 如果您想建立自己的聚會，只需在[此網頁上](https://github.com/jhipster/jhipster.github.io/blob/main/pages/meetups.md)執行Pull Request即可直接新增您的聚會。
+- 聚會沒有規則：您可以在需要時安排聚會，在需要的地方舉辦聚會並邀請想要的人。
+- JHipster團隊將竭盡全力為您提供支援：我們將在Twitter上轉發您，將您的活動發布到我們的首頁上，等等。
 
-## 现有聚会
+## 現有聚會
 
 **北美**
 
-- [美国纽约-JHipster聚会](https://www.meetup.com/JHipster-NYC/)
+- [美國紐約-JHipster聚會](https://www.meetup.com/JHipster-NYC/)
 
-**欧洲**
+**歐洲**
 
-- [爱尔兰都柏林-JHipster聚会](https://www.meetup.com/JHipsterDublin/)
-- [法国里昂-JHipster聚会](https://www.meetup.com/JHipster-Lyon/)
-- [法国巴黎-JHipster聚会](https://www.meetup.com/JHipster-User-Group/)
-- [瑞士苏黎世-JHipster聚会](https://www.meetup.com/JHipster/)
+- [愛爾蘭都柏林-JHipster聚會](https://www.meetup.com/JHipsterDublin/)
+- [法國里昂-JHipster聚會](https://www.meetup.com/JHipster-Lyon/)
+- [法國巴黎-JHipster聚會](https://www.meetup.com/JHipster-User-Group/)
+- [瑞士蘇黎世-JHipster聚會](https://www.meetup.com/JHipster/)
 
 **大洋洲**
 
-- [澳大利亚墨尔本-JHipster聚会](https://www.meetup.com/fr-FR/jHipster-Melbourne/)
+- [澳大利亞墨爾本-JHipster聚會](https://www.meetup.com/fr-FR/jHipster-Melbourne/)
 
-**中东**
+**中東**
 
-- [阿联酋迪拜-JHipster聚会](https://www.meetup.com/JHipster-Dubai/)
+- [阿聯酋迪拜-JHipster聚會](https://www.meetup.com/JHipster-Dubai/)
 
 **非洲**
 
-- [尼日利亚拉各斯-JHipster聚会](https://www.meetup.com/JHipster-Nigeria/)
+- [奈及利亞拉各斯-JHipster聚會](https://www.meetup.com/JHipster-Nigeria/)
 
-## 正在创建聚会
+## 正在建立聚會
 
-*如果您想帮助创建其中一个聚会，请与团队联系*
+*如果您想幫助建立其中一個聚會，請與團隊聯絡*
 
-- 荷兰阿姆斯特丹JHipster聚会
-- 比利时布鲁塞尔JHipster聚会
+- 荷蘭阿姆斯特丹JHipster聚會
+- 比利時布魯塞爾JHipster聚會

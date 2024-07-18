@@ -1,32 +1,32 @@
 ---
 layout: default
-title: 使用JHipster进行微服务
+title: 使用JHipster進行微服務
 permalink: /microservices-architecture/
 sitemap:
     priority: 0.7
     lastmod: 2016-03-10T00:00:00-00:00
 ---
 
-# <i class="fa fa-sitemap"></i> 使用JHipster进行微服务
+# <i class="fa fa-sitemap"></i> 使用JHipster進行微服務
 
-## <a name="microservices_vs_monolithic"></a> 微服务架构与整体架构
+## <a name="microservices_vs_monolithic"></a> 微服務架構與整體架構
 
-生成应用时JHipster问您的第一个问题是您要生成的应用程序类型。您可以在两种架构之间进行选择：
+生成應用時JHipster問您的第一個問題是您要生成的應用程式型別。您可以在兩種架構之間進行選擇：
 
-- "monolithic"架构使用一个单独的，所有组件集一体的应用程序，其中包含前端代码和后端Spring Boot代码。
-- "微服务"架构将前端和后端分开，因此您的应用程序可以更轻松地扩展和解决基础架构问题。
+- "monolithic"架構使用一個單獨的，所有元件集一體的應用程式，其中包含前端程式碼和後端Spring Boot程式碼。
+- "微服務"架構將前端和後端分開，因此您的應用程式可以更輕鬆地擴充套件和解決基礎架構問題。
 
-"monolithic"应用程序更易于操作，因此，如果您没有任何特定要求，则建议使用此选项，并且将其作为默认选项。
+"monolithic"應用程式更易於操作，因此，如果您沒有任何特定要求，則建議使用此選項，並且將其作為預設選項。
 
-## <a name="overview"></a> 微服务架构概述
+## <a name="overview"></a> 微服務架構概述
 
-JHipster微服务架构以以下方式工作：
+JHipster微服務架構以以下方式工作：
 
- * [gateway]({{ site.url }}/api-gateway/)是JHipster生成的应用程序(生成时选择`microservice application``microservice gateway`)，该应用程序处理Web流量，并为Angular/React应用程序提供服务。如果您要遵循[Backends for Frontends模式](https://www.thoughtworks.com/insights/blog/bff-soundcloud)，则可以存在几种不同的网关，但这不是强制性的。
- * [JHipster Registry]({{ site.url }}/jhipster-registry/)是一个所有应用程序在运行时候在其注册并从中获取其配置的服务。它还提供了运行时监视仪表板。
- * [Consul]({{ site.url }}/consul/)是服务发现服务以及提供键/值存储。它可以用作JHipster Registry的替代服务。
- * [Microservices]({{ site.url }}/creating-microservices/)是JHipster生成的应用程序（生成时选择`microservice application`），用于处理REST请求。它们是无状态的，可以并行启动它们的多个实例来达到负载均衡的目的。
+ * [gateway]({{ site.url }}/api-gateway/)是JHipster生成的應用程式(生成時選擇`microservice application``microservice gateway`)，該應用程式處理Web流量，併為Angular/React應用程式提供服務。如果您要遵循[Backends for Frontends模式](https://www.thoughtworks.com/insights/blog/bff-soundcloud)，則可以存在幾種不同的閘道器，但這不是強制性的。
+ * [JHipster Registry]({{ site.url }}/jhipster-registry/)是一個所有應用程式在執行時候在其註冊並從中獲取其設定的服務。它還提供了執行時監視儀表板。
+ * [Consul]({{ site.url }}/consul/)是服務發現服務以及提供鍵/值儲存。它可以用作JHipster Registry的替代服務。
+ * [Microservices]({{ site.url }}/creating-microservices/)是JHipster生成的應用程式（生成時選擇`microservice application`），用於處理REST請求。它們是無狀態的，可以並行啟動它們的多個實例來達到負載均衡的目的。
 
-在下图中，绿色组件特定于您的应用程序，蓝色组件提供了其基础结构。
+在下圖中，綠色元件特定於您的應用程式，藍色元件提供了其基礎結構。
 
 <img src="{{ site.url }}/images/microservices_architecture_2.png" alt="Diagram" style="width: 930px; height: 558px"/>

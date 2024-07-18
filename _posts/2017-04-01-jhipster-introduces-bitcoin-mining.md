@@ -1,6 +1,6 @@
 ---
 layout: default
-title: JHipster推出比特币挖矿 (2017年愚人节)
+title: JHipster推出比特幣挖礦 (2017年愚人節)
 ---
 
 April Fools 2017
@@ -11,7 +11,7 @@ April Fools 2017
 JHipster introduces Bitcoin mining
 ==================
 
-更新日志
+更新日誌
 ----------
 
 JHipster helps thousands of people and companies create Spring Boot and Angular projects in seconds, and not months.

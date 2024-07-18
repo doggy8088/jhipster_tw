@@ -1,25 +1,25 @@
 ---
 layout: default
-title: JHipster领域语言 (JDL) - 部署
+title: JHipster領域語言 (JDL) - 部署
 permalink: /jdl/deployments
 sitemap:
     priority: 0.5
     lastmod: 2021-03-08T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster领域语言 (JDL) - 部署
+# <i class="fa fa-star"></i> JHipster領域語言 (JDL) - 部署
 
 ## 概要
 
-1. [语法](#语法)
-1. [示例](#示例)
-1. [可用的部署选项](#可用的部署选项)
+1. [語法](#語法)
+1. [範例](#範例)
+1. [可用的部署選項](#可用的部署選項)
 
 ---
 
-### 语法
+### 語法
 
-部署声明如下：
+部署宣告如下：
 
 ```
 deployment {
@@ -27,13 +27,13 @@ deployment {
 }
 ```
 
-  - 与应用程序类似，部署声明通过指定选项键和值来工作
+  - 與應用程式類似，部署宣告透過指定選項鍵和值來工作
 
 ---
 
-### 示例
+### 範例
 
-### 简单例子
+### 簡單例子
 
 ```jdl
 deployment {
@@ -45,9 +45,9 @@ deployment {
 
 ---
 
-#### 多个部署
+#### 多個部署
 
-如果您需要多个部署，请按以下步骤进行：
+如果您需要多個部署，請按以下步驟進行：
 
 ```
 // will be created under 'docker-compose' folder
@@ -65,9 +65,9 @@ deployment {
 }
 ```
 
-每个`deploymentType`您可以有一个部署。 `appsFolders`中定义的应用程序应位于创建部署所在的文件夹中，或`directoryPath`中定义的文件夹中。
+每個`deploymentType`您可以有一個部署。 `appsFolders`中定義的應用程式應位於建立部署所在的資料夾中，或`directoryPath`中定義的資料夾中。
 
-例如，在上面，您需要具有以下文件夹结构：
+例如，在上面，您需要具有以下資料夾結構：
 
 ```
 .
@@ -80,16 +80,16 @@ deployment {
 
 ---
 
-### 可用的部署选项
+### 可用的部署選項
 
-这是JDL支持的部署选项：
+這是JDL支援的部署選項：
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>JDL选项名称</th>
-    <th>默认值</th>
-    <th>可选值</th>
-    <th>说明</th>
+    <th>JDL選項名稱</th>
+    <th>預設值</th>
+    <th>可選值</th>
+    <th>說明</th>
   </tr>
   <tr>
     <td>deploymentType</td>
@@ -101,25 +101,25 @@ deployment {
     <td>directoryPath</td>
     <td>"../"</td>
     <td></td>
-    <td>相对路径。 必须用双引号引起来</td>
+    <td>相對路徑。 必須用雙引號引起來</td>
   </tr>
   <tr>
     <td>appsFolders</td>
     <td>[]</td>
     <td></td>
-    <td>应用程序的目录名称，以逗号分隔。 必须为列表，例如[foo, bar]</td>
+    <td>應用程式的目錄名稱，以逗號分隔。 必須為清單，例如[foo, bar]</td>
   </tr>
   <tr>
     <td>clusteredDbApps</td>
     <td>[]</td>
     <td></td>
-    <td>带有群集数据库的应用程序的目录名称，以逗号分隔。 必须为列表，例如[foo, bar]</td>
+    <td>帶有群集資料庫的應用程式的目錄名稱，以逗號分隔。 必須為清單，例如[foo, bar]</td>
   </tr>
   <tr>
     <td>gatewayType</td>
     <td>SpringCloudGateway</td>
     <td></td>
-    <td>当serviceDiscoveryType为`no`时，将忽略该值</td>
+    <td>當serviceDiscoveryType為`no`時，將忽略該值</td>
   </tr>
   <tr>
     <td>monitoring</td>
@@ -137,48 +137,48 @@ deployment {
     <td>dockerRepositoryName</td>
     <td></td>
     <td></td>
-    <td>Docker仓库的名称或URL，必须用双引号引起来</td>
+    <td>Docker倉庫的名稱或URL，必須用雙引號引起來</td>
   </tr>
   <tr>
     <td>dockerPushCommand</td>
     <td>"docker push"</td>
     <td></td>
-    <td>要使用的docker push命令。 必须用双引号引起来</td>
+    <td>要使用的docker push指令。 必須用雙引號引起來</td>
   </tr>
   <tr>
     <td>kubernetesNamespace</td>
     <td>default</td>
     <td></td>
-    <td>仅当DeploymentType为kubernetes时适用</td>
+    <td>僅當DeploymentType為kubernetes時適用</td>
   </tr>
   <tr>
     <td>kubernetesServiceType</td>
     <td>LoadBalancer</td>
     <td>LoadBalancer, NodePort, Ingress</td>
-    <td>仅当DeploymentType为kubernetes时适用</td>
+    <td>僅當DeploymentType為kubernetes時適用</td>
   </tr>
   <tr>
     <td>ingressDomain</td>
     <td></td>
     <td></td>
-    <td>当kubernetesServiceType为`Ingress`时，Ingress的域。 必须用双引号引起来。 仅当DeploymentType为kubernetes时适用</td>
+    <td>當kubernetesServiceType為`Ingress`時，Ingress的域。 必須用雙引號引起來。 僅當DeploymentType為kubernetes時適用</td>
   </tr>
   <tr>
     <td>istio</td>
     <td>false</td>
     <td>true, false</td>
-    <td>仅当DeploymentType为kubernetes时适用</td>
+    <td>僅當DeploymentType為kubernetes時適用</td>
   </tr>
   <tr>
     <td>openshiftNamespace</td>
     <td>default</td>
     <td></td>
-    <td>仅当DeploymentType为openshift时适用</td>
+    <td>僅當DeploymentType為openshift時適用</td>
   </tr>
   <tr>
     <td>storageType</td>
     <td>ephemeral</td>
     <td>ephemeral, persistent</td>
-    <td>仅当DeploymentType为openshift时适用</td>
+    <td>僅當DeploymentType為openshift時適用</td>
   </tr>
 </table>

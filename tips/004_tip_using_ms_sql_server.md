@@ -7,15 +7,15 @@ sitemap:
 ---
 # 如何在JHipster中使用MS SQL Server
 
-__提交人 [@Zyst](https://github.com/Zyst)__
+__送出人 [@Zyst](https://github.com/Zyst)__
 
-#### 自[pull request #4589](https://github.com/jhipster/generator-jhipster/pull/4589) 以后，MSSQL支持已添加到生成器中, 因此您不再需要任何特定的配置！
+#### 自[pull request #4589](https://github.com/jhipster/generator-jhipster/pull/4589) 以後，MSSQL支援已新增到產生器中, 因此您不再需要任何特定的設定！
 
-_目标：_ 在本教程结束时，您将在SQL Server上运行默认的JHipster应用程序，所有功能均已正常运行。
+_目標：_ 在本教程結束時，您將在SQL Server上執行預設的JHipster應用程式，所有功能均已正常執行。
 
-首先以`jhipster`正常运行JHipster，然后选择使用基于token的身份验证，SQL，MySQL作为开发数据库。 MySQL为产品数据库。 带有ehcache，无Elasticsearch，无集群HTTP，无Websockets，使用Maven和Grunt，不使用Sass。
+首先以`jhipster`正常執行JHipster，然後選擇使用基於token的身份驗證，SQL，MySQL作為開發資料庫。 MySQL為產品資料函式庫。 帶有ehcache，無Elasticsearch，無叢集HTTP，無Websockets，使用Maven和Grunt，不使用Sass。
 
-然后，我们将MS SQL Server JDBC依赖项添加到项目`pom.xml`文件中。
+然後，我們將MS SQL Server JDBC依賴項新增到專案`pom.xml`檔案中。
 
 _pom.xml_
 
@@ -34,13 +34,13 @@ _pom.xml_
     </dependency>
     [...]
 
-我正在使用Sql JDBC 4.1，并且已经将其安装到我的个人仓库中，但是如果您不这样做，那么在没有进行进一步配置的情况下将无法正常工作，请查看[this](https://stackoverflow.com/questions/30207842/add-external-library-jar-to-spring-boot-jar-internal-lib) stackoverflow问题以供进一步参考。
+我正在使用Sql JDBC 4.1，並且已經將其安裝到我的個人倉庫中，但是如果您不這樣做，那麼在沒有進行進一步設定的情況下將無法正常工作，請檢視[this](https://stackoverflow.com/questions/30207842/add-external-library-jar-to-spring-boot-jar-internal-lib) stackoverflow問題以供進一步參考。
 
-Liquibase MS SQL Server扩展允许您执行一些更灵活的操作，我们将在本教程的后面部分中使用它们。
+Liquibase MS SQL Server擴充套件允許您執行一些更靈活的操作，我們將在本教程的後面部分中使用它們。
 
-##数据库修改
+##資料庫修改
 
-进入`src\main\resources\config\application-dev.yml`并更改您的应用程序以使用新的数据源，并更改您的Hibernate配置以使用SQL Server的方言，如下所示：
+進入`src\main\resources\config\application-dev.yml`並更改您的應用程式以使用新的資料來源，並更改您的Hibernate設定以使用SQL Server的方言，如下所示：
 
 _application-dev.yml_
 
@@ -67,9 +67,9 @@ _application-dev.yml_
             generate-ddl: false
             [...]
 
-假设您的数据库称为`test`，请根据需要更改连接URL。
+假設您的資料庫稱為`test`，請根據需要更改連線URL。
 
-现在进入 `*\src\main\resources\config\liquibase\changelog\00000000000000_initial_schema.xml` 并在文件顶部更改以下属性：
+現在進入 `*\src\main\resources\config\liquibase\changelog\00000000000000_initial_schema.xml` 並在檔案頂部更改以下屬性：
 
 _00000000000000_initial_schema.xml_
 
@@ -89,7 +89,7 @@ _00000000000000_initial_schema.xml_
         </changeSet>
         [...]
 
-首先，请确保您已将xml databaseChangeLog属性更改为包括ext。 现在在src\main\resources\config\liquibase\changelog\00000000000000_initial_schema.xml`中找到数据条目并进行更改：
+首先，請確保您已將xml databaseChangeLog屬性更改為包括ext。 現在在src\main\resources\config\liquibase\changelog\00000000000000_initial_schema.xml`中找到資料條目並進行更改：
 
 _00000000000000_initial_schema.xml_
 
@@ -114,6 +114,6 @@ _00000000000000_initial_schema.xml_
                   tableName="JHI_USER_AUTHORITY"
                   identityInsertEnabled="true" />
 
-添加`identityInsertEnabled = "true"`与使用`IDENTITY_INSERT ON`和`IDENTITY_INSERT OFF`包裹插入内容相同，这将允许您直接插入项目自动生成的ID。 这就是为什么我们要使用MS SQL Server Liquibase。
+新增`identityInsertEnabled = "true"`與使用`IDENTITY_INSERT ON`和`IDENTITY_INSERT OFF`包裹插入內容相同，這將允許您直接插入專案自動生成的ID。 這就是為什麼我們要使用MS SQL Server Liquibase。
 
-现在尝试运行您的应用程序！ 一切都应该正常工作，并且您应该继续将JHipster应用程序与SQL Server一起使用。
+現在嘗試執行您的應用程式！ 一切都應該正常工作，並且您應該繼續將JHipster應用程式與SQL Server一起使用。

@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 发布 v3.0.0
+title: 發布 v3.0.0
 ---
 
 JHipster release 3.0.0
 ==================
 
-更新日志
+更新日誌
 ----------
 
 After months of efforts, with a [great international team]({{ site.url }}/team/), our 3.0.0 version is out!
@@ -16,7 +16,7 @@ If you liked how easy it is to develop a full-stack application with JHipster 2.
 - JHipster 3 can generate a complete microservices architecture. It will generate and configure microservices, routers, a service registry, monitoring... It's as easy as generating a standard "monolithic" application, but it now works for huge mission-critical, distributed systems.
 - Infrastructure can be completely generated using Docker and Docker Compose. Complex microservices architectures can be run and tested on a laptop, and then deployed in a datacenter or in the cloud. Services can be scaled with one single command.
 
-This website is already up-to-date with the latest documentation (and if you want to access our old 2.x documentation [it's here]({{ site.url }}/documentation-archive/)), so if you want more information about microservices we recommend you read those new and updated sections:
+This website is already up-to-date with the latest documentation (and if you want to access our old 2.x documentation [it's here](https://www.jhipster.tech/documentation-archive/)), so if you want more information about microservices we recommend you read those new and updated sections:
 
 - [Doing microservices with JHipster]({{ site.url }}/microservices-architecture/)
 - [Docker and Docker Compose with JHipster]({{ site.url }}/docker-compose/)
@@ -45,19 +45,19 @@ This is a huge release for us and 一如既往， __[you can check all the 596 c
 更新指引
 ------------
 
-使用以下命令更新Jhipster:
+使用以下指令更新Jhipster:
 
 ```
 npm update -g generator-jhipster
 ```
 
-使用以下命令更新你的项目
+使用以下指令更新你的專案
 
 ```
 yo jhipster
 ```
 
-更新你的项目和所有的实体类
+更新你的專案和所有的實體類
 
 ```
 yo jhipster --with-entities
@@ -69,14 +69,14 @@ You can also update your entities by running again the entity sub-generator, for
 yo jhipster:entity Foo
 ```
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们:
+如果您發現這個版本的任何問題, 請隨時聯絡我們:
 
-- 在我们的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)添加一个缺陷报告
-- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)提交问题
+- 在我們的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)新增一個缺陷報告
+- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)送出問題
 
-如果您遇到的问题是紧急错误或安全问题，请：
+如果您遇到的問題是緊急錯誤或安全問題，請：
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)

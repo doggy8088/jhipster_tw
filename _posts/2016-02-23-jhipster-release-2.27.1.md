@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 发布 v2.27.1
+title: 發布 v2.27.1
 ---
 
 JHipster release 2.27.1
@@ -13,7 +13,7 @@ Documentation
 
 Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
-更新日志
+更新日誌
 ----------
 
 This version is at the same time a bug-fix release and a first step towards migrating to JHipster 3.0. This is because our main bug-fix is in fact a back-port from JHipster 3.0!
@@ -31,13 +31,13 @@ Closed tickets
 更新指引
 ------------
 
-使用以下命令更新Jhipster:
+使用以下指令更新Jhipster:
 
 ```
 npm update -g generator-jhipster
 ```
 
-使用以下命令更新你的项目
+使用以下指令更新你的專案
 
 ```
 yo jhipster
@@ -49,14 +49,14 @@ You can also update your entities by running again the entity sub-generator, for
 yo jhipster:entity Foo
 ```
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们:
+如果您發現這個版本的任何問題, 請隨時聯絡我們:
 
-- 在我们的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)添加一个缺陷报告
-- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)提交问题
+- 在我們的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)新增一個缺陷報告
+- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)送出問題
 
-如果您遇到的问题是紧急错误或安全问题，请：
+如果您遇到的問題是緊急錯誤或安全問題，請：
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)

@@ -15,32 +15,32 @@ sitemap:
 
 [![]({{ site.url }}/images/logo/docker-hub.png)](https://hub.docker.com/u/jhipster/)
 
-JHipster在Docker Hub拥有自己的[organization]，并提供不同的Docker镜像。
+JHipster在Docker Hub擁有自己的[organization]，並提供不同的Docker映象。
 
-[jhipster-docker-hub]项目提供所有docker-compose文件，可以启动这些镜像。
-要使用docker-compose命令，您必须：
+[jhipster-docker-hub]專案提供所有docker-compose檔案，可以啟動這些映象。
+要使用docker-compose指令，您必須：
 
-- 克隆项目: `git clone https://github.com/jhipster/jhipster-docker-hub`
-- 进入项目: `cd jhipster-docker-hub`
+- 克隆專案: `git clone https://github.com/jhipster/jhipster-docker-hub`
+- 進入專案: `cd jhipster-docker-hub`
 
 
 <div class="alert alert-warning"><i>注意: </i>
 
-根据您的操作系统，您的<code>DOCKER_HOST</code>将有所不同。
-在Linux上，它将是您的<code>localhost</code>。对于Mac/Windows，必须使用以下命令获取IP：<code>docker-machine ip default</code>
+根據您的作業系統，您的<code>DOCKER_HOST</code>將有所不同。
+在Linux上，它將是您的<code>localhost</code>。對於Mac/Windows，必須使用以下指令獲取IP：<code>docker-machine ip default</code>
 
 </div>
 
 
-## [jhipster/jhipster](https://hub.docker.com/r/jhipster/jhipster) : JHipster的备选安装
+## [jhipster/jhipster](https://hub.docker.com/r/jhipster/jhipster) : JHipster的備選安裝
 
-有关完整说明，请参见[安装]({{ site.url }}/installation/)页面。
+有關完整說明，請參見[安裝]({{ site.url }}/installation/)頁面。
 
-以下这些命令可以在特定的用例中使用。
+以下這些指令可以在特定的用例中使用。
 
 ### 使用最新版本的JHipster
 
-使用最新版本，在当前文件夹中启动`jhipster`
+使用最新版本，在當前資料夾中啟動`jhipster`
 
 ```
 docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster jhipster
@@ -48,17 +48,17 @@ docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster jhi
 
 ### 使用JHipster v3.0.0
 
-使用老版本，在当前文件夹中启动`jhipster`
+使用老版本，在當前資料夾中啟動`jhipster`
 
 ```
 docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster:v3.0.0 jhipster
 ```
 
-您可以在[此处](https://hub.docker.com/r/jhipster/jhipster/tags/)查看所有可用容器标签
+您可以在[此處](https://hub.docker.com/r/jhipster/jhipster/tags/)檢視所有可用容器標籤
 
-## [jhipster/jdl-studio](https://hub.docker.com/r/jhipster/jdl-studio) : 离线JDL-Studio
+## [jhipster/jdl-studio](https://hub.docker.com/r/jhipster/jdl-studio) : 離線JDL-Studio
 
-您可以离线使用JDL-Studio，通过[http://localhost:18080](http://localhost:18080)对其进行访问
+您可以離線使用JDL-Studio，透過[http://localhost:18080](http://localhost:18080)對其進行訪問
 
 ```
 docker container run -d -p 18080:80 jhipster/jdl-studio
@@ -66,61 +66,61 @@ docker container run -d -p 18080:80 jhipster/jdl-studio
 
 ## [jhipster/jhipster-sample-app](https://hub.docker.com/r/jhipster/jhipster-sample-app)
 
-它是带有H2或MySQL的示例应用程序。
+它是帶有H2或MySQL的範例應用程式。
 
-### 快速启动
+### 快速啟動
 
-在开发配置文件中直接使用Docker直接运行一个jhipster应用程序
+在開發設定檔案中直接使用Docker直接執行一個jhipster應用程式
 
 ```
 docker container run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=dev jhipster/jhipster-sample-app
 ```
 
-然后，您可以通过[http://localhost:8080](http://localhost:8080)访问该应用程序
+然後，您可以透過[http://localhost:8080](http://localhost:8080)訪問該應用程式
 
-### 开发配置
+### 開發設定
 
-使用开发配置文件运行应用程序
+使用開發設定檔案執行應用程式
 
 ```
 docker-compose -f jhipster-sample-app/dev.yml up
 ```
 
-### 生产配置
+### 生產設定
 
-使用生产配置文件运行应用程序, 使用MySQL数据库
+使用生產設定檔案執行應用程式, 使用MySQL資料庫
 
 ```
 docker-compose -f jhipster-sample-app/prod.yml up
 ```
 
-### 生产配置和使用ELK Stack进行监控
+### 生產設定和使用ELK Stack進行監控
 
-使用生产配置文件运行应用程序, 并使用MySQL数据库和ELK Stack
+使用生產設定檔案執行應用程式, 並使用MySQL資料庫和ELK Stack
 
 ```
 docker-compose -f jhipster-sample-app/prod-elk.yml up
 ```
 
-访问正在运行的应用程序 [http://localhost:8080](http://localhost:8080)
+訪問正在執行的應用程式 [http://localhost:8080](http://localhost:8080)
 
-访问Kibana仪表板 [http://localhost:5601](http://localhost:5601)
+訪問Kibana儀表板 [http://localhost:5601](http://localhost:5601)
 
 ## [jhipster/jhipster-sample-app-elasticsearch](https://hub.docker.com/r/jhipster/jhipster-sample-app-elasticsearch)
 
-使用MySQL和Elasticsearch的示例应用程序。
+使用MySQL和Elasticsearch的範例應用程式。
 
-### 开发配置
+### 開發設定
 
-使用开发配置文件运行应用程序
+使用開發設定檔案執行應用程式
 
 ```
 docker-compose -f jhipster-sample-app-elasticsearch/dev.yml up
 ```
 
-### 生产配置
+### 生產設定
 
-使用生产配置文件运行应用程序, 并使用MySQL数据库和Elasticsearch
+使用生產設定檔案執行應用程式, 並使用MySQL資料庫和Elasticsearch
 
 ```
 docker-compose -f jhipster-sample-app-elasticsearch/prod.yml up
@@ -128,11 +128,11 @@ docker-compose -f jhipster-sample-app-elasticsearch/prod.yml up
 
 ## [jhipster/jhipster-sample-app-mongodb](https://hub.docker.com/r/jhipster/jhipster-sample-app-mongodb)
 
-使用MongoDB的示例应用程序。
+使用MongoDB的範例應用程式。
 
-### 生产配置
+### 生產設定
 
-使用生产配置文件运行应用程序, 并使用MongoDB数据库
+使用生產設定檔案執行應用程式, 並使用MongoDB資料庫
 
 ```
 docker-compose -f jhipster-sample-app-mongodb/prod.yml up
@@ -141,18 +141,18 @@ docker-compose -f jhipster-sample-app-mongodb/prod.yml up
 
 ## [jhipster/jhipster-sample-app-cassandra](https://hub.docker.com/r/jhipster/jhipster-sample-app-cassandra)
 
-使用Cassandra集群的示例应用程序
+使用Cassandra叢集的範例應用程式
 
-### 生产配置
+### 生產設定
 
-使用生产配置文件运行应用程序, 并使用Cassandra集群
+使用生產設定檔案執行應用程式, 並使用Cassandra叢集
 
 
 ```
 docker-compose -f jhipster-sample-app-cassandra/prod.yml up
 ```
 
-扩展Cassandra节点
+擴充套件Cassandra節點
 
 ```
 docker-compose -f jhipster-sample-app-cassandra/prod.yml scale sample-cassandra-node=2
@@ -162,53 +162,53 @@ docker-compose -f jhipster-sample-app-cassandra/prod.yml scale sample-cassandra-
 [jhipster-docker-hub]: https://github.com/jhipster/jhipster-docker-hub
 
 
-## 微服务架构
+## 微服務架構
 
-这里使用的镜像如下：
+這裡使用的映象如下：
 
 - [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry)
 - [jhipster/jhipster-sample-app-gateway](https://hub.docker.com/r/jhipster/jhipster-sample-app-gateway)
 - [jhipster/jhipster-sample-app-microservice](https://hub.docker.com/r/jhipster/jhipster-sample-app-microservice)
 
-### 生产配置
+### 生產設定
 
-在生产配置文件中运行完整架构
+在生產設定檔案中執行完整架構
 
 ```
 docker-compose -f jhipster-sample-microservices/prod/prod.yml up
 ```
 
-它将启动：
+它將啟動：
 
 - JHipster Registry
-- 网关
-- MySQL数据库
-- 微服务
-- PostgreSQL数据库
+- 閘道器
+- MySQL資料庫
+- 微服務
+- PostgreSQL資料庫
 
 
-扩展微服务
+擴充套件微服務
 
 ```
 docker-compose -f jhipster-sample-microservices/prod/prod.yml scale jhipstersamplemicroservice-app=2
 ```
 
-### 生产配置和使用ELK Stack进行监控
+### 生產設定和使用ELK Stack進行監控
 
-在生产配置文件中运行完整架构, 使用ELK堆栈
+在生產設定檔案中執行完整架構, 使用ELK堆疊
 
 ```
 docker-compose -f jhipster-sample-microservices/prod-elk/prod-elk.yml up
 ```
 
-扩展微服务
+擴充套件微服務
 
 ```
 docker-compose -f jhipster-sample-microservices/prod-elk/prod-elk.yml scale jhipstersamplemicroservice-app=2
 ```
 
-访问注册中心: [http://localhost:8761](http://localhost:8761)
+訪問註冊中心: [http://localhost:8761](http://localhost:8761)
 
-访问网关: [http://localhost:8080](http://localhost:8080)
+訪問閘道器: [http://localhost:8080](http://localhost:8080)
 
-访问Kibana仪表板: [http://localhost:5601](http://localhost:5601)
+訪問Kibana儀表板: [http://localhost:5601](http://localhost:5601)

@@ -9,36 +9,36 @@ sitemap:
     lastmod: 2014-08-27T00:00:00-00:00
 ---
 
-# <i class="fa fa-group"></i> 社区帮助
+# <i class="fa fa-group"></i> 社群幫助
 
-需要帮助? 我们的社区非常棒!
+需要幫助? 我們的社群非常棒!
 
-## #1 社区帮助首要规则: 万事公开
+## #1 社群幫助首要規則: 萬事公開
 
-_需要注意，我们所有人都本着开源精神._
+_需要注意，我們所有人都本著開源精神._
 
-所有的讨论都公开, 所以每个人都可以参与并且互相帮助. 如果需要帮助，你*应该*尝试此处列举的途径.
+所有的討論都公開, 所以每個人都可以參與並且互相幫助. 如果需要幫助，你*應該*嘗試此處列舉的途徑.
 
-这些工具将确保核心团队知道项目的进展，并且每个人都可以从彼此的答案中受益。
+這些工具將確保核心團隊知道專案的進展，並且每個人都可以從彼此的答案中受益。
 
-## 如果您对如何使用JHipster有疑问
+## 如果您對如何使用JHipster有疑問
 
-转到["jhipster"](http://stackoverflow.com/tags/jhipster)标签的Stack Overflow页面.
+轉到["jhipster"](http://stackoverflow.com/tags/jhipster)標籤的Stack Overflow頁面.
 
 ## 如果您遇到缺陷或者想提出新需求
 
-首先阅读我们的[贡献指南](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
+首先閱讀我們的[貢獻指南](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
 
-然后,  在我们的[缺陷跟踪](https://github.com/jhipster/generator-jhipster/issues/new/choose)新建一个问题, 解决您的问题是我们的荣幸!
+然後,  在我們的[缺陷跟蹤](https://github.com/jhipster/generator-jhipster/issues/new/choose)新建一個問題, 解決您的問題是我們的榮幸!
 
-## 如果您想与贡献者和其他用户讨论
+## 如果您想與貢獻者和其他使用者討論
 
-加入我们在[Gitter.im](https://gitter.im/jhipster/generator-jhipster)上的聊天室。请注意，这是一个公共聊天室，我们希望您尊重他人并使用正确的英语书写！
+加入我們在[Gitter.im](https://gitter.im/jhipster/generator-jhipster)上的聊天室。請注意，這是一個公共聊天室，我們希望您尊重他人並使用正確的英語書寫！
 
-## 如果有紧急消息需要分享
+## 如果有緊急訊息需要分享
 
-通过推特[@jhipster](https://twitter.com/jhipster)联系。
+透過推特[@jhipster](https://twitter.com/jhipster)聯絡。
 
-## 如果您想知道核心团队当前在做什么
+## 如果您想知道核心團隊當前在做什麼
 
-正如我们在[团队页面]({{ site.url }}/team/)中提及，我们有一个开发邮件列表，只有核心开发人员可以参加，您可以在[这里](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev)可以找到详情。
+正如我們在[團隊頁面]({{ site.url }}/team/)中提及，我們有一個開發郵件清單，只有核心開發人員可以參加，您可以在[這裡](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev)可以找到詳情。

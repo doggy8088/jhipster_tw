@@ -1,38 +1,38 @@
 ---
 layout: default
-title: 提高开发人员的体验，如果在IDE中只打开前端
+title: 提高開發人員的體驗，如果在IDE中只打開前端
 sitemap:
 priority: 0.1
 lastmod: 2019-10-14T12:35:00-00:00
 ---
 
-# 提高开发人员的体验，如果在IDE中只打开前端
+# 提高開發人員的體驗，如果在IDE中只打開前端
 
-**提交者 [@kaidohallik](https://github.com/kaidohallik)**
+**送出者 [@kaidohallik](https://github.com/kaidohallik)**
 
-至少在Visual Studio代码中，将发生以下行为。
+至少在Visual Studio程式碼中，將發生以下行為。
 
-如果生成完整技术栈的应用程序（不跳过服务器或前端），并且前端开发人员希望看到的文件越少越好，并且仅在IDE中打开文件夹`src/main/webapp/app`，则IDE无法识别以`app`开头的导入。 这些导入是红色的，开发人员无法看到这些导入的类的内容，也无法一键跳转到这些导入的类。 路径`app`是在位于生成的应用程序的根文件夹中的`tsconfig.json`文件中定义的，因此，如果打开某些子文件夹，则会丢失此信息。
+如果生成完整技術棧的應用程式（不跳過伺服器或前端），並且前端開發人員希望看到的檔案越少越好，並且僅在IDE中開啟資料夾`src/main/webapp/app`，則IDE無法識別以`app`開頭的匯入。 這些匯入是紅色的，開發人員無法看到這些匯入的類別的內容，也無法一鍵跳轉到這些匯入的類。 路徑`app`是在位於生成的應用程式的根資料夾中的`tsconfig.json`檔案中定義的，因此，如果開啟某些子資料夾，則會丟失此訊息。
 
-## 可能的解决方案1
+## 可能的解決方案1
 
-向文件 `src/main/webapp/app/tsconfig.json` 中添加以下内容：
+向檔案 `src/main/webapp/app/tsconfig.json` 中新增以下內容：
 ```
 {
     "extends": "../../../../tsconfig.json"
 }
 ```
-并为测试文件 `src/test/javascript/spec/tsconfig.json` 添加同样的内容：
+併為測試檔案 `src/test/javascript/spec/tsconfig.json` 新增同樣的內容：
 ```
 {
     "extends": "../../../../tsconfig.json"
 }
 ```
-之后，如果仅打开文件夹`src/main/webapp/app`或`src/test/javascript/spec`，Visual Studio Code会正确解析路径app。
+之後，如果僅開啟資料夾`src/main/webapp/app`或`src/test/javascript/spec`，Visual Studio Code會正確解析路徑app。
 
-## 可能的解决方案2
+## 可能的解決方案2
 
-* 将node脚本`remove-import-alias.js`添加到应用程序根文件夹，该文件夹将导入别名替换为相对路径：
+* 將node指令碼`remove-import-alias.js`新增到應用程式根資料夾，該資料夾將匯入別名替換為相對路徑：
 
 ```
 const fs = require('fs');
@@ -69,8 +69,8 @@ removeImportAlias(`./src/main/webapp/app/`, 0);
 removeImportAlias(`./src/test/javascript/spec/`, 0, '../../../main/webapp/app/');
 ```
 
-* 在 `.eslintignore`中添加`remove-import-alias.js`
+* 在 `.eslintignore`中新增`remove-import-alias.js`
 
-* 运行添加的脚本：`node remove-import-alias.js`
+* 執行新增的指令碼：`node remove-import-alias.js`
 
-* 从`tsconfig.json`文件的`compilerOptions.paths`部分中删除`app/*`
+* 從`tsconfig.json`檔案的`compilerOptions.paths`部分中刪除`app/*`

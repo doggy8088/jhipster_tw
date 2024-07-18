@@ -1,37 +1,37 @@
 ---
 layout: default
-title: 创建一个控制器
+title: 建立一個控制器
 permalink: /creating-a-spring-controller/
 sitemap:
     priority: 0.7
     lastmod: 2019-02-01T00:00:00-00:00
 ---
 
-# <i class="fa fa-bolt"></i> 创建一个Spring控制器
+# <i class="fa fa-bolt"></i> 建立一個Spring控制器
 
-## 介绍
+## 介紹
 
-_注意：此子生成器比创建完整CRUD实体的[实体子生成器]({{ site.url }}/creating-an-entity/)简单得多_
+_注意：此子產生器比建立完整CRUD實體的[實體子產生器]({{ site.url }}/creating-an-entity/)簡單得多_
 
-该子生成器生成一个Spring MVC REST Controller。它还能够创建一些REST方法。
+該子產生器生成一個Spring MVC REST Controller。它還能夠建立一些REST方法。
 
-为了生成名为“Foo”的Spring MVC REST控制器，输入：
+為了生成名為『Foo』的Spring MVC REST控制器，輸入：
 
 `jhipster spring-controller Foo`
 
-子生成器将询问您要生成哪种方法：只需提供需要使用的方法名称和HTTP请求方法，就会生成一个简单的方法。
+子產生器將詢問您要生成哪種方法：只需提供需要使用的方法名稱和HTTP請求方法，就會生成一個簡單的方法。
 
-## Can we document this Spring MVC REST Controller with Swagger? （我们可以使用Swagger来自动生成这个Spring MVC REST Controller API文档吗？）
+## Can we document this Spring MVC REST Controller with Swagger? （我們可以使用Swagger來自動生成這個Spring MVC REST Controller API文件嗎？）
 
-没错! 已经实现了！在`dev`模式下，使用`Administration > API`菜单即可访问Swagger UI并开始使用生成的控制器。
+沒錯! 已經實現了！在`dev`模式下，使用`Administration > API`選單即可訪問Swagger UI並開始使用生成的控制器。
 
-## Can we add security to Spring MVC REST Controllers? （我们可以在Spring MVC REST控制器上增加安全特性吗？）
+## Can we add security to Spring MVC REST Controllers? （我們可以在Spring MVC REST控制器上增加安全屬性嗎？）
 
-可以! 在您的类或方法上添加Spring Security的`@Secured`注解，然后使用提供的`AuthoritiesConstants`类即可限制对特定用户权限的访问。
+可以! 在您的類或方法上新增Spring Security的`@Secured`註解，然後使用提供的`AuthoritiesConstants`類即可限制對特定使用者許可權的訪問。
 
-## Can we proxy it from our Microservice Gateway dev server? （我们可以代理到微服务架构的Gateway开发服务上吗？）
+## Can we proxy it from our Microservice Gateway dev server? （我們可以代理到微服務架構的Gateway開發服務上嗎？）
 
-可以! 将服务名添加到`webpack/webpack.dev.js`中的代理配置中
+可以! 將服務名新增到`webpack/webpack.dev.js`中的代理設定中
 ```javascript
 
 module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {

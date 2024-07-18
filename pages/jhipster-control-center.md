@@ -11,140 +11,140 @@ sitemap:
 
 ## 概述
 
-JHipster控制中心（JHipster Control Center）的主要目的是监视和管理应用程序。
+JHipster控制中心（JHipster Control Center）的主要目的是監視和管理應用程式。
 
-它的所有功能都通过现代Vue用户界面打包到一个外部应用程序中。 它的源代码可在JHipster组织下的GitHub上找到，网址为[jhipster/jhipster-control-center](https://github.com/jhipster/jhipster-control-center) 。
+它的所有功能都透過現代Vue使用者介面打包到一個外部應用程式中。 它的原始碼可在JHipster組織下的GitHub上找到，網址為[jhipster/jhipster-control-center](https://github.com/jhipster/jhipster-control-center) 。
 
 ![]({{ site.url }}/images/jhipster-control-center-animation.gif)
 
 ## 概要
 
-1. [Spring特定的配置文件](#profiles)
-2. [安装](#installation)
-3. [架构](#architecture)
-4. [认证机制](#authentication)
-5. [特性](#features)
+1. [Spring特定的設定檔案](#profiles)
+2. [安裝](#installation)
+3. [架構](#architecture)
+4. [認證機制](#authentication)
+5. [屬性](#features)
 
-## <a name="profiles"></a>  Spring特定的配置文件
+## <a name="profiles"></a>  Spring特定的設定檔案
 
-**控制中心使用常规的JHipster`dev`和`prod`Spring配置文件。 但是，要正常工作，必须从与Spring Cloud Discovery后端相对应的Spring配置文件开始。**
+**控制中心使用常規的JHipster`dev`和`prod`Spring設定檔案。 但是，要正常工作，必須從與Spring Cloud Discovery後端相對應的Spring設定檔案開始。**
 
-- `eureka`: 连接到Eureka服务器并获取其注册实例，该实例在application-eureka.yml中配置
-- `consul`: 连接到Consul服务器并获取其注册实例，该实例在application-consul.yml中配置
-- `static`: 使用作为属性提供的实例的静态列表，该列表在application-static.yml中配置
-- `kubernetes`: 在application-kubernetes.yml中配置
+- `eureka`: 連線到Eureka伺服器並獲取其註冊實例，該實例在application-eureka.yml中設定
+- `consul`: 連線到Consul伺服器並獲取其註冊實例，該實例在application-consul.yml中設定
+- `static`: 使用作為屬性提供的實例的靜態清單，該清單在application-static.yml中設定
+- `kubernetes`: 在application-kubernetes.yml中設定
 
-这对于微服务体系结构非常有用：控制中心以这种方式知道哪些微服务可用，哪些实例可用。
+這對於微服務體系結構非常有用：控制中心以這種方式知道哪些微服務可用，哪些實例可用。
 
-对于所有应用程序（包括单体式应用程序），Hazelcast分布式缓存可以自动扩展， 查阅[Hazelcast缓存文档]({{ site.url }}/using-cache/)
+對於所有應用程式（包括單體式應用程式），Hazelcast分散式快取可以自動擴充套件， 查閱[Hazelcast快取文件]({{ site.url }}/using-cache/)
 
-## <a name="installation"></a> 安装
+## <a name="installation"></a> 安裝
 
-### 在本地运行
+### 在本地執行
 
-* ### 步骤1：运行Spring Cloud Discovery后端使用的服务器
+* ### 步驟1：執行Spring Cloud Discovery後端使用的伺服器
 
-  Eureka和Consul docker-compose文件位于src/main/docker下，以简化测试项目 (查看 [specific spring profiles](#profiles)).
+  Eureka和Consul docker-compose檔案位於src/main/docker下，以簡化測試專案 (檢視 [specific spring profiles](#profiles)).
 
-    - 对于Consul: 运行 `docker-compose -f src/main/docker/consul.yml up -d`
-    - 对于Eureka: 运行 `docker-compose -f src/main/docker/jhipster-registry.yml up -d`
-    - 对于Kubernetes : 查看 [kubernetes文档](https://www.jhipster.tech/kubernetes/#deploying-to-kubernetes)
-    - 否则，要使用静态实例列表，可以直接转到下一步。
+    - 對於Consul: 執行 `docker-compose -f src/main/docker/consul.yml up -d`
+    - 對於Eureka: 執行 `docker-compose -f src/main/docker/jhipster-registry.yml up -d`
+    - 對於Kubernetes : 檢視 [kubernetes文件](https://www.jhipster.tech/kubernetes/#deploying-to-kubernetes)
+    - 否則，要使用靜態實例清單，可以直接轉到下一步。
 
-* ### 步骤2：选择您的身份验证配置文件
+* ### 步驟2：選擇您的身份驗證設定檔案
 
-  身份验证有2种 (查看 [认证机制](#authentication)):
+  身份驗證有2種 (檢視 [認證機制](#authentication)):
 
-    - JWT: 这是默认身份验证，如果选择此身份验证，则无需执行任何操作。
-    - OAuth2: 要使用OAuth2身份验证，您必须启动Keycloak。 运行 `docker-compose -f src/main/docker/keycloak.yml up -d`
+    - JWT: 這是預設身份驗證，如果選擇此身份驗證，則無需執行任何操作。
+    - OAuth2: 要使用OAuth2身份驗證，您必須啟動Keycloak。 執行 `docker-compose -f src/main/docker/keycloak.yml up -d`
     
 
-* ### 步骤3：运行克隆的项目
+* ### 步驟3：執行克隆的專案
 
-    根据所需的特定Spring配置文件运行控制中心，以下是一些示例：
+    根據所需的特定Spring設定檔案執行控制中心，以下是一些範例：
 
-    - 对于使用JWT和Consul开发, 运行 `./mvnw -Dspring.profiles.active=consul,dev`
-    - 对于使用JWT和Eureka开发, 运行`./mvnw -Dspring.profiles.active=eureka,dev`
-    - 对于使用JWT和静态实例列表进行开发, 运行 `./mvnw -Dspring.profiles.active=static,dev`
-    - 对于使用OAuth2和Consul进行开发， 运行 `./mvnw -Dspring.profiles.active=consul,dev,oauth2`
-    - 对于使用OAuth2和Eureka进行开发, 运行 `./mvnw -Dspring.profiles.active=eureka,dev,oauth2`
-    - 刚开始开发运行 `./mvnw` 然后在另一个终端运行 `npm start` 用于热重载客户端代码
+    - 對於使用JWT和Consul開發, 執行 `./mvnw -Dspring.profiles.active=consul,dev`
+    - 對於使用JWT和Eureka開發, 執行`./mvnw -Dspring.profiles.active=eureka,dev`
+    - 對於使用JWT和靜態實例清單進行開發, 執行 `./mvnw -Dspring.profiles.active=static,dev`
+    - 對於使用OAuth2和Consul進行開發， 執行 `./mvnw -Dspring.profiles.active=consul,dev,oauth2`
+    - 對於使用OAuth2和Eureka進行開發, 執行 `./mvnw -Dspring.profiles.active=eureka,dev,oauth2`
+    - 剛開始開發執行 `./mvnw` 然後在另一個終端執行 `npm start` 用於熱過載用戶端程式碼
 
-### 从Docker运行
+### 從Docker執行
 
-A 容器映像已在Docker Hub上提供。 要使用它，请运行以下命令：
+A 容器映像已在Docker Hub上提供。 要使用它，請執行以下指令：
 
 - `docker pull jhipster/jhipster-control-center`
 - `docker run -d --name jhcc -p 7419:7419 jhipster/jhipster-control-center:latest`
 
-## <a name="architecture"></a> 架构
+## <a name="architecture"></a> 架構
 
-这是一个标准的Web应用程序，通过其管理API端点连接到一个或几个JHipster应用程序。 这些管理端点可以公开在标准API端口（通常为8080、8081等）上，也可以公开在专用管理端口（通常为9999）上，以便与外界隔离。
+這是一個標準的Web應用程式，透過其管理API端點連線到一個或幾個JHipster應用程式。 這些管理端點可以公開在標準API連接埠（通常為8080、8081等）上，也可以公開在專用管理連接埠（通常為9999）上，以便與外界隔離。
 
-控制中心使用 [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) 路由API和Spring Cloud LoadBalancer以在对另一个微服务的调用中提供客户端负载平衡（默认情况下，Ribbons已禁用，以使用Spring Cloud LoadBalancer的负载平衡实现）。
+控制中心使用 [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) 路由API和Spring Cloud LoadBalancer以在對另一個微服務的呼叫中提供用戶端負載平衡（預設情況下，Ribbons已停用，以使用Spring Cloud LoadBalancer的負載平衡實現）。
 
 ![]({{ site.url }}/images/jhipster-control-center-architecture.png)
 
-## <a name="authentication"></a> 认证机制
+## <a name="authentication"></a> 認證機制
 
-为了访问您的应用程序，JHipster Control Center根据配置文件使用特定的安全机制。
+為了訪問您的應用程式，JHipster Control Center根據設定檔案使用特定的安全機制。
 
 #### ***JWT***
-这是一个自定义的JHipster实现。 用于签署请求的JWT密钥对于应用程序和控制中心应该是相同的：默认情况下，控制中心通过Spring Cloud Config配置应用程序，这应该是开箱即用的，因为它将发送相同的key到所有应用程序 。
+這是一個自定義的JHipster實現。 用於簽署請求的JWT金鑰對於應用程式和控制中心應該是相同的：預設情況下，控制中心透過Spring Cloud Config設定應用程式，這應該是開箱即用的，因為它將傳送相同的key到所有應用程式 。
 
 #### ***OAuth2***
-此配置文件使用第三方授权-身份验证服务器，例如Keycloak（或Okta即将推出）。 当您连接到控制中心时，控制中心将使用OAuth2协议在Keycloak中生成会话。
+此設定檔案使用第三方授權-身份驗證伺服器，例如Keycloak（或Okta即將推出）。 當您連線到控制中心時，控制中心將使用OAuth2協定在Keycloak中生成會話。
 
-然后，在Oauth2SecurityConfiguration.java中，我们的安全配置将使用Spring Security的过滤器链从Keycloak获得授权，并使用`http.oauth2Login()`生成Spring的Principal（当前用户）。 之后，Spring Security的过滤器链将应用`http.oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter())`来获得其角色的身份验证。 通过这种方式，我们可以轻松地更改我们的提供程序（Keycloak，Okta等）。
+然後，在Oauth2SecurityConfiguration.java中，我們的安全設定將使用Spring Security的過濾器鏈從Keycloak獲得授權，並使用`http.oauth2Login()`生成Spring的Principal（當前使用者）。 之後，Spring Security的過濾器鏈將應用`http.oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter())`來獲得其角色的身份驗證。 透過這種方式，我們可以輕鬆地更改我們的提供程式（Keycloak，Okta等）。
 
-## <a name="features"></a> 特性
+## <a name="features"></a> 屬性
 
-### ***实例***
+### ***實例***
 
-JHipster控制中心提供了应用程序实例的列表。 一旦应用程序在服务器（consul或eureka）上注册，它就会在列表中可用。
+JHipster控制中心提供了應用程式實例的清單。 一旦應用程式在服務器（consul或eureka）上註冊，它就會在清單中可用。
 
 ![]({{ site.url }}/images/jhipster-control-center-instances.png)
 
-### ***指标***
+### ***指標***
 
-指标页面使用Micrometer来提供应用程序性能的详细视图。
+指標頁面使用Micrometer來提供應用程式效能的詳細檢視。
 
-它提供有关以下方面的指标：
+它提供有關以下方面的指標：
 
 - JVM
-- HTTP请求
-- 缓存使用
-- 数据库连接池
+- HTTP請求
+- 快取使用
+- 資料庫連線池
 
-通过单击JVM线程指标旁边的Expand按钮，您将获得正在运行的应用程序的堆栈跟踪，这对于找出阻塞的线程非常有用。
+透過單擊JVM執行緒指標旁邊的Expand按鈕，您將獲得正在執行的應用程式的堆疊跟蹤，這對於找出阻塞的執行緒非常有用。
 
 ![]({{ site.url }}/images/jhipster-control-center-metrics.png)
 
 ### ***健康***
 
-运行状况页面使用Spring Boot Actuator运行状况端点来提供有关应用程序各个部分的运行状况信息。
+執行狀況頁面使用Spring Boot Actuator執行狀況端點來提供有關應用程式各個部分的執行狀況訊息。
 
-Spring Boot Actuator提供了许多开箱即用的健康检查，您可以添加特定于应用程序的健康检查。
+Spring Boot Actuator提供了許多開箱即用的健康檢查，您可以新增特定於應用程式的健康檢查。
 
 ![]({{ site.url }}/images/jhipster-control-center-health.png)
 
-### ***配置***
+### ***設定***
 
-配置页面使用Spring Boot Actuator的配置端点来提供当前应用程序的Spring配置的完整视图。
+設定頁面使用Spring Boot Actuator的設定端點來提供當前應用程式的Spring設定的完整檢視。
 
 ![]({{ site.url }}/images/jhipster-control-center-configuration.png)
 
-### ***日志***
+### ***日誌***
 
-日志页面允许在运行时管理正在运行的应用程序的Logback配置。
+日誌頁面允許在執行時管理正在執行的應用程式的Logback設定。
 
-您可以通过单击按钮来更改Java包的日志级别，这在开发和生产中都非常方便。
+您可以透過單擊按鈕來更改Java套件的日誌級別，這在開發和生產中都非常方便。
 
 ![]({{ site.url }}/images/jhipster-control-center-logs.png)
 
-### ***日志文件***
+### ***日誌檔案***
 
-日志文件页面允许在运行时查看正在运行的应用程序的日志。 默认情况下，它是禁用的，您需要对其进行配置。 如果禁用了日志文件，则显示此消息：
+日誌檔案頁面允許在執行時檢視正在執行的應用程式的日誌。 預設情況下，它是停用的，您需要對其進行設定。 如果停用了日誌檔案，則顯示此訊息：
 ```
 No available logfile. Please note that it is not available by default, you need to set up the Spring Boot properties below! 
 Please check:
@@ -162,7 +162,7 @@ See:
 
 ### ***API***
 
-API页面允许查看您应用程序的所有API文档，并通过单个Swagger UI框架测试其端点。
+API頁面允許檢視您應用程式的所有API文件，並透過單個Swagger UI框架測試其端點。
 
 ![]({{ site.url }}/images/jhipster-control-center-api.png)
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 发布 2.1.0
+title: 發布 2.1.0
 ---
 
 JHipster release 2.1.0
@@ -13,7 +13,7 @@ Documentation
 
 Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
-更新日志
+更新日誌
 ----------
 
 Our v2.0.0 has been a great success, with only very minor bugs, that's why we are releasing a v2.1.0 version with some cool new features.
@@ -33,23 +33,23 @@ Concerning our roadmap, we hope to have soon a working Cassandra implementation.
 更新指引
 ------------
 
-使用以下命令更新Jhipster:
+使用以下指令更新Jhipster:
 
 ```
 npm update -g generator-jhipster
 ```
 
-使用以下命令更新你的项目
+使用以下指令更新你的專案
 
 ```
 yo jhipster
 ```
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们:
+如果您發現這個版本的任何問題, 請隨時聯絡我們:
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
-- 在我们的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)添加一个缺陷报告
-- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)提交问题
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)
+- 在我們的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)新增一個缺陷報告
+- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)送出問題

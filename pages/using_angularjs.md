@@ -11,8 +11,8 @@ sitemap:
 
 # <i class="fa fa-html5"></i> 使用 AngularJS
 
-从JHipster 5开始，JHipster不再支持AngularJS。
+從JHipster 5開始，JHipster不再支援AngularJS。
 
-我们强烈支持[Angular]（{{site.url}}/using-angular/）和[React]（{{site.url}}/using-reac/），它们都是较现代的工具，我们希望您会喜欢它们的！
+我們強烈支援[Angular]（{{site.url}}/using-angular/）和[React]（{{site.url}}/using-reac/），它們都是較現代的工具，我們希望您會喜歡它們的！
 
-如果仍然需要使用AngularJS 1.x，请查看[我们的档案]（{{site.url}}/documentation-archive/）。
+如果仍然需要使用AngularJS 1.x，請檢視[我們的檔案]（{{site.url}}/documentation-archive/）。

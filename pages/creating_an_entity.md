@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 创建一个实体
+title: 建立一個實體
 permalink: /creating-an-entity/
 redirect_from:
   - /creating_an_entity.html
@@ -9,238 +9,238 @@ sitemap:
     lastmod: 2018-09-04T00:00:00-00:00
 ---
 
-# <i class="fa fa-bolt"></i> 创建一个实体
+# <i class="fa fa-bolt"></i> 建立一個實體
 
-_**请查看有关创建新JHipster应用程序的[视频教程]({{ site.url }}/video-tutorial/)！**_
-如果要实时重载JavaScript/TypeScript代码，则需要运行`npm start`或`yarn start`。您可以转到[在开发过程中使用JHipster]({{ site.url }}/development/)页面以获取更多信息。
+_**請檢視有關建立新JHipster應用程式的[影片教程]({{ site.url }}/video-tutorial/)！**_
+如果要實時過載JavaScript/TypeScript程式碼，則需要執行`npm start`或`yarn start`。您可以轉到[在開發過程中使用JHipster]({{ site.url }}/development/)頁面以獲取更多訊息。
 
-## 介绍
+## 介紹
 
-创建应用程序后，将需要创建 _实体_。例如，您可能要创建一个 _Author_ 和 _Book_ 实体。对于每个实体，您将需要：
+建立應用程式後，將需要建立 _實體_。例如，您可能要建立一個 _Author_ 和 _Book_ 實體。對於每個實體，您將需要：
 
-*   数据库表
-*   Liquibase变更集
-*   JPA实体
+*   資料庫表
+*   Liquibase變更集
+*   JPA實體
 *   Spring Data JPA Repository
 *   Spring MVC REST控制器，具有基本的CRUD操作
-*   Angular路由器，组件和服务
-*   HTML视图
-*   集成测试，以验证一切正常
-*   性能测试，看一切是否顺利
+*   Angular路由器，元件和服務
+*   HTML檢視
+*   整合測試，以驗證一切正常
+*   效能測試，看一切是否順利
 
-如果您有多个实体，则可能需要在它们之间建立关系。为此，您将需要：
+如果您有多個實體，則可能需要在它們之間建立關係。為此，您將需要：
 
-*   数据库外键
-*   用于管理这种关系的特定JavaScript和HTML代码
+*   資料庫外鍵
+*   用於管理這種關係的特定JavaScript和HTML程式碼
 
-"entity"子生成器将创建所有必要的文件，并为每个实体提供一个CRUD前端（请参阅[Angular项目结构]({{ site.url }}/using-angular/)和[React项目结构]({{ site.url }}/using-react/))）。可以通过运行`jhipster entity <entityName> --[options]`来调用子生成器。可以通过输入`jhipster entity --help`找到这些选项的参考。
+"entity"子產生器將建立所有必要的檔案，併為每個實體提供一個CRUD前端（請參閱[Angular專案結構]({{ site.url }}/using-angular/)和[React專案結構]({{ site.url }}/using-react/))）。可以透過執行`jhipster entity <entityName> --[options]`來呼叫子產生器。可以透過輸入`jhipster entity --help`找到這些選項的參考。
 
-以下是受支持的选项。
+以下是受支援的選項。
 
-*   `--table-name <table_name>` - 默认情况下，JHipster将根据您的实体名称生成一个表名，如果您希望使用其他表名，则可以通过传递此选项来实现。
-*   `--angular-suffix <suffix>` - 如果您希望所有Angular路由都具有自定义后缀，则可以使用此选项传递该后缀。
-*   `--client-root-folder <folder-name>` - 指定前端侧实体使用的根文件夹名称。对于富应用和微服务中的网关，默认情况下为空。
-*   `--regenerate` - 不询问任何问题重新生成现有实体。
-*   `--skip-server` - -这将跳过服务器端代码，仅生成前端代码。
-*   `--skip-client` - 这将跳过前端代码，仅生成服务器端代码。
-*   `--skip-db-changelog` - 这将跳过数据库更改日志的生成（对于SQL数据库使用Liquibase）。
-*   `--db` - -跳过服务器端生成时，指定的数据库，其他时候无效。
+*   `--table-name <table_name>` - 預設情況下，JHipster將根據您的實體名稱生成一個表名，如果您希望使用其他表名，則可以透過傳遞此選項來實現。
+*   `--angular-suffix <suffix>` - 如果您希望所有Angular路由都具有自定義字尾，則可以使用此選項傳遞該字尾。
+*   `--client-root-folder <folder-name>` - 指定前端側實體使用的根資料夾名稱。對於富應用和微服務中的閘道器，預設情況下為空。
+*   `--regenerate` - 不詢問任何問題重新生成現有實體。
+*   `--skip-server` - -這將跳過伺服器端程式碼，僅生成前端程式碼。
+*   `--skip-client` - 這將跳過前端程式碼，僅生成伺服器端程式碼。
+*   `--skip-db-changelog` - 這將跳過資料庫更改日誌的生成（對於SQL資料庫使用Liquibase）。
+*   `--db` - -跳過伺服器端生成時，指定的資料庫，其他時候無效。
 
 <div class="alert alert-warning"><i>注意: </i>
 
-不要为您的实体选择一个简称（请参见<a href="https://github.com/jhipster/generator-jhipster/issues/8446" target="_blank" rel="noopener">此问题</a>）。
+不要為您的實體選擇一個簡稱（請參見<a href="https://github.com/jhipster/generator-jhipster/issues/8446" target="_blank" rel="noopener">此問題</a>）。
 </div>
 
-## JHipster UML与JDL Studio
+## JHipster UML與JDL Studio
 
-本页介绍如何使用标准命令行界面通过JHipster创建实体。如果要创建多个实体，则可能更喜欢使用图形界面工具。
+本頁介紹如何使用標準指令行介面透過JHipster建立實體。如果要建立多個實體，則可能更喜歡使用圖形界面工具。
 
-在这种情况下，有两个选项可用：
+在這種情況下，有兩個選項可用：
 
-*   [JHipster UML]({{ site.url }}/jhipster-uml/), 它允许您使用UML编辑器。
-*   [JDL Studio](https://start.jhipster.tech/jdl-studio/), 我们的在线工具，使用我们的领域特定语言[JDL]({{ site.url }}/jdl/)创建实体和关系。
+*   [JHipster UML]({{ site.url }}/jhipster-uml/), 它允許您使用UML編輯器。
+*   [JDL Studio](https://start.jhipster.tech/jdl-studio/), 我們的線上工具，使用我們的領域特定語言[JDL]({{ site.url }}/jdl/)建立實體和關係。
 
 如果您使用了JDL Studio：
 
-*   您可以使用`jdl`子生成器通过运行`jhipster jdl your-jdl-file.jh`从JDL文件生成实体。
+*   您可以使用`jdl`子產生器透過執行`jhipster jdl your-jdl-file.jh`從JDL檔案生成實體。
 
-    * 如果您不想在导入JDL时重新生成实体，则可以使用`--json-only`标识来跳过实体创建部分，仅在`.jhipster`文件夹中生成json文件。
+    * 如果您不想在匯入JDL時重新生成實體，則可以使用`--json-only`標識來跳過實體建立部分，僅在`.jhipster`資料夾中生成json檔案。
     
     ```
     jhipster jdl ./my-jdl-file.jdl --json-only
     ```
 
-    * 默认情况下， `jdl`仅重新生成已更改的实体，如果要重新生成所有实体，则传递`--force`标识。请注意，这将覆盖您对实体文件的所有本地更改
+    * 預設情況下， `jdl`僅重新生成已更改的實體，如果要重新生成所有實體，則傳遞`--force`標識。請注意，這將覆蓋您對實體檔案的所有本地更改
 
     ```
     jhipster jdl ./my-jdl-file.jdl --force
     ```
 
-*   如果要使用JHipster UML代替`jdl`子生成器，则需要先通过运行`npm install -g jhipster-uml`来安装它，然后运行`jhipster-uml yourFileName.jh`。
+*   如果要使用JHipster UML代替`jdl`子產生器，則需要先透過執行`npm install -g jhipster-uml`來安裝它，然後執行`jhipster-uml yourFileName.jh`。
 
-## Entity字段
+## Entity欄位
 
-对于每个实体，您可以根据需要添加任意多个字段。您将需要提供字段名称及其类型，JHipster将为您生成所有所需的代码和配置，从Angular的HTML视图到Liquibase变更文件。
+對於每個實體，您可以根據需要新增任意多個欄位。您將需要提供欄位名稱及其型別，JHipster將為您生成所有所需的程式碼和設定，從Angular的HTML檢視到Liquibase變更檔案。
 
-这些字段不包含您使用技术中的保留关键字。例如，如果您使用MySQL：
-*   您不能使用Java保留关键字（因为您的代码将无法编译）
-*   您不能使用MySQL保留关键字（因为数据库表结构更新将失败）
+這些欄位不包含您使用技術中的保留關鍵字。例如，如果您使用MySQL：
+*   您不能使用Java保留關鍵字（因為您的程式碼將無法編譯）
+*   您不能使用MySQL保留關鍵字（因為資料庫表結構更新將失敗）
 
-## 字段类型
+## 欄位型別
 
-JHipster支持许多字段类型。这种支持取决于您的数据库后端，因此我们使用Java类型来描述它们：Java`String`将以不同的方式存储在Oracle或Cassandra中，这是JHipster的优势之一，可以为您生成正确的数据库访问代码。
-*   `String`: Java字符串。它的默认大小取决于基础后端（如果使用JPA，默认情况下为255），但是您可以使用校验规则进行更改（例如，修改 `max`大小为1024）。
-*   `Integer`: Java整数。
-*   `Long`: Java长整数。
-*   `Float`: Java浮点数.
-*   `Double`: Java双精度浮点数.
-*   `BigDecimal`: [java.math.BigDecimal](https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html)对象, 当您需要精确的数学计算时使用（通常用于财务操作）。
-*   `LocalDate`: [java.time.LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html)对象, 用于正确管理Java中的日期。
-*   `Instant`: [java.time.Instant](https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html)对象, 用于表示时间戳，即时间线上的瞬时点。
-*   `ZonedDateTime`: [java.time.ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html)对象, 用于表示给定时区（通常是日历中会议、约定）中的本地日期时间。请注意，REST和持久层都不支持时区，因此您很可能应该使用`Instant`。
-*   `Duration`: [java.time.Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)对象, 用于表示时间量。
-*   `UUID`: [java.util.UUID](https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html)对象.  
-*   `Boolean`: Java布尔型.
-*   `Enumeration`:Java枚举对象。选择此类型后，子生成器将询问您要在枚举中使用哪些值，并将创建一个特定的`enum`类来存储它们。
-*   `Blob`: Blob对象，用于存储一些二进制数据。选择此类型时，子生成器将询问您是否要存储通用二进制数据，图像对象或CLOB（长文本）。图像将专门在Angular侧进行优化处理，因此可以将其正常显示给最终用户。
+JHipster支援許多欄位型別。這種支援取決於您的資料庫後端，因此我們使用Java型別來描述它們：Java`String`將以不同的方式儲存在Oracle或Cassandra中，這是JHipster的優勢之一，可以為您生成正確的資料庫訪問程式碼。
+*   `String`: Java字串。它的預設大小取決於基礎後端（如果使用JPA，預設情況下為255），但是您可以使用校驗規則進行更改（例如，修改 `max`大小為1024）。
+*   `Integer`: Java整數。
+*   `Long`: Java長整數。
+*   `Float`: Java浮點數.
+*   `Double`: Java雙精度浮點數.
+*   `BigDecimal`: [java.math.BigDecimal](https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html)物件, 當您需要精確的數學計算時使用（通常用於財務操作）。
+*   `LocalDate`: [java.time.LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html)物件, 用於正確管理Java中的日期。
+*   `Instant`: [java.time.Instant](https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html)物件, 用於表示時間戳，即時間線上的瞬時點。
+*   `ZonedDateTime`: [java.time.ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html)物件, 用於表示給定時區（通常是日曆中會議、約定）中的本地日期時間。請注意，REST和持久層都不支援時區，因此您很可能應該使用`Instant`。
+*   `Duration`: [java.time.Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)物件, 用於表示時間量。
+*   `UUID`: [java.util.UUID](https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html)物件.  
+*   `Boolean`: Java布林型.
+*   `Enumeration`:Java列舉物件。選擇此類型後，子產生器將詢問您要在列舉中使用哪些值，並將建立一個特定的`enum`類來儲存它們。
+*   `Blob`: Blob物件，用於儲存一些二進位資料。選擇此類型時，子產生器將詢問您是否要儲存通用二進位資料，影象物件或CLOB（長文字）。影象將專門在Angular側進行最佳化處理，因此可以將其正常顯示給最終使用者。
 
-## 校验
+## 校驗
 
-可以为每个字段设置校验。根据字段类型，将提供不同的校验选项。
+可以為每個欄位設定校驗。根據欄位型別，將提供不同的校驗選項。
     
-校验将在以下地方自动生成：
+校驗將在以下地方自動生成：
 
-*   HTML视图，使用Angular或React或Vue校验机制
-*   Java domain对象, 使用[Bean Validation](http://beanvalidation.org/)
+*   HTML檢視，使用Angular或React或Vue校驗機制
+*   Java domain物件, 使用[Bean Validation](http://beanvalidation.org/)
 
-然后，在以下情况下使用Bean校验时，将使用它们进行自动校验：
+然後，在以下情況下使用Bean校驗時，將使用它們進行自動校驗：
 
-*   Spring MVC REST控制器(使用`@Valid`注解)
-*   Hibernate/JPA (实体在保存之前会自动进行校验)
+*   Spring MVC REST控制器(使用`@Valid`註解)
+*   Hibernate/JPA (實體在儲存之前會自動進行校驗)
 
-校验信息还将用于生成更精确的数据库列元数据：
+校驗訊息還將用於生成更精確的資料庫列元資料：
 
-*   必填字段将被标记为不可为空
+*   必填欄位將被標記為不可為空
 
-*   唯一字段将创建唯一约束
+*   唯一欄位將建立唯一約束
 
-*   具有最大长度的字段将具有相同的列长
+*   具有最大長度的欄位將具有相同的列長
 
-校验也有一些限制：
+校驗也有一些限制：
 
-*   我们不支持Angular，React和Bean Validation的所有校验选项，因为我们仅支持前端和后端API通用的选项
-*   正则表达式模式在JavaScript和Java中的工作方式不同，因此，如果您配置了其中一个，则可能需要取调整另一个生成的模式。
-*   JHipster会在不知道您的验证规则的情况下生成适用于通用实体的单元测试：生成的测试可能未必能通过校验规则。在这种情况下，您将需要更新单元测试中使用的样例数据，以使它们通过校验规则。
+*   我們不支援Angular，React和Bean Validation的所有校驗選項，因為我們僅支援前端和後端API通用的選項
+*   正則表示式模式在JavaScript和Java中的工作方式不同，因此，如果您設定了其中一個，則可能需要取調整另一個生成的模式。
+*   JHipster會在不知道您的驗證規則的情況下生成適用於通用實體的單元測試：生成的測試可能未必能透過校驗規則。在這種情況下，您將需要更新單元測試中使用的範例資料，以使它們透過校驗規則。
 
-## Entity关系
+## Entity關係
 
-实体关系仅适用于SQL数据库。这是一个相当复杂的话题，它具有自己单独的文档页面：[管理关系]({{ site.url }}/managing-relationships/)。
+實體關係僅適用於SQL資料庫。這是一個相當複雜的話題，它具有自己單獨的文件頁面：[管理關係]({{ site.url }}/managing-relationships/)。
 
-## 为您的业务逻辑生成单独的服务类
+## 為您的業務邏輯生成單獨的服務類別
 
-与单独使用Spring REST控制器相比，拥有一个单独的服务类可以拥有更复杂的逻辑。拥有服务层（基于或不基于接口）将使您能够使用DTO（请参阅下一节）。
+與單獨使用Spring REST控制器相比，擁有一個單獨的服務類別可以擁有更復雜的邏輯。擁有服務層（基於或不基於介面）將使您能夠使用DTO（請參閱下一節）。
 
-这与使用[Spring服务子生成器]({{ site.url }}/creating-a-spring-service/)的逻辑相同，因此我们建议阅读其文档以获取更多信息。
+這與使用[Spring服務子產生器]({{ site.url }}/creating-a-spring-service/)的邏輯相同，因此我們建議閱讀其文件以獲取更多訊息。
 
-## 数据传输对象（DTO）
+## 數據傳輸物件（DTO）
 
-默认情况下，JHipster实体不使用DTO，但如果您选择使用服务层，则可以将它们作为选项使用（请参见上一节）。这里是使用文档：[使用DTO]({{ site.url }}/using-dtos/)。
+預設情況下，JHipster實體不使用DTO，但如果您選擇使用服務層，則可以將它們作為選項使用（請參見上一節）。這裡是使用文件：[使用DTO]({{ site.url }}/using-dtos/)。
 
-## 过滤
+## 過濾
 
-（可选）可以使用JPA过滤存储在SQL数据库中的实体。这里是文档：[筛选实体]({{ site.url }}/entities-filtering/)。
+（可選）可以使用JPA過濾儲存在SQL資料庫中的實體。這裡是文件：[篩選實體]({{ site.url }}/entities-filtering/)。
 
-## 分页
+## 分頁
 
-请注意，如果使用[Cassandra]({{ site.url }}/using-cassandra/)创建应用程序，则分页不可用。它将在未来的版本中添加。
+請注意，如果使用[Cassandra]({{ site.url }}/using-cassandra/)建立應用程式，則分頁不可用。它將在未來的版本中新增。
 
-分页使用[GitHub API](https://developer.github.com/v3/#pagination)中[the Link header](http://tools.ietf.org/html/rfc5988)规范，。JHipster在后端（Spring MVC REST）和前端（Angular / React）都提供了该规范的定制实现。
+分頁使用[GitHub API](https://developer.github.com/v3/#pagination)中[the Link header](http://tools.ietf.org/html/rfc5988)規範，。JHipster在後端（Spring MVC REST）和前端（Angular / React）都提供了該規範的定製實現。
 
-生成实体时，JHipster提供3个分页选项：
+生成實體時，JHipster提供3個分頁選項：
 
-*   没有分页（在这种情况下，后端将不会分页）
-*   基于[Bootstrap分页组件](https://getbootstrap.com/docs/4.3/components/pagination/){: target="_blank"} 的完整分页系统
-*   基于[无限滚动指令](http://sroze.github.io/ngInfiniteScroll/) 的无限滚动系统
+*   沒有分頁（在這種情況下，後端將不會分頁）
+*   基於[Bootstrap分頁元件](https://getbootstrap.com/docs/4.3/components/pagination/){: target="_blank"} 的完整分頁系統
+*   基於[無限捲動指令](http://sroze.github.io/ngInfiniteScroll/) 的無限捲動系統
 
-## 更新现有实体
+## 更新現有實體
 
-实体配置保存在`.jhipster`目录中的特定`.json`文件中。因此，如果使用现有实体名称再次运行子生成器，则可以更新或重新生成实体。
+實體設定儲存在`.jhipster`目錄中的特定`.json`檔案中。因此，如果使用現有實體名稱再次執行子產生器，則可以更新或重新生成實體。
 
-当您为现有实体运行实体子生成器时，系统会询问您“Do you want to update the entity? This will replace the existing files for this entity, all your custom code will be overwritten”(您确定需要更新实体吗？这将替换该实体的现有文件，所有自定义代码将被覆盖)，并具有以下选项：
+當您為現有實體執行實體子產生器時，系統會詢問您『Do you want to update the entity? This will replace the existing files for this entity, all your custom code will be overwritten』(您確定需要更新實體嗎？這將替換該實體的現有檔案，所有自定義程式碼將被覆蓋)，並具有以下選項：
 
-*   `Yes, re generate the entity` - 这将重新生成您的实体。提示：这可以通过在运行子生成器时传递`--regenerate`标志来强制执行
-*   `Yes, add more fields and relationships` - 这将需要您回答一些问题，以添加更多字段和关系
-*   `Yes, remove fields and relationships` - 这将需要您回答一些问题，以便从实体中删除现有字段和关系
-*   `No, exit` - 这将存在子生成器而无需更改任何内容
+*   `Yes, re generate the entity` - 這將重新生成您的實體。提示：這可以透過在執行子產生器時傳遞`--regenerate`標誌來強制執行
+*   `Yes, add more fields and relationships` - 這將需要您回答一些問題，以新增更多欄位和關係
+*   `Yes, remove fields and relationships` - 這將需要您回答一些問題，以便從實體中刪除現有欄位和關係
+*   `No, exit` - 這將存在子產生器而無需更改任何內容
 
-您可能由于以下原因而要更新您的实体：
+您可能由於以下原因而要更新您的實體：
 
-*   您想要向现有实体添加/删除字段和关系
-*   您想将实体代码重置为原始状态
-*   您已经更新了JHipster，并希望使用新模板生成您的实体
-*   您已经修改了`.json`配置文件（此文件格式与生成器所提出的问题非常接近，容易修改，因此并不是很复杂），想使用修改后的新版本实体
-*   您已经复制/粘贴了`.json`文件，并且想要一个与复制文件对应实体非常接近的新实体
+*   您想要向現有實體新增/刪除欄位和關係
+*   您想將實體程式碼重置為原始狀態
+*   您已經更新了JHipster，並希望使用新樣板生成您的實體
+*   您已經修改了`.json`設定檔案（此檔案格式與產生器所提出的問題非常接近，容易修改，因此並不是很複雜），想使用修改後的新版本實體
+*   您已經複製/貼上了`.json`檔案，並且想要一個與複製檔案對應實體非常接近的新實體
 
-提示：要立即重新生成所有实体，可以使用以下命令（不提供`--force`标识会在文件更改时询问覆盖选项）。
+提示：要立即重新生成所有實體，可以使用以下指令（不提供`--force`標識會在檔案更改時詢問覆蓋選項）。
 
 *   Linux & Mac: ``for f in `ls .jhipster`; do jhipster entity ${f%.*} --force ; done``
 *   Windows: `for %f in (.jhipster/*) do jhipster entity %~nf --force`
 
 ## 教程
 
-这是一个简短的教程，介绍如何创建具有一对多关系的两个实体（Author和Book）。
+這是一個簡短的教程，介紹如何建立具有一對多關係的兩個實體（Author和Book）。
 
-**重要提示** 如果需要要实时重新加载JavaScript/TypeScript代码，则需要运行`npm start`或`yarn start`。您可以转到[在开发中使用JHipster]页面以获取更多信息。
+**重要提示** 如果需要要實時重新載入JavaScript/TypeScript程式碼，則需要執行`npm start`或`yarn start`。您可以轉到[在開發中使用JHipster]頁面以獲取更多訊息。
 
-### 生成"Author"实体
+### 生成"Author"實體
 
-因为我们希望在作者和书籍之间建立一对多的关系（一个作者可以写很多本书），所以我们需要首先创建作者。然后，在数据库级别，JHipster将能够在Book表上添加外键，从而链接到Author表。
+因為我們希望在作者和書籍之間建立一對多的關係（一個作者可以寫很多本書），所以我們需要首先建立作者。然後，在資料庫級別，JHipster將能夠在Book表上新增外鍵，從而連結到Author表。
 
 `jhipster entity author`
 
-接下来回答有关该实体字段的问题，author实体包括以下字段：
+接下來回答有關該實體欄位的問題，author實體包括以下欄位：
 
-*   "name"字段， "String"类型
-*   "birthDate"字段，"LocalDate"类型
+*   "name"欄位， "String"型別
+*   "birthDate"欄位，"LocalDate"型別
 
-然后回答有关实体关系的问题，作者包括：
+然後回答有關實體關係的問題，作者包括：
 
-*   与“book”实体之间的一对多关系（尚不存在， 因为book实体还未创建）
+*   與『book』實體之間的一對多關係（尚不存在， 因為book實體還未建立）
 
-### 生成"Book"实体
+### 生成"Book"實體
 
 `jhipster entity book`
 
-接下来回答有关该实体字段的问题，book实体包括以下字段：
+接下來回答有關該實體欄位的問題，book實體包括以下欄位：
 
-*   "title"字段, "String"类型
-*   "description"字段, "String"类型
-*   "publicationDate"字段, "LocalDate"类型
-*   "price"字段, "BigDecimal"类型
+*   "title"欄位, "String"型別
+*   "description"欄位, "String"型別
+*   "publicationDate"欄位, "LocalDate"型別
+*   "price"欄位, "BigDecimal"型別
 
-然后回答有关实体关系的问题，book：
+然後回答有關實體關係的問題，book：
 
-*   与”author“实体具有多对一关系
-*   并且此关系使用"name"字段（来自Author实体）显示
+*   與』author『實體具有多對一關係
+*   並且此關係使用"name"欄位（來自Author實體）顯示
 
-### 检查生成的代码
+### 檢查生成的程式碼
 
-使用`mvn test`运行生成的测试集，该测试集将测试Author实体和Book实体。
+使用`mvn test`執行生成的測試集，該測試集將測試Author實體和Book實體。
 
-启动应用程序（例如，使用`mvn`），在前端登录，并在“Entity”菜单中选择"Author"和"Book"实体。
+啟動應用程式（例如，使用`mvn`），在前端登入，並在『Entity』選單中選擇"Author"和"Book"實體。
 
-检查数据库表，查看是否正确插入了数据。
+檢查資料庫表，檢視是否正確插入了資料。
 
-### 改进生成的代码
+### 改進生成的程式碼
 
-生成的文件包含所有基本的CRUD操作，如果您无需CRUD以外的操作，则无需修改。
+生成的檔案包含所有基本的CRUD操作，如果您無需CRUD以外的操作，則無需修改。
 
-如果要修改生成的代码或数据库架构，则应遵循我们的[开发指南]({{ site.url }}/development/)
+如果要修改生成的程式碼或資料庫架構，則應遵循我們的[開發指南]({{ site.url }}/development/)
 
-如果您想要实现一些更复杂的业务行为，则可能需要使用[服务子生成器]({{ site.url }}/creating-a-service/)添加Spring`@Service`类。
+如果您想要實現一些更復雜的業務行為，則可能需要使用[服務子產生器]({{ site.url }}/creating-a-service/)新增Spring`@Service`類。
 
 ### 完成了！
 
-您生成的CRUD页面应如下所示：
+您生成的CRUD頁面應如下所示：
 
 ![]({{ site.url }}/images/screenshot_5.png)

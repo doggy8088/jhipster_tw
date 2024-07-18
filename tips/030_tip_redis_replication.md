@@ -1,23 +1,23 @@
 ---
 layout: default
-title: 配置Redis Leader-Follower（主-从）复制
+title: 設定Redis Leader-Follower（主-從）複製
 sitemap:
 priority: 0.1
 lastmod: 2020-03-23T12:30:00-00:00
 ---
 
-# 配置Redis Leader-Follower(master-slave)复制
+# 設定Redis Leader-Follower(master-slave)複製
 
-**提交者 [@zhx828](https://github.com/zhx828)**
+**送出者 [@zhx828](https://github.com/zhx828)**
 
-在最新的JHipster生成器中，它为生产部署提供了redis集群设置。 但是通常，对于小型项目而言，这可能是过大的选择。 本文档提供了配置RedisLeader-Follower（主-从）复制的解决方案。 有关Redis复制的更多信息，请参见[** 相关文档 **](https://redis.io/topics/replication) 。
+在最新的JHipster產生器中，它為生產部署提供了redis叢集設定。 但是通常，對於小型專案而言，這可能是過大的選擇。 本文件提供了設定RedisLeader-Follower（主-從）複製的解決方案。 有關Redis複製的更多訊息，請參見[** 相關文件 **](https://redis.io/topics/replication) 。
 
-以下更改基于我自己的项目设置。 我假设您已经修改了应用程序属性以设置Redis密码，因此可以相应地调整自己的密码。
+以下更改基於我自己的專案設定。 我假設您已經修改了應用程式屬性以設定Redis密碼，因此可以相應地調整自己的密碼。
 
 
 ## 第1步
 
-增加文件 `RedisProperties.java`:
+增加檔案 `RedisProperties.java`:
 ```
 public class RedisProperties {
     String type;
@@ -60,7 +60,7 @@ public class RedisProperties {
 ```
 
 ## 第二步
-增加Redis属性文件 `ApplicationProperties.java`
+增加Redis屬性檔案 `ApplicationProperties.java`
 ```
 public class ApplicationProperties {
     ...
@@ -79,7 +79,7 @@ public class ApplicationProperties {
 ```
 
 ## 第3步
-更新文件 `CacheConfiguration.java`中的 `jcacheConfiguration`方法。这些更改必须与当前群集设置结合在一起。
+更新檔案 `CacheConfiguration.java`中的 `jcacheConfiguration`方法。這些更改必須與當前群集設定結合在一起。
 
 ```
 if (applicationProperties.getRedis().getType().equals(RedisType.SINGLE.getType())) {
@@ -97,7 +97,7 @@ if (applicationProperties.getRedis().getType().equals(RedisType.SINGLE.getType()
 ```
 
 ## 第4步
-更新 `application-dev.yml` 使用单个服务器
+更新 `application-dev.yml` 使用單個伺服器
 ```
 application:
   profile: dev
@@ -110,7 +110,7 @@ application:
 ```
 
 ## 第5步
-更新 `application-prod.yml` 使用主从服务器
+更新 `application-prod.yml` 使用主從伺服器
 ```
 application:
   profile: prod

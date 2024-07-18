@@ -1,31 +1,31 @@
 ---
 layout: default
-title: 自定义Bootstrap 4
+title: 自定義Bootstrap 4
 permalink: /customizing-bootstrap-4/
 sitemap:
     priority: 0.7
     lastmod: 2017-12-08T00:00:00-00:00
 ---
 
-# <i class="fa fa-css3"></i> 自定义Bootstrap 4
+# <i class="fa fa-css3"></i> 自定義Bootstrap 4
 
-## 基本定制
+## 基本定製
 
-_专家提示：不要忘记运行`npm start`或`yarn start`以获取更改后的即时反馈！_
+_專家提示：不要忘記執行`npm start`或`yarn start`以獲取更改後的即時反饋！_
 
-定制JHipster应用程序外观的最简单方法是，通过覆盖`src/main/webapp/content/css/global.css`中的CSS样式，或者如果您选择了Sass选项，则重写`src/main/webapp/content/scss/global.scss`文件。
+定製JHipster應用程式外觀的最簡單方法是，透過覆蓋`src/main/webapp/content/css/global.css`中的CSS樣式，或者如果您選擇了Sass選項，則重寫`src/main/webapp/content/scss/global.scss`檔案。
 
-由于Bootstrap也是用Sass编写的，因此与普通CSS相比，使用Sass既简单，简洁又功能强大，请参考[Bootstrap的官方主题文档](https://getbootstrap.com/docs/4.0/getting-started/theming/)。
+由於Bootstrap也是用Sass編寫的，因此與普通CSS相比，使用Sass既簡單，簡潔又功能強大，請參考[Bootstrap的官方主題文件](https://getbootstrap.com/docs/4.0/getting-started/theming/)。
 
-如果要在自己的`scss`文件中使用Bootstrap [partials](http://sass-lang.com/guide)，请按如下所示将其导入`scss`文件的开头。
+如果要在自己的`scss`檔案中使用Bootstrap [partials](http://sass-lang.com/guide)，請按如下所示將其匯入`scss`檔案的開頭。
 例如，使用border-radius mixin：
 ```
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins/border-radius";
 ```
 
-确保仅导入部分文件而不导入主Sass文件，否则最终将生成重复的CSS，这可能会导致问题。
+確保僅匯入部分檔案而不匯入主Sass檔案，否則最終將生成重複的CSS，這可能會導致問題。
 
-要更改默认的Bootstrap设置（例如颜色，边框半径等），请在局部文件`src/main/webapp/content/scss/_bootstrap-variable.scss`中添加或更改属性的值
+要更改預設的Bootstrap設定（例如顏色，邊框半徑等），請在區域性檔案`src/main/webapp/content/scss/_bootstrap-variable.scss`中新增或更改屬性的值
 
-Bootstrap  [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)中定义的所有值都可以在此处覆盖。
+Bootstrap  [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)中定義的所有值都可以在此處覆蓋。

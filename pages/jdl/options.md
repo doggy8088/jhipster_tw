@@ -1,18 +1,18 @@
 ---
 layout: default
-title: JHipster 领域语言 (JDL) - 选项
+title: JHipster 領域語言 (JDL) - 選項
 permalink: /jdl/options
 sitemap:
     priority: 0.5
     lastmod: 2019-11-02T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster 领域语言 (JDL) - 选项
+# <i class="fa fa-star"></i> JHipster 領域語言 (JDL) - 選項
 
 ## 概要
 
-在JHipster中，您可以为实体指定选项，例如分页或DTO。
-您可以使用JDL进行相同的操作，或者使用实体上的注解，或者使用以下语法：
+在JHipster中，您可以為實體指定選項，例如分頁或DTO。
+您可以使用JDL進行相同的操作，或者使用實體上的註解，或者使用以下語法：
 
     entity A {
       name String required
@@ -29,45 +29,45 @@ sitemap:
     service A with serviceClass
     service C with serviceImpl
 
-可用选项的完整列表可查看 [选项列表](#选项列表).
+可用選項的完整清單可檢視 [選項清單](#選項清單).
 
-1. [怎么做](#怎么做)
-1. [语法](#语法)
-1. [使用use XYZ选项](#使用use XYZ选项)
-1. [示例](#示例)
-   1. [基本一元示例](#基本一元示例)
-   1. [基本二元示例](#基本二元示例)
-   1. [all和*关键字示例](#all--example)
-   1. [all和 * 带有排除项的示例（一元）](#all--example-with-exclusions-unary)
-   1. [all和 * 带有排除项的示例（二元）](#all--example-with-exclusions-binary)
-   1. [具有自定义值的选项](#具有自定义值的选项)
+1. [怎麼做](#怎麼做)
+1. [語法](#語法)
+1. [使用use XYZ選項](#使用use XYZ選項)
+1. [範例](#範例)
+   1. [基本一元範例](#基本一元範例)
+   1. [基本二元範例](#基本二元範例)
+   1. [all和*關鍵字範例](#all--example)
+   1. [all和 * 帶有排除項的範例（一元）](#all--example-with-exclusions-unary)
+   1. [all和 * 帶有排除項的範例（二元）](#all--example-with-exclusions-binary)
+   1. [具有自定義值的選項](#具有自定義值的選項)
    1. [混合例子](#混合例子)
-1. [关于service](#关于service)
-1. [微服务相关的选项](#微服务相关的选项)
-1. [自定义注解](#自定义注解)
-1. [可用选项](#可用选项)
+1. [關於service](#關於service)
+1. [微服務相關的選項](#微服務相關的選項)
+1. [自定義註解](#自定義註解)
+1. [可用選項](#可用選項)
 1. [更多](#更多)
 
 ---
 
-### 怎么做
+### 怎麼做
 
-有两种选择：
-  - 一元（无选项值）
-  - 二元（带值）
+有兩種選擇：
+  - 一元（無選項值）
+  - 二元（帶值）
 
-有三种将选项应用于实体的方法：
-  - 使用选项名称 (`dto`、`readOnly`等)，可查看示例
-  - 使用注解
+有三種將選項應用於實體的方法：
+  - 使用選項名稱 (`dto`、`readOnly`等)，可檢視範例
+  - 使用註解
   - 使用`use XYZ`形式
 
-不建议将它们混合使用，因为这会降低可读性。
+不建議將它們混合使用，因為這會降低可讀性。
 
 ---
 
-### 语法
+### 語法
 
-对于常规形式：
+對於常規形式：
 ```
 <option name> <option entity list>
 
@@ -84,14 +84,14 @@ or
 <option name> <option entity list> except <option excluded entity list>
 ```
 
-  - 对于一元选项：
-    - 选项名称和列表是必需的
-    - 排除的实体是可选的，带有`except`关键字（有关更多详细信息，请参见下文）
-  - 对于二元选项：
-    - 实体列表位于关键字`with`和选项值之前
-    - 同样，被排除的实体最后带有`except`关键字
+  - 對於一元選項：
+    - 選項名稱和清單是必需的
+    - 排除的實體是可選的，帶有`except`關鍵字（有關更多詳細訊息，請參見下文）
+  - 對於二元選項：
+    - 實體清單位於關鍵字`with`和選項值之前
+    - 同樣，被排除的實體最後帶有`except`關鍵字
 
-对于注解：
+對於註解：
 ```
 @<option name>
 entity <entity name>
@@ -101,17 +101,17 @@ or
 @<option name>(<option value>)
 ```
 
-  - 与Java类似，注解可以将值放在括号中
-    - 根据选项的不同，值可以是或可以不是可选的
+  - 與Java類似，註解可以將值放在括號中
+    - 根據選項的不同，值可以是或可以不是可選的
 
 ---
 
-### 使用`use XYZ`选项
+### 使用`use XYZ`選項
 
-使用use 选项形式，您可以在实体上指定一些选项。
-它是在JHipster Code 2020期间创建的，其创建原因是：
-  - 解决禁用选项的问题（在JHipster中有不止一种"否"的用法：`no, false, none`）
-  - 提出一种按实体对选项进行分组的方法
+使用use 選項形式，您可以在實體上指定一些選項。
+它是在JHipster Code 2020期間建立的，其建立原因是：
+  - 解決停用選項的問題（在JHipster中有不止一種"否"的用法：`no, false, none`）
+  - 提出一種按實體對選項進行分組的方法
 
 ```jdl
 entity A
@@ -125,12 +125,12 @@ use pagination for C
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>use 选项值</th>
-    <th>说明</th>
+    <th>use 選項值</th>
+    <th>說明</th>
   </tr>
   <tr>
     <td>mapstruct</td>
-    <td>是否为您的实体创建DTO，如果实体具有DTO但没有设置service，则将使用`serviceClass`</td>
+    <td>是否為您的實體建立DTO，如果實體具有DTO但沒有設定service，則將使用`serviceClass`</td>
   </tr>
   <tr>
     <td>serviceClass</td>
@@ -142,43 +142,43 @@ use pagination for C
   </tr>
   <tr>
     <td>pagination</td>
-    <td>当应用程序使用Cassandra时，禁止将分页作为选项</td>
+    <td>當應用程式使用Cassandra時，禁止將分頁作為選項</td>
   </tr>
   <tr>
     <td>infinite-scroll</td>
-    <td>当应用程序使用Cassandra时，禁止将分页作为选项</td>
+    <td>當應用程式使用Cassandra時，禁止將分頁作為選項</td>
   </tr>
   <tr>
     <td>elasticsearch</td>
-    <td>要求应用程序启用searchEngine选项</td>
+    <td>要求應用程式啟用searchEngine選項</td>
   </tr>
   <tr>
     <td>couchbase</td>
-    <td>要求应用程序启用searchEngine选项</td>
+    <td>要求應用程式啟用searchEngine選項</td>
   </tr>
 </table>
 
 ---
 
-### 示例
+### 範例
 
-每个示例将具有三种形式：
-  - 常规的
-  - 基于注解的
-  - use 形式（如适用）
+每個範例將具有三種形式：
+  - 常規的
+  - 基於註解的
+  - use 形式（如適用）
 
 ---
 
-#### 基本一元示例
+#### 基本一元範例
 
-常规的：
+常規的：
 ```jdl
 entity A
 
 readOnly A
 ```
 
-基于注解的：
+基於註解的：
 ```jdl
 @readOnly
 entity A
@@ -186,22 +186,22 @@ entity A
 
 ---
 
-#### 基本二元示例
+#### 基本二元範例
 
-常规的：
+常規的：
 ```jdl
 entity A
 
 dto A with mapstruct
 ```
 
-基于注解的
+基於註解的
 ```jdl
 @dto(mapstruct)
 entity A
 ```
 
-使用 `use` 关键字：
+使用 `use` 關鍵字：
 ```jdl
 entity A
 
@@ -210,11 +210,11 @@ use mapstruct, serviceImpl, pagination for A
 
 ---
 
-#### <a name="all--example"></a>`all`和` * `关键字示例
+#### <a name="all--example"></a>`all`和` * `關鍵字範例
 
 `all` 和 `*` 是相同的
 
-常规的：
+常規的：
 ```jdl
 entity A
 entity B
@@ -222,7 +222,7 @@ entity B
 dto all with mapstruct
 ```
 
-基于注解的：
+基於註解的：
 ```jdl
 @dto(mapstruct)
 entity A
@@ -231,7 +231,7 @@ entity A
 entity B
 ```
 
-使用 `use` 关键字：
+使用 `use` 關鍵字：
 ```jdl
 entity A
 entity B
@@ -241,9 +241,9 @@ use mapstruct, serviceImpl, pagination for *
 
 ---
 
-#### <a name="all--example-with-exclusions-unary"></a>`all`和` * ` 带有排除项的示例（一元）
+#### <a name="all--example-with-exclusions-unary"></a>`all`和` * ` 帶有排除項的範例（一元）
 
-常规的：
+常規的：
 ```jdl
 entity A
 entity B
@@ -251,7 +251,7 @@ entity B
 skipClient * except A
 ```
 
-基于注解的：
+基於註解的：
 ```jdl
 entity A
 
@@ -259,7 +259,7 @@ entity A
 entity B
 ```
 
-使用 `use` 关键字：
+使用 `use` 關鍵字：
 ```jdl
 entity A
 entity B
@@ -269,9 +269,9 @@ use mapstruct, serviceImpl, pagination for * except A
 
 ---
 
-#### <a name="all--example-with-exclusions-binary"></a>`all`和` * ` 带有排除项的示例（二元）
+#### <a name="all--example-with-exclusions-binary"></a>`all`和` * ` 帶有排除項的範例（二元）
 
-常规的：
+常規的：
 ```jdl
 entity A
 entity B
@@ -279,7 +279,7 @@ entity B
 dto all with mapstruct except A
 ```
 
-基于注解的：
+基於註解的：
 ```jdl
 entity A
 
@@ -287,7 +287,7 @@ entity A
 entity B
 ```
 
-使用 `use` 关键字：
+使用 `use` 關鍵字：
 ```jdl
 entity A
 entity B
@@ -297,7 +297,7 @@ use mapstruct, serviceImpl, pagination for all except A
 
 ---
 
-#### 具有自定义值的选项
+#### 具有自定義值的選項
 
 ```jdl
 entity A
@@ -310,7 +310,7 @@ microservice all with mySuperMS
 
 #### 混合例子
 
-常规的：
+常規的：
 ```jdl
 entity A
 entity B
@@ -322,7 +322,7 @@ service * with serviceClass except C
 search A with elasticsearch
 ```
 
-基于注解的：
+基於註解的：
 ```jdl
 @dto(mapstruct)
 @search(elastisearch)
@@ -340,17 +340,17 @@ entity C
 
 ---
 
-### 关于service
+### 關於service
 
-指定的`service`都不会创建将直接调用`repository`接口的`resource`类。 这是默认和最简单的选项，请参阅A。
+指定的`service`都不會建立將直接呼叫`repository`介面的`resource`類。 這是預設和最簡單的選項，請參閱A。
 
-`service with serviceClass`（请参见B）将使`resource`调用`service`类，后者将调用`repository`接口。
-`service with serviceImpl` （请参阅C）将创建一个`service`接口，该接口将由`resource`类使用。
+`service with serviceClass`（請參見B）將使`resource`呼叫`service`類，後者將呼叫`repository`介面。
+`service with serviceImpl` （請參閱C）將建立一個`service`介面，該介面將由`resource`類使用。
 
-该接口由将调用`repository`接口的具体类实现。
+該介面由將呼叫`repository`介面的具體類實現。
 
-除非确定，否则不使用任何`service`，这对CRUD来说是最简单的选择。 如果您将有很多业务逻辑，这些业务逻辑将使用多个`repository`，因此非常适合用于`service`类。
-JHipster不是使用`service`接口的粉丝，但是如果您喜欢它们，请使用`service`的实现类。
+除非確定，否則不使用任何`service`，這對CRUD來說是最簡單的選擇。 如果您將有很多業務邏輯，這些業務邏輯將使用多個`repository`，因此非常適合用於`service`類。
+JHipster不是使用`service`介面的粉絲，但是如果您喜歡它們，請使用`service`的實現類。
 
     entity A
     entity B
@@ -362,12 +362,12 @@ JHipster不是使用`service`接口的粉丝，但是如果您喜欢它们，请
 
 ---
 
-### 微服务相关的选项
+### 微服務相關的選項
 
-从JHipster v3开始，可以创建微服务。 您可以指定一些选项以在JDL中生成您的实体：
-微服务的名称和搜索引擎。
+從JHipster v3開始，可以建立微服務。 您可以指定一些選項以在JDL中生成您的實體：
+微服務的名稱和搜尋引擎。
 
-您可以通过以下方法指定微服务的名称（JHipster应用程序的名称）：
+您可以透過以下方法指定微服務的名稱（JHipster應用程式的名稱）：
 
 ```
 entity A
@@ -378,52 +378,52 @@ microservice C with myotherjhipsterapp
 search * with elasticsearch except C
 ```
 
-第一个选项用于告诉JHipster您希望微服务处理您的实体，而第二个选项指定您如何以及是否希望搜索实体。
+第一個選項用於告訴JHipster您希望微服務處理您的實體，而第二個選項指定您如何以及是否希望搜尋實體。
 
 ---
 
-### 自定义注解
+### 自定義註解
 
-自定义注解在JDL中是可以的，例如：
+自定義註解在JDL中是可以的，例如：
 
 ```jdl
 @customAnnotation(customValue)
 entity A
 ```
 
-这样做的主要目的是用于方案（blueprint）：有时，您需要为实体甚至字段提供自定义选项。
-对于常规选项（`dto`、`pagination`等)，这些选项将像在CLI中一样在JSON中生成。
-但是，对于自定义选项，它们将在转储的JSON中的`options`键下生成。
+這樣做的主要目的是用於方案（blueprint）：有時，您需要為實體甚至欄位提供自定義選項。
+對於常規選項（`dto`、`pagination`等)，這些選項將像在CLI中一樣在JSON中生成。
+但是，對於自定義選項，它們將在轉儲的JSON中的`options`鍵下生成。
 
 ---
 
-### 可用选项
+### 可用選項
 
-以下是JDL支持的实体选项：
+以下是JDL支援的實體選項：
 
-_不是您要找的？ 查看 [应用程序选项](/jdl/applications#available-application-configuration-options)._
+_不是您要找的？ 檢視 [應用程式選項](/jdl/applications#available-application-configuration-options)._
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>JDL 选项名称</th>
-    <th>选项类型</th>
-    <th>默认值</th>
-    <th>可选值</th>
-    <th>说明</th>
+    <th>JDL 選項名稱</th>
+    <th>選項型別</th>
+    <th>預設值</th>
+    <th>可選值</th>
+    <th>說明</th>
   </tr>
   <tr>
     <td>skipClient</td>
     <td>unary</td>
     <td>false</td>
     <td></td>
-    <td>这将使前端代码生成被跳过</td>
+    <td>這將使前端程式碼生成被跳過</td>
   </tr>
   <tr>
     <td>skipServer</td>
     <td>unary</td>
     <td>false</td>
     <td></td>
-    <td>这将使服务器代码生成被跳过</td>
+    <td>這將使伺服器程式碼生成被跳過</td>
   </tr>
   <tr>
     <td>noFluentMethod</td>
@@ -431,8 +431,8 @@ _不是您要找的？ 查看 [应用程序选项](/jdl/applications#available-a
     <td>false</td>
     <td></td>
     <td>
-      查看<a href="https://www.jhipster.tech/2016/08/17/jhipster-release-3.6.0.html#important-change-fluent-setters">说明</a>
-      了解更详细内容
+      檢視<a href="https://www.jhipster.tech/2016/08/17/jhipster-release-3.6.0.html#important-change-fluent-setters">說明</a>
+      瞭解更詳細內容
     </td>
   </tr>
   <tr>
@@ -441,7 +441,7 @@ _不是您要找的？ 查看 [应用程序选项](/jdl/applications#available-a
     <td>false</td>
     <td></td>
     <td>
-      查看<a href="https://www.jhipster.tech/entities-filtering/">过滤</a> 了解更多详细内容；如果设置为true,但未设置`service`，则将使用`serviceClass`
+      檢視<a href="https://www.jhipster.tech/entities-filtering/">過濾</a> 瞭解更多詳細內容；如果設定為true,但未設定`service`，則將使用`serviceClass`
     </td>
   </tr>
   <tr>
@@ -450,9 +450,9 @@ _不是您要找的？ 查看 [应用程序选项](/jdl/applications#available-a
     <td>false</td>
     <td></td>
     <td>
-      添加此选项将使实体变为只读， 查看
-      <a href="https://www.jhipster.tech/2019/10/10/jhipster-release-6.4.0.html#jhipster-release-v640">发布日志</a>
-      进一步了解。
+      新增此選項將使實體變為只讀， 檢視
+      <a href="https://www.jhipster.tech/2019/10/10/jhipster-release-6.4.0.html#jhipster-release-v640">發布日誌</a>
+      進一步瞭解。
      </td>
   </tr>
   <tr>
@@ -460,7 +460,7 @@ _不是您要找的？ 查看 [应用程序选项](/jdl/applications#available-a
     <td>binary</td>
     <td>no</td>
     <td>mapstruct, no</td>
-    <td>是否为您的实体创建DTO，如果实体具有DTO但没有`service`，则将使用`serviceClass`</td>
+    <td>是否為您的實體建立DTO，如果實體具有DTO但沒有`service`，則將使用`serviceClass`</td>
   </tr>
   <tr>
     <td>service</td>
@@ -474,21 +474,21 @@ _不是您要找的？ 查看 [应用程序选项](/jdl/applications#available-a
     <td>binary</td>
     <td>no</td>
     <td>pagination, infinite-scroll, no</td>
-    <td>当应用程序使用Cassandra时，禁止分页</td>
+    <td>當應用程式使用Cassandra時，禁止分頁</td>
   </tr>
   <tr>
     <td>search</td>
     <td>binary</td>
     <td>no</td>
     <td>elasticsearch, no</td>
-    <td>要求应用程序启用searchEngine选项</td>
+    <td>要求應用程式啟用searchEngine選項</td>
   </tr>
   <tr>
     <td>microservice</td>
     <td>binary</td>
     <td></td>
     <td>custom value</td>
-    <td>将为微服务应用程序内声明的每个实体自动添加</td>
+    <td>將為微服務應用程式內宣告的每個實體自動新增</td>
   </tr>
   <tr>
     <td>angularSuffix</td>
@@ -510,4 +510,4 @@ _不是您要找的？ 查看 [应用程序选项](/jdl/applications#available-a
 
 ### 更多
 
-应用程序选项 [在这儿](/jdl/applications)
+應用程式選項 [在這兒](/jdl/applications)

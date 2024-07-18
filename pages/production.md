@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 在生产中使用JHipster
+title: 在生產中使用JHipster
 permalink: /production/
 redirect_from:
   - /production.html
@@ -9,53 +9,53 @@ sitemap:
     lastmod: 2019-02-04T00:00:00-00:00
 ---
 
-# <i class="fa fa-play-circle"></i> 在生产中使用JHipster
+# <i class="fa fa-play-circle"></i> 在生產中使用JHipster
 
-JHipster生成了完全可用于生产，优化和安全的应用程序。本部分介绍了更重要的选项-如果您急于赶时间，请运行常规的生产版本，但不要忘记阅读安全性部分！
+JHipster生成了完全可用於生產，最佳化和安全的應用程式。本部分介紹了更重要的選項-如果您急於趕時間，請執行常規的生產版本，但不要忘記閱讀安全性部分！
 
-1. [构建生产包](#build)
-2. [在生产中运行](#run)
-3. [性能优化](#performance)
+1. [建立生產套件](#build)
+2. [在生產中執行](#run)
+3. [效能最佳化](#performance)
 4. [安全](#security)
-5. [监控](#monitoring)
+5. [監控](#monitoring)
 
-## <a name="build"></a> 构建生产包
+## <a name="build"></a> 建立生產套件
 
-### 测试生产版本
+### 測試生產版本
 
-这样就可以从Maven测试生产版本，而无需构建真正的程序包。
+這樣就可以從Maven測試生產版本，而無需建立真正的程式套件。
 
-要在生产模式下使用JHipster，请使用预先配置的`prod`概要文件。使用Maven，请运行：
+要在生產模式下使用JHipster，請使用預先設定的`prod`概要檔案。使用Maven，請執行：
 
 `./mvnw -Pprod`
 
-使用Gradle时，请运行：
+使用Gradle時，請執行：
 
 `./gradlew -Pprod`
 
-此配置文件将使用所有生产设置编译，测试和打包您的应用程序。
+此設定檔案將使用所有生產設定編譯，測試和打包您的應用程式。
 
-如果需要有关可用配置文件的更多信息，请转到标题为"[开发和生产配置文件]({{ site.url }}/profiles/)"部分。
+如果需要有關可用設定檔案的更多訊息，請轉到標題為"[開發和生產設定檔案]({{ site.url }}/profiles/)"部分。
 
-### 构建可执行的JAR/WAR文件
+### 建立可執行的JAR/WAR檔案
 
 #### With Maven
 
-- 要将应用程序打包为生成JAR，请输入：
+- 要將應用程式打包為生成JAR，請輸入：
 
   `./mvnw -Pprod clean verify`
 
-  这将生成一个文件`target/jhipster-0.0.1-SNAPSHOT.jar`（如果您的应用程序称为`jhipster`）。
+  這將生成一個檔案`target/jhipster-0.0.1-SNAPSHOT.jar`（如果您的應用程式稱為`jhipster`）。
 
-- 要将应用程序打包为生成WAR：
+- 要將應用程式打包為生成WAR：
   
-    - 修改pom.xml，将应用程序包装更改为war，例如：
+    - 修改pom.xml，將應用程式包裝更改為war，例如：
 
     ```diff
     -    <packaging>jar</packaging>
     +    <packaging>war</packaging>
     ``` 
-  - 修改`pom.xml`以将`spring-boot-starter-undertow`的依赖范围更改为`provided`，例如：
+  - 修改`pom.xml`以將`spring-boot-starter-undertow`的依賴範圍更改為`provided`，例如：
 
     ```diff
         <id>prod</id>
@@ -67,16 +67,16 @@ JHipster生成了完全可用于生产，优化和安全的应用程序。本部
             </dependency>
         </dependencies>
     ``` 
-    - 要将原始`war`生成可执行文件`war`，请输入命令：
+    - 要將原始`war`生成可執行檔案`war`，請輸入指令：
     ```bash
     ./mvnw -Pprod clean verify
     ```
-    - 这将生成以下文件（如果您的应用程序称为`jhipster`）：
+    - 這將生成以下檔案（如果您的應用程式稱為`jhipster`）：
       * `target/jhipster-0.0.1-SNAPSHOT.war`
       * `target/jhipster-0.0.1-SNAPSHOT.war.original`
         
-**请注意**，当使用`context path`构建JAR或WAR文件时，并且**React client**或**Vue client**，则需要更新`webpack.prod.js`或`webpack.common.js`（使用**Vue**时更新两个文件）具有正确的`base`属性值。
-将`jhipster`作为上下文路径，`base`属性值应如下所示：
+**請注意**，當使用`context path`建立JAR或WAR檔案時，並且**React client**或**Vue client**，則需要更新`webpack.prod.js`或`webpack.common.js`（使用**Vue**時更新兩個檔案）具有正確的`base`屬性值。
+將`jhipster`作為上下文路徑，`base`屬性值應如下所示：
 
 ```
 new HtmlWebpackPlugin({
@@ -85,29 +85,29 @@ new HtmlWebpackPlugin({
 })
 ```
 
-如果您前端选择了`Angular`，则需要使用适当的`base`”`标签更新`index.html`。
-将`jhipster`作为上下文路径，`base`标签值应如下所示：
+如果您前端選擇了`Angular`，則需要使用適當的`base`』`標籤更新`index.html`。
+將`jhipster`作為上下文路徑，`base`標籤值應如下所示：
 
 ```
 <base href="/jhipster/"/>
 ```
 
-**请注意**，当使用`prod`配置文件构建JAR或WAR文件时，生成的归档文件将不包含`dev`资产。
+**請注意**，當使用`prod`設定檔案建立JAR或WAR檔案時，生成的歸檔檔案將不包含`dev`資產。
 
 #### 使用Gradle
 
-要将应用程序打包为`production` JAR，请输入：
+要將應用程式打包為`production` JAR，請輸入：
 
 `./gradlew -Pprod clean bootJar`
 
-这将生成一个文件`build/libs/jhipster-0.0.1-SNAPSHOT.jar`（如果您的应用程序称为`jhipster`）。
+這將生成一個檔案`build/libs/jhipster-0.0.1-SNAPSHOT.jar`（如果您的應用程式稱為`jhipster`）。
 
-要将应用程序打包为`production` WAR，请输入：
+要將應用程式打包為`production` WAR，請輸入：
 
 `./gradlew -Pprod -Pwar clean bootWar`
 
-**请注意**，当使用`context path`构建JAR或WAR文件时，并且**React client**或**Vue client**，则需要更新`webpack.prod.js`或`webpack.common.js`（使用**Vue**时更新两个文件）具有正确的`base`属性值。
-将`jhipster`作为上下文路径，`base`属性值应如下所示：
+**請注意**，當使用`context path`建立JAR或WAR檔案時，並且**React client**或**Vue client**，則需要更新`webpack.prod.js`或`webpack.common.js`（使用**Vue**時更新兩個檔案）具有正確的`base`屬性值。
+將`jhipster`作為上下文路徑，`base`屬性值應如下所示：
 
 ```
 new HtmlWebpackPlugin({
@@ -116,46 +116,46 @@ new HtmlWebpackPlugin({
 })
 ```
 
-如果您前端选择了`Angular`，则需要使用适当的`base`”`标签更新`index.html`。
-将`jhipster`作为上下文路径，`base`标签值应如下所示：
+如果您前端選擇了`Angular`，則需要使用適當的`base`』`標籤更新`index.html`。
+將`jhipster`作為上下文路徑，`base`標籤值應如下所示：
 
 ```
 <base href="/jhipster/"/>
 ```
 
-**请注意**，当使用`prod`配置文件构建JAR或WAR文件时，生成的归档文件将不包含`dev`资产。
+**請注意**，當使用`prod`設定檔案建立JAR或WAR檔案時，生成的歸檔檔案將不包含`dev`資產。
 
-## <a name="run"></a> 在生产中运行
+## <a name="run"></a> 在生產中執行
 
-### 在没有应用程序服务器的情况下执行JAR文件
+### 在沒有應用程式伺服器的情況下執行JAR檔案
 
-与部署到应用程序服务器相比，许多人发现拥有单个可执行的JAR文件更加容易。
+與部署到應用程式伺服器相比，許多人發現擁有單個可執行的JAR檔案更加容易。
 
-使用上一步中生成的JAR文件，以生产模式运行它，您可以通过输入（在Mac OS X或Linux上）：
+使用上一步中生成的JAR檔案，以生產模式執行它，您可以透過輸入（在Mac OS X或Linux上）：
 
 `./jhipster-0.0.1-SNAPSHOT.jar`
 
-如果您使用的是Windows，请使用：
+如果您使用的是Windows，請使用：
 
 `java -jar jhipster-0.0.1-SNAPSHOT.jar`
 
-**请注意** 该JAR文件使用我们在构建文件时选择的配置文件。由于它是使用上一节中的`prod`文件构建的，因此它将与`prod`配置文件一起运行。
+**請注意** 該JAR檔案使用我們在建立檔案時選擇的設定檔案。由於它是使用上一節中的`prod`檔案建立的，因此它將與`prod`設定檔案一起執行。
 
-您可以将上下文路径指定为环境变量或命令行参数，例如：
+您可以將上下文路徑指定為環境變數或指令行引數，例如：
 
 ```bash 
 java -jar jhipster.jar --server.servlet.context-path=/jhipster
 ```
 
-### 在Docker容器中运行应用程序
+### 在Docker容器中執行應用程式
 
-JHipster对Docker具有一等公民的支持：将可执行JAR文件捆绑在Docker镜像中并在Docker中运行非常容易。
+JHipster對Docker具有一等公民的支援：將可執行JAR檔案捆綁在Docker映象中並在Docker中執行非常容易。
 
-要了解如何使用Docker打包您的应用程序，请阅读我们的[Docker Compose文档]({{ site.url }}/docker-compose/)。
+要了解如何使用Docker打包您的應用程式，請閱讀我們的[Docker Compose文件]({{ site.url }}/docker-compose/)。
 
-### 作为服务运行
+### 作為服務執行
 
-也可以将Jar作为Linux服务运行，并且您可能希望在打包之前强制在`pom.xml`文件指定。为此，请在`spring-boot-maven-plugin`插件的`<configuration>`内添加以下属性。
+也可以將Jar作為Linux服務執行，並且您可能希望在打包之前強制在`pom.xml`檔案指定。為此，請在`spring-boot-maven-plugin`外掛的`<configuration>`內新增以下屬性。
 
 ```
 <embeddedLaunchScriptProperties>
@@ -163,92 +163,92 @@ JHipster对Docker具有一等公民的支持：将可执行JAR文件捆绑在Doc
 </embeddedLaunchScriptProperties>
 ```
 
-接下来，使用以下命令设置您的init.d：
+接下來，使用以下指令設定您的init.d：
 
 `ln -s jhipster-0.0.1-SNAPSHOT.jar /etc/init.d/jhipster`
 
-使用以下方法保护您的应用程序安全：
+使用以下方法保護您的應用程式安全：
 
 `chown jhuser:jhuser jhipster-0.0.1-SNAPSHOT.jar
 sudo chattr +i your-app.jar`
 
-考虑到`jhuser`是将运行该应用程序的非root操作系统帐户，则可以通过以下方式运行该应用程序：
+考慮到`jhuser`是將執行該應用程式的非root作業系統帳戶，則可以透過以下方式執行該應用程式：
 
 `service jhipster start|stop|restart`
 
-您可以在[Spring Boot文档](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html)中找到许多其他选项，包括更多安全步骤和Windows服务相关。
+您可以在[Spring Boot文件](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html)中找到許多其他選項，包括更多安全步驟和Windows服務相關。
 
-## <a name="performance"></a> 性能优化
+## <a name="performance"></a> 效能最佳化
 
-### 缓存调整
+### 快取調整
 
-如果在生成应用程序时选择了缓存提供程序，则JHipster会自动为您配置它。
+如果在生成應用程式時選擇了快取提供程式，則JHipster會自動為您設定它。
 
-但是，默认缓存值非常低，因此应用程序可以在适度的硬件上运行，所以应该根据应用程序的特定业务需求来调整这些值。
+但是，預設快取值非常低，因此應用程式可以在適度的硬體上執行，所以應該根據應用程式的特定業務需求來調整這些值。
 
-请阅读：
+請閱讀：
 
-- [JHipster“使用缓存”文档]({{ site.url }}/using-cache/)可了解有关所选缓存提供程序的更多信息，以及如何对其进行调整
-- 关于[最后一部分的监控](#monitoring)，因此您可以根据应用程序的实际使用情况微调缓存
+- [JHipster『使用快取』文件]({{ site.url }}/using-cache/)可瞭解有關所選快取提供程式的更多訊息，以及如何對其進行調整
+- 關於[最後一部分的監控](#monitoring)，因此您可以根據應用程式的實際使用情況微調快取
 
-### HTTP/2支持
+### HTTP/2支援
 
-JHipster使用`jhipster.http.version`属性（在`application-prod.yml`文件中配置）支持HTTP/2。
+JHipster使用`jhipster.http.version`屬性（在`application-prod.yml`檔案中設定）支援HTTP/2。
 
-要启用HTTP/2，您需要：
+要啟用HTTP/2，您需要：
 
-- 设置`jhipster.http.version: V_2_0`
-- 配置HTTPS（请参阅本文档的[安全性部分](#security)），因为浏览器会强制将HTTPS与HTTP/2结合使用
+- 設定`jhipster.http.version: V_2_0`
+- 設定HTTPS（請參閱本文件的[安全性部分](#security)），因為瀏覽器會強制將HTTPS與HTTP/2結合使用
 
 ### GZipping
 
-在使用`prod`配置文件的可执行JAR文件中，JHipster会在您的Web资源上配置GZip压缩。
+在使用`prod`設定檔案的可執行JAR檔案中，JHipster會在您的Web資源上設定GZip壓縮。
 
-默认情况下，压缩将对所有静态资源（HTML，CSS，JavaScript）和所有REST请求起作用。通过查看在`application-prod.yml`文件中配置的Spring Boot应用程序属性中的`server.compression.*`键，可以获取有关此配置的更多信息。
+預設情況下，壓縮將對所有靜態資源（HTML，CSS，JavaScript）和所有REST請求起作用。透過檢視在`application-prod.yml`檔案中設定的Spring Boot應用程式屬性中的`server.compression.*`鍵，可以獲取有關此設定的更多訊息。
 
-**请注意** GZipping由应用程序服务器完成，因此本节仅在您使用上述“可执行的JAR”选项时适用。如果您在外部应用程序服务器上运行应用程序，则需要单独进行配置。
+**請注意** GZipping由應用程式伺服器完成，因此本節僅在您使用上述『可執行的JAR』選項時適用。如果您在外部應用程式伺服器上執行應用程式，則需要單獨進行設定。
 
-### 缓存头
+### 快取頭
 
-使用`prod`配置文件，JHipster配置了一个Servlet过滤器，该过滤器将特定的HTTP缓存头放在您的静态资源（JavaScript，CSS，字体等）上，以便浏览器和代理缓存它们。
+使用`prod`設定檔案，JHipster設定了一個Servlet過濾器，該過濾器將特定的HTTP快取頭放在您的靜態資源（JavaScript，CSS，字型等）上，以便瀏覽器和代理快取它們。
 
-### 使用Webpack生成优化的JavaScript应用程序
+### 使用Webpack生成最佳化的JavaScript應用程式
 
-使用`prod`配置文件构建项目时，将自动触发此步骤。如果要运行它而不想启动Maven构建，请运行：
+使用`prod`設定檔案建立專案時，將自動觸發此步驟。如果要執行它而不想啟動Maven建立，請執行：
 
 `npm run build`
 
-这将使用[Webpack](https://webpack.github.io/)处理所有静态资源（CSS，TypeScript，HTML，JavaScript，图片等），以生成优化的前端应用程序。
+這將使用[Webpack](https://webpack.github.io/)處理所有靜態資源（CSS，TypeScript，HTML，JavaScript，圖片等），以生成最佳化的前端應用程式。
 
-在此过程中，Webpack会将TypeScript代码编译为JavaScript代码，还将生成源映射，因此仍可以调试前端应用程序。
+在此過程中，Webpack會將TypeScript程式碼編譯為JavaScript程式碼，還將生成源對映，因此仍可以除錯前端應用程式。
 
-这些优化后的资源，如果使用Maven，将在`target/classes/static`中生成，对于Gradle，将在`build/resources/main/static`中生成，并将包含在最终的生产JAR中。
+這些最佳化後的資源，如果使用Maven，將在`target/classes/static`中生成，對於Gradle，將在`build/resources/main/static`中生成，並將包含在最終的生產JAR中。
 
-当您使用`prod`配置文件运行应用程序时，这些代码将被服务托管。
+當您使用`prod`設定檔案執行應用程式時，這些程式碼將被服務託管。
 
 ## <a name="security"></a> 安全
 
-### 保护默认用户和管理员帐户
+### 保護預設使用者和管理員帳戶
 
-JHipster会为您生成一些默认用户。在生产中，您应该更改这些用户的默认密码！
+JHipster會為您生成一些預設使用者。在生產中，您應該更改這些使用者的預設密碼！
 
-请遵循我们的[安全文档]({{ site.url }}/security/)，以了解如何更改这些密码并保护您的应用程序安全。
+請遵循我們的[安全文件]({{ site.url }}/security/)，以瞭解如何更改這些密碼並保護您的應用程式安全。
 
-### HTTPS支持
+### HTTPS支援
 
-可以直接在JHipster应用程序中配置HTTPS，也可以使用特定的前端代理进行配置。
+可以直接在JHipster應用程式中設定HTTPS，也可以使用特定的前端代理進行設定。
 
-#### 使用JHipster进行HTTPS配置
+#### 使用JHipster進行HTTPS設定
 
-HTTPS是使用`application-prod.yml`文件中的Spring Security的标准`server.ssl`配置键配置的。
+HTTPS是使用`application-prod.yml`檔案中的Spring Security的標準`server.ssl`設定鍵設定的。
 
-要启用SSL，请使用以下方法生成证书：
+要啟用SSL，請使用以下方法生成證書：
 
     keytool -genkey -alias <your-application> -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 
-您也可以通过[本教程](https://maximilian-boehm.com/hp2121/Create-a-Java-Keystore-JKS-from-Let-s-Encrypt-Certificates.htm)使用Let's Encrypt。
+您也可以透過[本教程](https://maximilian-boehm.com/hp2121/Create-a-Java-Keystore-JKS-from-Let-s-Encrypt-Certificates.htm)使用Let's Encrypt。
 
-然后，修改`server.ssl`属性，以便您的`application-prod.yml`配置如下所示：
+然後，修改`server.ssl`屬性，以便您的`application-prod.yml`設定如下所示：
 
     server:
         port: 443
@@ -260,35 +260,35 @@ HTTPS是使用`application-prod.yml`文件中的Spring Security的标准`server.
             ciphers: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
             enabled-protocols: TLSv1.2
 
-ciphers suite通过停用一些旧的和已弃用的SSL密码来增强安全性，此列表已通过[SSL实验室](https://www.ssllabs.com/ssltest/)测试
+ciphers suite透過停用一些舊的和已棄用的SSL密碼來增強安全性，此清單已透過[SSL實驗室](https://www.ssllabs.com/ssltest/)測試
 
 Once `server.ssl.ciphers` property is enabled JHipster will force the order on Undertow with this property (true by default) : `jhipster.http.useUndertowUserCipherSuitesOrder`
-启用`server.ssl.ciphers`属性后，JHipster将使用以下属性（默认为true）在Undertow上强制执行请求：`jhipster.http.useUndertowUserCipherSuitesOrder`
+啟用`server.ssl.ciphers`屬性後，JHipster將使用以下屬性（預設為true）在Undertow上強制執行請求：`jhipster.http.useUndertowUserCipherSuitesOrder`
 
-`enabled-protocols`会停用旧的SSL协议。
+`enabled-protocols`會停用舊的SSL協定。
 
-然后，实现完美的前向保密性的最后一步。在JVM启动时添加以下标志：
+然後，實現完美的前向保密性的最後一步。在JVM啟動時新增以下標誌：
 
     -Djdk.tls.ephemeralDHKeySize=2048
 
-要测试您的配置，可以转到[SSL Labs](https://www.ssllabs.com/ssltest/)。
+要測試您的設定，可以轉到[SSL Labs](https://www.ssllabs.com/ssltest/)。
 
-如果一切正常，您将获得A+
+如果一切正常，您將獲得A+
 
-#### 带有前端代理的HTTPS配置
+#### 帶有前端代理的HTTPS設定
 
-有许多解决方案可在JHipster应用程序的前面设置前端HTTPS代理。
+有許多解決方案可在JHipster應用程式的前面設定前端HTTPS代理。
 
-最常见的解决方案之一是使用Apache HTTP服务器，可以使用Let's Encrypt来进行设置：
+最常見的解決方案之一是使用Apache HTTP伺服器，可以使用Let's Encrypt來進行設定：
 
-- 安装Apache和Let's Encrypt：`apt-get install -y apache2 python-certbot-apache`
-- 配置Let's Encrypt: `certbot --apache -d <your-domain.com> --agree-tos -m <your-email> --redirect`
-- 配置SSL证书的自动续订: 想您的crontab添加 `10 3 * * * /usr/bin/certbot renew --quiet` 
+- 安裝Apache和Let's Encrypt：`apt-get install -y apache2 python-certbot-apache`
+- 設定Let's Encrypt: `certbot --apache -d <your-domain.com> --agree-tos -m <your-email> --redirect`
+- 設定SSL證書的自動續訂: 想您的crontab新增 `10 3 * * * /usr/bin/certbot renew --quiet` 
 
-## <a name="monitoring"></a> 监控
+## <a name="monitoring"></a> 監控
 
-JHipster带有[Micrometer](https://micrometer.io/)的全面监视支持。
+JHipster帶有[Micrometer](https://micrometer.io/)的全面監視支援。
 
-在开发中，可以通过JMX获得Metrics数据：启动JConsole，您将可以访问它
+在開發中，可以透過JMX獲得Metrics資料：啟動JConsole，您將可以訪問它
 
-在生产中，您的应用程序将其指标数据公开在[Prometheus服务器](https://prometheus.io/docs/introduction/overview/)定期采集的服务端点上，具体取决于您配置的内容。
+在生產中，您的應用程式將其指標資料公開在[Prometheus伺服器](https://prometheus.io/docs/introduction/overview/)定期採集的伺服器端點上，具體取決於您設定的內容。

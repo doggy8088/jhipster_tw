@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 发布 v6.10.2
+title: 發布 v6.10.2
 ---
 
 JHipster release v6.10.2
@@ -9,14 +9,14 @@ JHipster release v6.10.2
 Do not use this release, as it's broken because of prettier-java dependency.
 
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们：
+如果您發現這個版本的任何問題, 請隨時聯絡我們：
 
-- 提交Bug请到 [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
-- 提交问题请到 [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+- 送出Bug請到 [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- 送出問題請到 [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
 
-如果您遇到的问题是紧急错误或安全问题，请：
+如果您遇到的問題是緊急錯誤或安全問題，請：
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)

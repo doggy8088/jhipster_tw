@@ -11,79 +11,79 @@ sitemap:
 
 # <i class="fa fa-eye"></i> 使用Cassandra
 
-Cassandra是生成应用程序时可以选择的受支持数据库之一。
+Cassandra是生成應用程式時可以選擇的受支援資料庫之一。
 
-此生成器有一个限制：
+此生成器有一個限制：
 
-*   它不支持OAuth2身份验证（我们需要在Spring Security的OAuth2服务器上实现一个Cassandra后端）
+*   它不支援OAuth2身份驗證（我們需要在Spring Security的OAuth2伺服器上實現一個Cassandra後端）
 
-选择Cassandra时：
+選擇Cassandra時：
 
 *   使用Apache Cassandra的Spring Data Reactive
-*   [实体子生成器]({{ site.url }}/creating-an-entity/)不会询问您实体关系，因为您无法在NoSQL数据库建立关系（至少不会在JPA建立关系）
-*   生成的实体仅支持一个分区key，即ID。未来版本将提供复合主键和群集键
+*   [實體子產生器]({{ site.url }}/creating-an-entity/)不會詢問您實體關係，因為您無法在NoSQL資料庫建立關係（至少不會在JPA建立關係）
+*   生成的實體僅支援一個分割槽key，即ID。未來版本將提供複合主鍵和群集鍵
 
-## 迁移工具
+## 遷移工具
 
-与[Liquibase](http://www.liquibase.org/)相似，JHipster提供了一个工具来应用CQL迁移脚本，但有一些限制：
+與[Liquibase](http://www.liquibase.org/)相似，JHipster提供了一個工具來應用CQL遷移指令碼，但有一些限制：
 
-*   该工具在启动时不会由应用程序本身运行，而是在Docker容器内或手动运行
-*   所有CQL脚本都必须遵循`{timestamp}_{description}.cql`模式，并放置在changelog目录中：`src/main/resources/config/cql/changelog/`
-*   位于changelog目录中的所有尚未应用的脚本均按字母顺序应用（即：遵循时间戳记）
-*   由于Cassandra不是事务数据库，因此如果在将元数据插入该工具使用的表中之前发生错误，则有可能使CQL迁移脚本多次运行
+*   該工具在啟動時不會由應用程式本身執行，而是在Docker容器內或手動執行
+*   所有CQL指令碼都必須遵循`{timestamp}_{description}.cql`模式，並放置在changelog目錄中：`src/main/resources/config/cql/changelog/`
+*   位於changelog目錄中的所有尚未應用的指令碼均按字母順序應用（即：遵循時間戳記）
+*   由於Cassandra不是事務資料庫，因此如果在將元資料插入該工具使用的表中之前發生錯誤，則有可能使CQL遷移指令碼多次執行
 
-该工具的一些信息：
+該工具的一些訊息：
 
-*   生成实体后，其CQL文件将在`src/main/resources/config/cql/changelog/`中生成，就像我们为JPA生成Liquibase更改日志一样
-*   对于正在运行的测试，`src/main/resources/config/cql/changelog/`目录中的所有CQL脚本都会自动应用于内存集群
-    *   意味着除了将脚本放到changelog目录中以将其应用于测试之外，您无需执行任何其他操作
-*   该工具使用自己的cassandra表`schema_version`存储元数据信息
+*   生成實體後，其CQL檔案將在`src/main/resources/config/cql/changelog/`中生成，就像我們為JPA生成Liquibase更改日誌一樣
+*   對於正在執行的測試，`src/main/resources/config/cql/changelog/`目錄中的所有CQL指令碼都會自動應用於記憶體叢集
+    *   意味著除了將指令碼放到changelog目錄中以將其應用於測試之外，您無需執行任何其他操作
+*   該工具使用自己的cassandra表`schema_version`儲存元資料訊息
 
-该工具将按以下顺序应用`src/main/resources/config/cql/`中的迁移脚本：
+該工具將按以下順序應用`src/main/resources/config/cql/`中的遷移指令碼：
 
-1.  `create-keyspace.cql`-创建键空间和`schema_version`表存储迁移元数据
-2.  按字母顺序排列的所有`cql/changelog/\*.cql`文件
+1.  `create-keyspace.cql`-建立鍵空間和`schema_version`表儲存遷移元資料
+2.  按字母順序排列的所有`cql/changelog/\*.cql`檔案
 
-### 运行工具
+### 執行工具
 
-根据是否使用Docker，您有几种选择来运行迁移工具。
+根據是否使用Docker，您有幾種選擇來執行遷移工具。
 
 #### 使用Docker：
 
-如果使用生成的`app.yml`或`cassandra.yml` compose文件，通过docker-compose启动了Cassandra集群，则该工具已经运行，并且已应用所有cql脚本。
+如果使用生成的`app.yml`或`cassandra.yml` compose檔案，透過docker-compose啟動了Cassandra叢集，則該工具已經執行，並且已應用所有cql指令碼。
 
-在changelog目录中添加CQL脚本之后，您可以重新启动负责再次运行迁移服务的docker-service而不停止集群：
+在changelog目錄中新增CQL指令碼之後，您可以重新啟動負責再次執行遷移服務的docker-service而不停止叢集：
 `docker-compose -f src/main/docker/cassandra.yml up <app>-cassandra-migration`
 
-#### 手动:
+#### 手動:
 
-确认一些先决条件后，您可以手动运行该工具。熟悉该工具，在以后将其包含在部署pipeline中可能会很有用。
+確認一些先決條件後，您可以手動執行該工具。熟悉該工具，在以後將其包含在部署pipeline中可能會很有用。
 
-##### 先决条件:
+##### 先決條件:
 
-*   添加Cassandra访问点环境变量，通常在本地添加：``export CASSANDRA_CONTACT_POINT=`127.0.0.1` ``
-*   使用您喜欢的软件包管理器安装最新（> 4）bash版本和md5sum
-*   在您的类路径中有CQLSH
+*   新增Cassandra訪問點環境變數，通常在本地新增：``export CASSANDRA_CONTACT_POINT=`127.0.0.1` ``
+*   使用您喜歡的軟體套件管理器安裝最新（> 4）bash版本和md5sum
+*   在您的類路徑中有CQLSH
 
-要运行该工具，请使用此命令： `src/main/docker/cassandra/scripts/autoMigrate.sh src/main/resources/config/cql/changelog/`
+要執行該工具，請使用此指令： `src/main/docker/cassandra/scripts/autoMigrate.sh src/main/resources/config/cql/changelog/`
 
-默认情况下，`src/main/resources/config/create-keyspace.cql`在必要时使用脚本创建键空间。
-您可以使用第二个参数覆盖它：`src/main/docker/cassandra/scripts/autoMigrate.sh src/main/resources/config/cql/changelog/ create-keyspace-prod.cql`
+預設情況下，`src/main/resources/config/create-keyspace.cql`在必要時使用指令碼建立鍵空間。
+您可以使用第二個引數覆蓋它：`src/main/docker/cassandra/scripts/autoMigrate.sh src/main/resources/config/cql/changelog/ create-keyspace-prod.cql`
 
-如果只想针对集群运行特定的脚本，请使用：`src/main/docker/cassandra/scripts/execute-cql.sh src/main/resources/config/cql/changelog/<your script>.cql`
+如果只想針對叢集執行特定的指令碼，請使用：`src/main/docker/cassandra/scripts/execute-cql.sh src/main/resources/config/cql/changelog/<your script>.cql`
 
-## 非Linux操作系统上的Cassandra和Docker
+## 非Linux作業系統上的Cassandra和Docker
 
-在Mac OSx和Windows上，不是直接托管Docker容器，而是在VirtualBox VM上托管。
-这些，您不能在localhost中访问它们，而必须使用VirtualBox IP。
+在Mac OSx和Windows上，不是直接託管Docker容器，而是在VirtualBox VM上託管。
+這些，您不能在localhost中訪問它們，而必須使用VirtualBox IP。
 
-您可以使用以下环境变量覆盖Cassandra连访问点（默认情况下为localhost）：``export SPRING_DATA_CASSANDRA_CONTACTPOINTS=`docker-machine ip default` ``。
+您可以使用以下環境變數覆蓋Cassandra連訪問點（預設情況下為localhost）：``export SPRING_DATA_CASSANDRA_CONTACTPOINTS=`docker-machine ip default` ``。
 
-#### Cassandra节点：
+#### Cassandra節點：
 
-由于Cassandra节点也托管在虚拟机中，因此在从访问点接收到它们的地址后，尝试连接它们时，Cassandra Java驱动程序将收到错误消息。
+由於Cassandra節點也託管在虛擬機中，因此在從訪問點接收到它們的地址後，嘗試連線它們時，Cassandra Java驅動程式將收到錯誤訊息。
 
-要解决此问题，可以将路由规则添加到路由表[(source)](http://krasserm.github.io/2015/07/13/chaos-testing-with-docker-and-cassandra/#port-mapping)中。
+要解決此問題，可以將路由規則新增到路由表[(source)](http://krasserm.github.io/2015/07/13/chaos-testing-with-docker-and-cassandra/#port-mapping)中。
 
-假设运行Cassandra节点的容器的IP地址为172.18.0.x：
+假設執行Cassandra節點的容器的IP地址為172.18.0.x：
 ``sudo route -n add 172.18.0.0/16 `docker-machine ip default` ``

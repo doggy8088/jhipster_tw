@@ -1,16 +1,16 @@
 ---
 layout: default
-title: 使用Gradle时在Windows防止错误和挂起
+title: 使用Gradle時在Windows防止錯誤和掛起
 sitemap:
 priority: 0.5
 lastmod: 2017-01-03T22:30:00-00:00
 ---
 
-# 使用Gradle时在Windows防止错误和挂起
+# 使用Gradle時在Windows防止錯誤和掛起
 
-## /!\ 自从我们将JHipster v4.1.1升级到Gradle 3.4以来，不推荐使用此技巧。
+## /!\ 自從我們將JHipster v4.1.1升級到Gradle 3.4以來，不推薦使用此技巧。
 
-__提交者 [@kaidohallik](https://github.com/kaidohallik)__
+__送出者 [@kaidohallik](https://github.com/kaidohallik)__
 
 ## Problem description
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 团队
+title: 團隊
 permalink: /team/
 redirect_from:
   - /team.html
@@ -9,13 +9,13 @@ sitemap:
     lastmod: 2015-07-30T18:40:00-00:00
 ---
 
-# <i class="fa fa-coffee"></i> 团队
+# <i class="fa fa-coffee"></i> 團隊
 
-JHipster由世界各地的团队开发。我们有很多贡献者（([排名前100位](https://github.com/jhipster/generator-jhipster/graphs/contributors)），但此处列出了核心团队的成员。
+JHipster由世界各地的團隊開發。我們有很多貢獻者（([排名前100位](https://github.com/jhipster/generator-jhipster/graphs/contributors)），但此處列出了核心團隊的成員。
 
-如果您想加入团队，或者看看我们的工作方式，我们的社区规则将在此页面的结尾。
+如果您想加入團隊，或者看看我們的工作方式，我們的社群規則將在此頁面的結尾。
 
-## 项目负责人
+## 專案負責人
 <div class="row">
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
@@ -49,7 +49,7 @@ JHipster由世界各地的团队开发。我们有很多贡献者（([排名前1
     </div>
 </div>
 
-## 开发委员会
+## 開發委員會
 
 <div class="row">
     <div class="col-xs-3 team-member">
@@ -365,11 +365,11 @@ JHipster由世界各地的团队开发。我们有很多贡献者（([排名前1
     </div>
 </div>
 
-## JHipster路线
+## JHipster路線
 
-JHipster为您的应用程序提供广泛的技术选择，并且随着它的不断发展，我们提出了带有特定线索的技术流，以确保特定技术的平稳维护。其他一切将由项目负责人领导。
+JHipster為您的應用程式提供廣泛的技術選擇，並且隨著它的不斷發展，我們提出了帶有特定線索的技術流，以確保特定技術的平穩維護。其他一切將由專案負責人領導。
 
-可以在[这里](https://docs.google.com/spreadsheets/d/1fac4Uxv3bKr0rNmgg1WXv67CE_6nfHEPIuCp-_iU-uA/edit?usp=sharing)找到更新的电子表格
+可以在[這裡](https://docs.google.com/spreadsheets/d/1fac4Uxv3bKr0rNmgg1WXv67CE_6nfHEPIuCp-_iU-uA/edit?usp=sharing)找到更新的電子表格
 
 | Stream                              | Leader             |
 |-------------------------------------|--------------------|
@@ -402,7 +402,7 @@ JHipster为您的应用程序提供广泛的技术选择，并且随着它的不
 
 
 
-## 开发委员会退休成员
+## 開發委員會退休成員
 
 <div class="row">
     <div class="col-xs-3 team-member">
@@ -443,50 +443,50 @@ JHipster为您的应用程序提供广泛的技术选择，并且随着它的不
     </div>
 </div>
 
-# 开发团队在哪里工作？
+# 開發團隊在哪裡工作？
 
-我们在[该项目的GitHub页面](https://github.com/jhipster/generator-jhipster)上完成了大部分工作。
+我們在[該專案的GitHub頁面](https://github.com/jhipster/generator-jhipster)上完成了大部分工作。
 
-内部团队讨论通过以下渠道进行：
-- [jhipster-dev邮件列表](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev) 
-- [jhipster-dev-team Gitter讨论](https://gitter.im/jhipster/jhipster-dev-team)
+內部團隊討論透過以下渠道進行：
+- [jhipster-dev郵件清單](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev) 
+- [jhipster-dev-team Gitter討論](https://gitter.im/jhipster/jhipster-dev-team)
 
-这些讨论渠道是公开可见的，因为我们在JHipster中所做的一切都是公开的，但是只有开发人员委员会才能参加。邮件列表档案可以在[Google网上论坛页面 ](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev)上找到，[聊天档案](https://gitter.im/jhipster/jhipster-dev-team/archives/all)可以在Gitter上找到。
+這些討論渠道是公開可見的，因為我們在JHipster中所做的一切都是公開的，但是只有開發人員委員會才能參加。郵件清單檔案可以在[Google網上論壇頁面 ](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev)上找到，[聊天檔案](https://gitter.im/jhipster/jhipster-dev-team/archives/all)可以在Gitter上找到。
 
-# 如何加入开发者委员会？
+# 如何加入開發者委員會？
 
-- 定期参加项目（承诺，PR等）
-- 向现任董事会的某人提供一些个人和背景信息，然后该人将在开发邮件列表中进行投票
-- 开发人员邮件列表中的每个人都可以投票（如果同意，则投票+1，否则，则投票为-1）
-    - 一票" -1"票将会拒绝添加新成员，但投"-1"票的人将需要解释原因
+- 定期參加專案（承諾，PR等）
+- 向現任董事會的某人提供一些個人和背景訊息，然後該人將在開發郵件清單中進行投票
+- 開發人員郵件清單中的每個人都可以投票（如果同意，則投票+1，否則，則投票為-1）
+    - 一票" -1"票將會拒絕新增新成員，但投"-1"票的人將需要解釋原因
 
-# 开发者委员会的成员会获得什么？
+# 開發者委員會的成員會獲得什麼？
 
-- 主仓库写入权限以及[JHipster组织](https://github.com/jhipster)下的大多数项目的访问权限。
-- 与项目相关的费用（例如，参加JHipster会议的差旅费用）可以由[我们的OpenCollective帐户](https://opencollective.com/generator-jhipster)支付。这取决于帐户上可用的资金，并且由项目负责人确定和验证。
-- 该项目经常从友好的公司获得免费许可证和免费资源配额。
+- 主倉庫寫入許可權以及[JHipster組織](https://github.com/jhipster)下的大多數專案的訪問許可權。
+- 與專案相關的費用（例如，參加JHipster會議的差旅費用）可以由[我們的OpenCollective帳戶](https://opencollective.com/generator-jhipster)支付。這取決於帳戶上可用的資金，並且由專案負責人確定和驗證。
+- 該專案經常從友好的公司獲得免費許可證和免費資源配額。
 
-# 谁是“开发委员会退休成员”？
+# 誰是『開發委員會退休成員』？
 
-JHipster是一个开源项目，我们不向成员提出任何要求：他们可以随时退出该项目或停止进行贡献。但是，由于董事会成员拥有比其他人更多的权利（包括对项目的写访问权限），我们需要他们保持活跃。
+JHipster是一個開源專案，我們不向成員提出任何要求：他們可以隨時退出該專案或停止進行貢獻。但是，由於董事會成員擁有比其他人更多的權利（包括對專案的寫訪問許可權），我們需要他們保持活躍。
 
-因此，在以下情况下，董事会成员将“退休”：
+因此，在以下情況下，董事會成員將『退休』：
 
-- 他们告诉我们他们想离开该项目
-- 他们有2年没有为该项目做任何贡献
+- 他們告訴我們他們想離開該專案
+- 他們有2年沒有為該專案做任何貢獻
 
-贡献遍布整个`jhipter`和`hipster-labs`组织，其中包括：
+貢獻遍佈整個`jhipter`和`hipster-labs`組織，其中包括：
 
-- 提交
-- 对问题/ PR的评论，对邮件列表问题的答复，与JHipster相关的社交媒体活动（Twitter，Gitter，Stack Overflow，Reddit等）
-- 项目维护（分类，PR审查和合并，问题清理，发布，项目计划）
+- 送出
+- 對問題/ PR的評論，對郵件清單問題的答覆，與JHipster相關的社交媒體活動（Twitter，Gitter，Stack Overflow，Reddit等）
+- 專案維護（分類，PR審查和合並，問題清理，發布，專案計劃）
 - CI/CD
-- 营销和宣传（在社交媒体，会议演讲，博客，书籍，培训等方面促进JHipster项目）
+- 營銷和宣傳（在社交媒體，會議演講，部落格，書籍，培訓等方面促進JHipster專案）
 
-团队负责人每年都会列出“不活跃的成员”，并发送正式电子邮件询问他们是否要退休。 然后可能会发生3种情况：
+團隊負責人每年都會列出『不活躍的成員』，併發送正式電子郵件詢問他們是否要退休。 然後可能會發生3種情況：
 
-1.贡献者同意退休。
-2.贡献者希望留在团队中，并尝试以任何可能的身份参与。 如果同一个人连续两次出现在不活动列表中（不活动2年），则该人将退休。
-3.贡献者五周未回复，因此此人退休。
+1.貢獻者同意退休。
+2.貢獻者希望留在團隊中，並嘗試以任何可能的身份參與。 如果同一個人連續兩次出現在不活動清單中（不活動2年），則該人將退休。
+3.貢獻者五週未回覆，因此此人退休。
 
-如果“退休”成员对项目做出了贡献并再次当选，则他们可以再次成为活跃成员。他们当然会比其他贡献者有优势，因为他们已经了解团队。
+如果『退休』成員對專案做出了貢獻並再次當選，則他們可以再次成為活躍成員。他們當然會比其他貢獻者有優勢，因為他們已經瞭解團隊。

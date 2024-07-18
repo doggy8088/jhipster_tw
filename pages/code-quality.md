@@ -1,47 +1,47 @@
 ---
 layout: default
-title: 代码质量
+title: 程式碼質量
 permalink: /code-quality/
 sitemap:
     priority: 0.7
     lastmod: 2018-08-18T12:40:00-00:00
 ---
 
-# <i class="fa fa-diamond"></i> 代码质量
+# <i class="fa fa-diamond"></i> 程式碼質量
 
-使用[SonarCloud](https://sonarcloud.io)（由JHipster自动配置）可以分析代码质量。
+使用[SonarCloud](https://sonarcloud.io)（由JHipster自動設定）可以分析程式碼質量。
 
-## 将Sonar与JHipster结合使用
+## 將Sonar與JHipster結合使用
 
-JHipster为Sonar提供了特定的Docker Compose配置（[这是JHipster Docker Compose文档]({{ site.url }}/docker-compose/))），提供了现成的Sonar实例。在项目的根目录下，请运行：
+JHipster為Sonar提供了特定的Docker Compose設定（[這是JHipster Docker Compose文件]({{ site.url }}/docker-compose/))），提供了現成的Sonar實例。在專案的根目錄下，請執行：
 
     docker-compose -f src/main/docker/sonar.yml up -d
 
-如果您使用的是Maven，则会自动对其进行配置：
+如果您使用的是Maven，則會自動對其進行設定：
 
     ./mvnw -Pprod clean verify sonar:sonar -Dsonar.host.url=http://localhost:9001
 
-如果您需要重新运行Sonar阶段，请确保至少指定`initialize`阶段，因为Sonar属性是从sonar-project.properties文件加载的。
+如果您需要重新執行Sonar階段，請確保至少指定`initialize`階段，因為Sonar屬性是從sonar-project.properties檔案載入的。
 
     ./mvnw initialize sonar:sonar -Dsonar.host.url=http://localhost:9001
 
-如果您使用Gradle，也会自动对其进行配置：
+如果您使用Gradle，也會自動對其進行設定：
 
     ./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.host.url=http://localhost:9001
 
-现在，在每种情况下，如果已经安装了[sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)，则都可以运行分析。
+現在，在每種情況下，如果已經安裝了[sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)，則都可以執行分析。
 
     sonar-scanner
 
-分析完成后，它将在Sonar仪表板上可用，默认情况下在 [http://127.0.0.1:9001/](http://127.0.0.1:9001/)上可用。
+分析完成後，它將在Sonar儀表板上可用，預設情況下在 [http://127.0.0.1:9001/](http://127.0.0.1:9001/)上可用。
 
-## 从Jacoco Analysis中排除文件
+## 從Jacoco Analysis中排除檔案
 
-如果您希望从覆盖率分析中排除某些类（例如，生成的类或应用程序类），并且想要在默认的jacoco html报告中具有正确的覆盖率，则必须从分析和报告中排除这些类。
+如果您希望從覆蓋率分析中排除某些類（例如，生成的類或應用程式類），並且想要在預設的jacoco html報告中具有正確的覆蓋率，則必須從分析和報告中排除這些類。
 
 ### Maven
 
-您需要将排除项添加到`prepare-agent`和`report`单元测试和集成测试的目标中：
+您需要將排除項新增到`prepare-agent`和`report`單元測試和整合測試的目標中：
 
 ```xml
 <plugin>
@@ -103,7 +103,7 @@ JHipster为Sonar提供了特定的Docker Compose配置（[这是JHipster Docker 
 
 ### Gradle
 
-您可以将以下内容添加到`sonar.gradle`文件中：
+您可以將以下內容新增到`sonar.gradle`檔案中：
 
 ```gradle
 test {
@@ -123,12 +123,12 @@ jacocoTestReport {
 }
 ```
 
-## 自动分析默认生成的项目
+## 自動分析預設生成的專案
 
-JHipster生成器项目发布一个示例项目，每次在`main`分支中合并新提交时都会对其进行分析：
+JHipster產生器專案發布一個範例專案，每次在`main`分支中合併新送出時都會對其進行分析：
 
-[JHipster组织](https://sonarcloud.io/organizations/jhipster)下的[JHipster示例应用程序分析](https://sonarcloud.io/dashboard?id=jhipster-sample-application)
+[JHipster組織](https://sonarcloud.io/organizations/jhipster)下的[JHipster範例應用程式分析](https://sonarcloud.io/dashboard?id=jhipster-sample-application)
 
-这使JHipster团队可以确保您将开始使用尽可能最干净的代码来开发项目。
+這使JHipster團隊可以確保您將開始使用儘可能最乾淨的程式碼來開發專案。
 
-[SonarCloud](https://sonarcloud.io)免费提供此分析。
+[SonarCloud](https://sonarcloud.io)免費提供此分析。

@@ -1,23 +1,23 @@
 ---
 layout: default
-title: 配置电子邮件-使用Gmail等
+title: 設定電子郵件-使用Gmail等
 sitemap:
 priority: 0.5
 lastmod: 2015-12-23T22:40:00-00:00
 ---
-# 配置电子邮件-使用Gmail等
+# 設定電子郵件-使用Gmail等
 
-__提交者 [@RawSanj](https://github.com/RawSanj)__
+__送出者 [@RawSanj](https://github.com/RawSanj)__
 
-_目标：_ 通过使用下面的邮件设置，您将配置默认的JHipster应用程序，以从Gmail，Outlook或Yahoo发送电子邮件。
+_目標：_ 透過使用下面的郵件設定，您將設定預設的JHipster應用程式，以從Gmail，Outlook或Yahoo傳送電子郵件。
 
-首先运行`jhipster`创建一个新的应用程序，或使用一个现有的JHipster生成的应用程序。
+首先執行`jhipster`建立一個新的應用程式，或使用一個現有的JHipster生成的應用程式。
 
-## 为您的应用程序选择以下任何电子邮件服务：
+## 為您的應用程式選擇以下任何電子郵件服務：
 
-### 1. 邮件配置-Gmail
+### 1. 郵件設定-Gmail
 
-进入`src\main\resources\config\application-dev.yml`并将您的应用程序更改为使用以下Gmail配置：
+進入`src\main\resources\config\application-dev.yml`並將您的應用程式更改為使用以下Gmail設定：
 
 _application-dev.yml_
 
@@ -37,19 +37,19 @@ _application-dev.yml_
                 ssl.trust: smtp.gmail.com
             [...]
 
-如果您将上述配置与Gmail密码一起使用，则可能需要[允许使用不太安全的应用程序](https://support.google.com/accounts/answer/6010255?hl=zh_CN) 。
-配置较为简单，但安全性较低。 同样，通过允许安全性较低的应用程序，您将无法使用双因素使用Gmail进行身份验证。
+如果您將上述設定與Gmail密碼一起使用，則可能需要[允許使用不太安全的應用程式](https://support.google.com/accounts/answer/6010255?hl=zh_CN) 。
+設定較為簡單，但安全性較低。 同樣，透過允許安全性較低的應用程式，您將無法使用雙因素使用Gmail進行身份驗證。
 
 
-因此，我们强烈建议您使用应用密码而不是Gmail密码。 请参考以下Gmail配置文档，以获取有关如何进行设置的更多信息。
+因此，我們強烈建議您使用應用密碼而不是Gmail密碼。 請參考以下Gmail設定文件，以獲取有關如何進行設定的更多訊息。
 
 [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833)
 
-这样，您将可以使用两因素身份验证，并且可以关闭“允许不太安全的应用程序”选项。
+這樣，您將可以使用兩因素身份驗證，並且可以關閉『允許不太安全的應用程式』選項。
 
-### 2. 邮件配置-Outlook.com
+### 2. 郵件設定-Outlook.com
 
-进入`src\main\resources\config\application-dev.yml`并将您的应用程序更改为使用以下Outlook配置：
+進入`src\main\resources\config\application-dev.yml`並將您的應用程式更改為使用以下Outlook設定：
 
 _application-dev.yml_
 
@@ -68,14 +68,14 @@ _application-dev.yml_
                 starttls.enable: true
                 ssl.trust: smtp-mail.outlook.com
             [...]
-__注意__ : 如果您要从Corporate Outlook帐户发送电子邮件，则将`host`设置为公司的Microsoft Exchange Server，例如 `emea.mycompany.com`。 还要将`username`设置为公司提供的系统的标准ID（域/用户名），并将`password`设置为您的系统密码。
+__注意__ : 如果您要從Corporate Outlook帳戶傳送電子郵件，則將`host`設定為公司的Microsoft Exchange Server，例如 `emea.mycompany.com`。 還要將`username`設定為公司提供的系統的標準ID（域/使用者名），並將`password`設定為您的系統密碼。
 
-___提示___ : 查找`Microsoft Exchange Server`：打开Outlook>单击工具>单击帐户设置...>双击Microsoft Exchange（在“电子邮件”选项卡下），然后复制Microsoft Exchange Server地址。
+___提示___ : 查詢`Microsoft Exchange Server`：開啟Outlook>單擊工具>單擊帳戶設定...>雙擊Microsoft Exchange（在『電子郵件』頁籤下），然後複製Microsoft Exchange Server地址。
 
 
-### 3. 邮件配置-Yahoo
+### 3. 郵件設定-Yahoo
 
-进入`src \ main \ resources \ config \ application-dev.yml`并更改您的应用程序以使用以下Yahoo配置：
+進入`src \ main \ resources \ config \ application-dev.yml`並更改您的應用程式以使用以下Yahoo設定：
 
 _application-dev.yml_
 
@@ -99,12 +99,12 @@ _application-dev.yml_
         mail:
             from: yahoouserid@gmail.com  #Replace this field with your Gmail username.
             [...]
-__注意__ : 对于Yahoo Mail，**spring.mail**中的username属性必须与**jhipster.mail**中的from属性匹配。
+__注意__ : 對於Yahoo Mail，**spring.mail**中的username屬性必須與**jhipster.mail**中的from屬性對應。
 
 
-### 4. 邮件配置-Zoho
+### 4. 郵件設定-Zoho
 
-进入`src \ main \ resources \ config \ application-dev.yml`并更改您的应用程序以使用以下Zoho配置：
+進入`src \ main \ resources \ config \ application-dev.yml`並更改您的應用程式以使用以下Zoho設定：
 
 _application-dev.yml_
 
@@ -125,9 +125,9 @@ _application-dev.yml_
             [...]
 
 
-### 4. 邮件配置-AWS SES
+### 4. 郵件設定-AWS SES
 
-进入`src \ main \ resources \ config \ application-dev.yml`并将您的应用程序更改为使用以下AWS SES配置：
+進入`src \ main \ resources \ config \ application-dev.yml`並將您的應用程式更改為使用以下AWS SES設定：
 
 _application-dev.yml_
 
@@ -149,7 +149,7 @@ _application-dev.yml_
                 auth: true
 
 
-*类似地，您可以配置任何其他电子邮件服务。 只需检查您的电子邮件服务的SMTP邮件服务器和服务器端口，并相应地更改以上字段即可*
-___现在运行您的应用程序！ 转到注册页面，提交带有有效电子邮件地址的表格，您应该从上面配置的电子邮件地址收到激活电子邮件。___
+*類似地，您可以設定任何其他電子郵件服務。 只需檢查您的電子郵件服務的SMTP郵件伺服器和伺服器端口，並相應地更改以上欄位即可*
+___現在執行您的應用程式！ 轉到註冊頁面，送出帶有有效電子郵件地址的表格，您應該從上面設定的電子郵件地址收到啟用電子郵件。___
 
-__注意__ : 您可以尝试使用[这些示例](https://github.com/RawSanj/java-mail-clients)使用凭据发送测试电子邮件。
+__注意__ : 您可以嘗試使用[這些範例](https://github.com/RawSanj/java-mail-clients)使用憑據傳送測試電子郵件。

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 发布 0.2.1
+title: 發布 0.2.1
 ---
 
 JHipster release 0.2.1
 ==================
 
-*JHipster为您提供集Yeoman + Maven + Spring + AngularJS于一体的应用生成器.*
+*JHipster為您提供集Yeoman + Maven + Spring + AngularJS於一體的應用產生器.*
 
-这个版本主要修复了一些缺陷, 修复了一个grunt-contrib-imagemin NPM依赖缺陷导致Windows上使用Grunt会抛出错误
+這個版本主要修復了一些缺陷, 修復了一個grunt-contrib-imagemin NPM依賴缺陷導致Windows上使用Grunt會丟擲錯誤
 
 

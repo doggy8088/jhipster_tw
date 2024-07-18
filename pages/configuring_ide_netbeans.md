@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 配置Netbeans
+title: 設定Netbeans
 permalink: /configuring-ide-netbeans/
 redirect_from:
   - /configuring_ide_netbeans.html
@@ -9,17 +9,17 @@ sitemap:
     lastmod: 2016-08-20T18:40:00-00:00
 ---
 
-# <i class="fa fa-keyboard-o"></i> 配置 Apache NetBeans
+# <i class="fa fa-keyboard-o"></i> 設定 Apache NetBeans
 
-在NetBeans中导入JHipster应用程序非常简单。
+在NetBeans中匯入JHipster應用程式非常簡單。
 
-## 1. 打开你的项目
+## 1. 開啟你的專案
 
-- 选择 File -> Open Project
-- 浏览并选择项目的文件夹
+- 選擇 File -> Open Project
+- 瀏覽並選擇項目的資料夾
 
 ![Open]({{ site.url }}/images/configuring_ide_netbeans_1.png)
 
-**就这样**：要运行您的项目，右键单击Application类（位于包层次结构的根目录），然后选择“Run File”。
+**就這樣**：要執行您的專案，右鍵單擊Application類（位於套件層次結構的根目錄），然後選擇『Run File』。
 
 ![Open]({{ site.url }}/images/configuring_ide_netbeans_2.png)

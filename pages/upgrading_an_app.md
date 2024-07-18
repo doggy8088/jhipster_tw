@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 升级应用程序
+title: 升級應用程式
 permalink: /upgrading-an-application/
 sitemap:
     priority: 0.7
@@ -8,50 +8,50 @@ sitemap:
 gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 ---
 
-# <i class="fa fa-refresh"></i> 升级应用程序
+# <i class="fa fa-refresh"></i> 升級應用程式
 
 ## 摘要
 
-1. [自动升级](#automatic_upgrade)
-2. [手动升级](#manual_upgrade)
+1. [自動升級](#automatic_upgrade)
+2. [手動升級](#manual_upgrade)
 
-## <a name="automatic_upgrade"></a> 自动升级
+## <a name="automatic_upgrade"></a> 自動升級
 
-当发布新版本的JHipster时，JHipster的升级子生成器将帮助您将现有应用程序升级到该新版本，并且不会清除您更改的代码。
+當發布新版本的JHipster時，JHipster的升級子產生器將幫助您將現有應用程式升級到該新版本，並且不會清除您更改的程式碼。
 
-这有助于：
+這有助於：
 
-- 在现有应用程序中更新到最新的JHipster功能
-- 获取重要的错误修复或安全更新
-- 将已更改部分保留在代码库中，并将其与新生成的代码合并
+- 在現有應用程式中更新到最新的JHipster功能
+- 獲取重要的錯誤修復或安全更新
+- 將已更改部分保留在程式碼庫中，並將其與新生成的程式碼合併
 
-_升级之前，请仔细阅读此页面，以了解升级过程的工作方式_
+_升級之前，請仔細閱讀此頁面，以瞭解升級過程的工作方式_
 
 ### 要求
 
-为了使此子生成器正常工作，您需要从[http://git-scm.com](http://git-scm.com/)安装`git`。
+為了使此子產生器正常工作，您需要從[http://git-scm.com](http://git-scm.com/)安裝`git`。
 
-### 运行升级子生成器
+### 執行升級子產生器
 
-进入应用程序的根目录：
+進入應用程式的根目錄：
 
 `cd myapplication/`
 
-要升级您的应用程序，请输入：
+要升級您的應用程式，請輸入：
 
 `jhipster upgrade`
 
-您可以通过以下选项：
+您可以透過以下選項：
 
-* `--verbose` - 详细记录升级过程的每个步骤
-* `--target-version 6.6.0` - 升级到JHipster目标版本而不是最新版本，如果项目落后多个版本，则很有用
-* `--target-blueprint-versions kotlin@1.4.0,vuejs@1.3.0` - 升级到目标方案（Blueprint）版本，而不是每个方案的最新版本。 但是，方案的目标版本应与目标JHipster版本兼容。
-* `--force` - 即使没有新的JHipster版本，也要运行升级子生成器
-* `--skip-checks` - 在项目重新生成期间禁用检查
-*`--skip-install`- 在升级过程中跳过安装依赖项
-* `--silent` - 隐藏生成过程的输出
+* `--verbose` - 詳細記錄升級過程的每個步驟
+* `--target-version 6.6.0` - 升級到JHipster目標版本而不是最新版本，如果專案落後多個版本，則很有用
+* `--target-blueprint-versions kotlin@1.4.0,vuejs@1.3.0` - 升級到目標方案（Blueprint）版本，而不是每個方案的最新版本。 但是，方案的目標版本應與目標JHipster版本相容。
+* `--force` - 即使沒有新的JHipster版本，也要執行升級子產生器
+* `--skip-checks` - 在專案重新生成期間停用檢查
+*`--skip-install`- 在升級過程中跳過安裝依賴項
+* `--silent` - 隱藏生成過程的輸出
 
-如果您需要多次进行升级，则可以考虑像这样首先升级JHipster：
+如果您需要多次進行升級，則可以考慮像這樣首先升級JHipster：
 	
     git checkout jhipster_upgrade
 	git checkout --patch master .yo-rc.json
@@ -60,123 +60,123 @@ _升级之前，请仔细阅读此页面，以了解升级过程的工作方式_
 	git push --set-upstream origin jhipster_upgrade
 	git checkout master
 
-通过执行上述操作，您可以在已有最新更改下，来升级jhipster_upgrade分支，以便JHipster可以在升级期间使用它。例如，当您更改模型时。
+透過執行上述操作，您可以在已有最新更改下，來升級jhipster_upgrade分支，以便JHipster可以在升級期間使用它。例如，當您更改模型時。
 
-### 升级过程的图形视图
+### 升級過程的圖形檢視
 
-这是图形化升级过程的方式（请阅读以下各节以进行文字说明）：
+這是圖形化升級過程的方式（請閱讀以下各節以進行文字說明）：
 
 ![GitGraph]({{ site.url }}/images/upgrade_gitgraph.png)
 
-（此图片来自[JSFiddle](http://jsfiddle.net/lordlothar99/tqp9gyu3/)）
+（此圖片來自[JSFiddle](http://jsfiddle.net/lordlothar99/tqp9gyu3/)）
 
-请注意，尽管`jhipster_upgrade`分支在上图中无法正确显示，但将在您的项目中创建为孤立分支。
+請注意，儘管`jhipster_upgrade`分支在上圖中無法正確顯示，但將在您的專案中建立為孤立分支。
 
-### 升级过程的分步说明
+### 升級過程的分步說明
 
-以下是JHipster的升级子生成器处理步骤：
+以下是JHipster的升級子產生器處理步驟：
 
-1. 检查是否有新版本的JHipster（如果使用`--force`，则不适用）。
-2. 检查应用程序是否已经初始化为`git`仓库，否则JHipster将为您初始化一个，并将当前代码库提交到master分支。
-3. 检查以确保存储库中没有未提交的本地更改。如果发现未提交的更改，则该过程将退出。
-4. 检查是否存在`jhipster_upgrade`分支。如果没有，那么将创建一个分支：在“首次升级时指定步骤”部分中提供了有关此步骤的详细信息。
-5. 检出`jhipster_upgrade`分支。
-6. 将JHipster全局升级到最新的可用版本。
-7. 清理当前项目目录。
-8. 使用`jhipster --force --with-entities`命令重新生成应用程序。
-9. 将生成的代码提交到`jhipster_upgrade`分支。
-10. 合并`jhipster_upgrade`分支回到启动`jhipster upgrade`命令的原始分支。
-11. 现在，您需要继续解决合并冲突（如果有）。
+1. 檢查是否有新版本的JHipster（如果使用`--force`，則不適用）。
+2. 檢查應用程式是否已經初始化為`git`倉庫，否則JHipster將為您初始化一個，並將當前程式碼庫送出到master分支。
+3. 檢查以確保儲存庫中沒有未送出的本地更改。如果發現未送出的更改，則該過程將退出。
+4. 檢查是否存在`jhipster_upgrade`分支。如果沒有，那麼將建立一個分支：在『首次升級時指定步驟』部分中提供了有關此步驟的詳細訊息。
+5. 檢出`jhipster_upgrade`分支。
+6. 將JHipster全域升級到最新的可用版本。
+7. 清理當前專案目錄。
+8. 使用`jhipster --force --with-entities`指令重新生成應用程式。
+9. 將生成的程式碼送出到`jhipster_upgrade`分支。
+10. 合併`jhipster_upgrade`分支回到啟動`jhipster upgrade`指令的原始分支。
+11. 現在，您需要繼續解決合併衝突（如果有）。
 
-恭喜，您的应用程序现已升级到最新版本的JHipster！
+恭喜，您的應用程式現已升級到最新版本的JHipster！
 
-### 首次升级时指定步骤
+### 首次升級時指定步驟
 
-在首次运行JHipster的`update`子生成器时，为了避免擦除所有更改，将运行一些附加步骤：
+在首次執行JHipster的`update`子產生器時，為了避免擦除所有更改，將執行一些附加步驟：
 
-1. `jhipster_upgrade`分支是孤立的（没有父级）。
-2. 整个应用程序已生成（使用您当前的JHipster版本）。
-3. 在`master`分支上进行块合并提交：在`master`分支上的代码库上不进行任何更改；这只是在Git中记录`master`的HEAD与当前JHipster版本最新的一种实用方法。
+1. `jhipster_upgrade`分支是孤立的（沒有父級）。
+2. 整個應用程式已生成（使用您當前的JHipster版本）。
+3. 在`master`分支上進行區塊合併送出：在`master`分支上的程式碼庫上不進行任何更改；這只是在Git中記錄`master`的HEAD與當前JHipster版本最新的一種實用方法。
 
-#### 建议
+#### 建議
 
-- 不要在`jhipster_upgrade`分支上提交任何内容。该分支专用于JHipster升级子生成器：每次运行子生成器时，都会创建一个新的提交。
-- 如果您要从非常老的版本（例如，从5.0.0升级到最新版本），建议您在每个次要/补丁版本之间逐步进行更新，并执行测试以确保应用程序能够按预期运行。
-- JHipster社区提供了一些有用的方法，以这种方式设计应用程序，使更新过程更容易，并减少合并冲突的数量。 我们建议使用[JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo) 。
+- 不要在`jhipster_upgrade`分支上送出任何內容。該分支專用於JHipster升級子產生器：每次執行子產生器時，都會建立一個新的送出。
+- 如果您要從非常老的版本（例如，從5.0.0升級到最新版本），建議您在每個次要/補丁版本之間逐步進行更新，並執行測試以確保應用程式能夠按預期執行。
+- JHipster社群提供了一些有用的方法，以這種方式設計應用程式，使更新過程更容易，並減少合併衝突的數量。 我們建議使用[JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo) 。
 
-## <a name="manual_upgrade"></a> 手动升级
+## <a name="manual_upgrade"></a> 手動升級
 
-要进行手动升级，请首先使用以下方法升级您的JHipster版本：
+要進行手動升級，請首先使用以下方法升級您的JHipster版本：
 
 ```
 npm install -g generator-jhipster
 ```
 
-删除项目的`node_modules`文件夹，然后运行：
+刪除專案的`node_modules`資料夾，然後執行：
 
 ```
 jhipster
 ```
 
-您还可以通过运行以下命令来更新您的项目及其所有实体
+您還可以透過執行以下指令來更新您的專案及其所有實體
 
 ```
 jhipster --with-entities
 ```
 
-您还可以通过再次运行`entity`子生成器来逐一更新实体，例如，如果您的实体名为 _Foo_
+您還可以透過再次執行`entity`子產生器來逐一更新實體，例如，如果您的實體名為 _Foo_
 
 ```
 jhipster entity Foo
 ```
 
-### 有关重命名文件的提示
+### 有關重新命名檔案的提示
 
-有时，文件可能会在生成器中重命名。 如果您想查看Git重命名检测结果，则可以运行`git add`（全部添加用`git add .`），然后使用您最喜欢的Git客户端查看更改。
+有時，檔案可能會在產生器中重新命名。 如果您想檢視Git重新命名檢測結果，則可以執行`git add`（全部新增用`git add .`），然後使用您最喜歡的Git用戶端檢視更改。
 
-如果重命名了许多文件，则可能需要在Git配置中增加`diff.renameLimit`，以使Git重命名检测按预期工作。 例如`git config --replace-all diff.renameLimit 10000`。
+如果重新命名了許多檔案，則可能需要在Git設定中增加`diff.renameLimit`，以使Git重新命名檢測按預期工作。 例如`git config --replace-all diff.renameLimit 10000`。
 
-默认情况下，Git重命名检测使用50％的相似性阈值。 要查看较少的重命名相似文件，可以在Git命令中使用选项`--find-renames = <n>`。 例如`git diff --staged --find-renames = 30`。
+預設情況下，Git重新命名檢測使用50％的相似性閾值。 要檢視較少的重新命名相似檔案，可以在Git指令中使用選項`--find-renames = <n>`。 例如`git diff --staged --find-renames = 30`。
 
-### 看到自己的变化
+### 看到自己的變化
 
-如果您希望查看生成项目后所做的更改，可以按照以下步骤操作。
+如果您希望檢視生成專案後所做的更改，可以按照以下步驟操作。
 
-使用`git clone`将您的项目克隆到新文件夹中。
+使用`git clone`將您的專案克隆到新檔案夾中。
 
-删除克隆项目中的所有文件和文件夹，`.git`、`.jhipster`和`.yo-rc.json`除外。
+刪除克隆專案中的所有檔案和資料夾，`.git`、`.jhipster`和`.yo-rc.json`除外。
 
-找出上一次用于生成项目的JHipster版本：查看项目根文件夹中的`.yo-rc.json`，找出`jhipsterVersion`的值。
+找出上一次用於生成專案的JHipster版本：檢視專案根資料夾中的`.yo-rc.json`，找出`jhipsterVersion`的值。
 
-安装上次生成项目时使用的JHipster版本：
+安裝上次生成專案時使用的JHipster版本：
 
 ```
 npm install -g generator-jhipster@jhipsterVersionYouUsedLastTime
 ```
 
-重新生成您的项目：
+重新生成您的專案：
 
 ```
 jhipster --force --with-entities --skip-install
 ```
 
-使用`git diff`，您现在可以看到所有更改已还原。 如果您希望看到所有已添加的更改，则可以将所有更改提交到Git，然后还原上一次提交。
+使用`git diff`，您現在可以看到所有更改已還原。 如果您希望看到所有已新增的更改，則可以將所有更改送出到Git，然後還原上一次送出。
 
-### 参见JHipster的更改
+### 參見JHipster的更改
 
-如果您希望查看JHipster所做的更改，可以按照以下描述的步骤进行。
+如果您希望檢視JHipster所做的更改，可以按照以下描述的步驟進行。
 
-使用您上次用于生成项目的JHipster版本生成项目：
-* 新建一个文件夹
-* 将您的项目`.yo-rc.json`文件和`.jhipster`文件夹复制到此新文件夹中
-* 找出您上次用于生成项目的JHipster版本：查看`.yo-rc.json`，找出`jhipsterVersion`的值
-* 安装上次用于生成项目的JHipster版本：`npm install -g generator-jhipster @ jhipsterVersionYouUsedLastTime`
-* 在创建的文件夹中运行：`jhipster --with-entities --skip-install`
+使用您上次用於生成專案的JHipster版本生成專案：
+* 新建一個資料夾
+* 將您的專案`.yo-rc.json`檔案和`.jhipster`資料夾複製到此新檔案夾中
+* 找出您上次用於生成專案的JHipster版本：檢視`.yo-rc.json`，找出`jhipsterVersion`的值
+* 安裝上次用於生成專案的JHipster版本：`npm install -g generator-jhipster @ jhipsterVersionYouUsedLastTime`
+* 在建立的資料夾中執行：`jhipster --with-entities --skip-install`
 
-使用最新的JHipster生成项目：
-* 新建一个文件夹
-* 将您的项目`.yo-rc.json`文件和`.jhipster`文件夹复制到此新文件夹中
-* 安装最新的JHipster版本：`npm install -g generator-jhipster`
-* 在创建的文件夹中运行：`jhipster --with-entities --skip-install`
+使用最新的JHipster生成專案：
+* 新建一個資料夾
+* 將您的專案`.yo-rc.json`檔案和`.jhipster`資料夾複製到此新檔案夾中
+* 安裝最新的JHipster版本：`npm install -g generator-jhipster`
+* 在建立的資料夾中執行：`jhipster --with-entities --skip-install`
 
-使用您喜欢的文件和文件夹比较工具将这2个文件夹进行比较，以查看JHipster所做的更改。
+使用您喜歡的檔案和資料夾比較工具將這2個資料夾進行比較，以檢視JHipster所做的更改。

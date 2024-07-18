@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 发布 企业版 (2015年愚人节)
+title: 發布 企業版 (2015年愚人節)
 ---
 
 April Fools 2015
@@ -51,18 +51,18 @@ Our first open positions for working on JHipster are:
 - Chief Financial Officer, to optimize our revenue stream. Should be willing to travel to Luxembourg.
 - Director of engineering, to manage a team of more than 100 unpaid Open Source developers.
 - Senior VP of sales and customer success. Must have a mustache or a beard.
-- VP of marketing. Main role will be to write next year’s April fools’ statement.
+- VP of marketing. Main role will be to write next year」s April fools」 statement.
 
 更新指引
 ------------
 
-使用以下命令更新Jhipster:
+使用以下指令更新Jhipster:
 
 ```
 npm update -g generator-jhipster
 ```
 
-使用以下命令更新你的项目
+使用以下指令更新你的專案
 
 ```
 yo jhipster
@@ -74,11 +74,11 @@ You can also update your entities by running again the entity sub-generator, for
 yo jhipster:entity Foo
 ```
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们:
+如果您發現這個版本的任何問題, 請隨時聯絡我們:
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
-- 在我们的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)添加一个缺陷报告
-- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)提交问题
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)
+- 在我們的[bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)新增一個缺陷報告
+- 在[Stack Overflow](http://stackoverflow.com/tags/jhipster/info)送出問題

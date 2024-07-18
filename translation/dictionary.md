@@ -1,38 +1,38 @@
 Glossary for Chinese translators
 
-为了保证翻译风格的统一，在翻译专业术语的时候请尽量参考如下对照表，同时也欢迎大家针对下表进行补充和讨论。
+為了保證翻譯風格的統一，在翻譯專業術語的時候請儘量參考如下對照表，同時也歡迎大家針對下表進行補充和討論。
 
-application		应用程序  
-bug tracker     错误跟踪器  
-build tool      构建工具   
+application		應用程式  
+bug tracker     錯誤跟蹤器  
+build tool      建立工具   
 change set      更改集  
-closed ticket	完成的工单  
-command-line interface 命令行界面  
-component       组件  
+closed ticket	完成的工單  
+command-line interface 指令行介面  
+component       元件  
 controller      控制器  
-database schema 数据库架构  
-Data Transfer Object (DTO) 数据传输对象  
-domain object   域对象  
-entity          实体  
-foreign key     外键  
-generator	    生成器  
-integration test 集成测试  
-keyword         保留关键字  
-live reload     实时加载  
-merge			合并  
-messaging system 消息系统   
-metadata        元数据  
-performance test 性能测试  
-pull request 	拉回请求   
-repository      资源库  
+database schema 資料庫架構  
+Data Transfer Object (DTO) 數據傳輸物件  
+domain object   域物件  
+entity          實體  
+foreign key     外鍵  
+generator	    產生器  
+integration test 整合測試  
+keyword         保留關鍵字  
+live reload     實時載入  
+merge			合併  
+messaging system 訊息系統   
+metadata        元資料  
+performance test 效能測試  
+pull request 	拉回請求   
+repository      資源庫  
 router          路由器  
-service         服务  
-sub-generator   子生成器  
-test suite      测试套件  
-time-line       时间线  
-timestamp       时间戳  
-topic           话题   
-validation rule 验证规则  
-view            视图  
+service         服務  
+sub-generator   子產生器  
+test suite      測試套件  
+time-line       時間線  
+timestamp       時間戳  
+topic           話題   
+validation rule 驗證規則  
+view            檢視  
 
 blueprint 方案

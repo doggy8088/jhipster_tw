@@ -1,136 +1,136 @@
 ---
 layout: default
-title: API网关
+title: API閘道器
 permalink: /api-gateway/
 sitemap:
     priority: 0.7
     lastmod: 2017-05-03T00:00:00-00:00
 ---
 
-# <i class="fa fa-exchange"></i> JHipster API网关
+# <i class="fa fa-exchange"></i> JHipster API閘道器
 
-JHipster可以生成API网关。网关是普通的JHipster应用程序，因此您可以在该项目上使用常规的JHipster选项和开发工作流，但它也充当微服务的入口。更具体地说，它为所有微服务提供HTTP路由和负载均衡，服务质量，安全性和API文档。
+JHipster可以生成API閘道器。閘道器是普通的JHipster應用程式，因此您可以在該專案上使用常規的JHipster選項和開發工作流，但它也充當微服務的入口。更具體地說，它為所有微服務提供HTTP路由和負載均衡，服務質量，安全性和API文件。
 
-## 目录
+## 目錄
 
-1. [架构图](#architecture_diagram)
+1. [架構圖](#architecture_diagram)
 2. [HTTP路由](#http_routing)
 3. [安全](#security)
-4. [自动文档](#documentation)
+4. [自動文件](#documentation)
 5. [限速](#rate_limiting)
-6. [访问控制策略](#acl)
+6. [訪問控制策略](#acl)
 
-## <a name="architecture_diagram"></a> 架构图
+## <a name="architecture_diagram"></a> 架構圖
 
 <img src="{{ site.url }}/images/microservices_architecture_detail.001.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
 
-## <a name="http_routing"></a> HTTP请求使用网关进行路由
+## <a name="http_routing"></a> HTTP請求使用閘道器進行路由
 
-启动网关和微服务后，它们将在registry中注册自己（使用`src/main/resources/config/application.yml`文件中的`eureka.client.serviceUrl.defaultZone`项）。
+啟動閘道器和微服務後，它們將在registry中註冊自己（使用`src/main/resources/config/application.yml`檔案中的`eureka.client.serviceUrl.defaultZone`項）。
 
-网关将使用其应用程序名字自动将所有请求代理到微服务：例如，注册微服务`app1`时，该请求在网关上的`/services/app1`URL上可用。
+閘道器將使用其應用程式名字自動將所有請求代理到微服務：例如，註冊微服務`app1`時，該請求在閘道器上的`/services/app1`URL上可用。
 
-例如，如果您的网关运行在`localhost:8080`上，则可以指向[http://localhost:8080/services/app1/api/foos](http://localhost:8080/services/app1/api/foos)来获取微服务`app1`服务的foos资源。
-如果您尝试使用Web浏览器执行此操作，请不要忘记REST资源在JHipster中是默认保护的，因此您需要发送正确的JWT标头（请参见下面的安全性要点），或在微服务的`MicroserviceSecurityConfiguration`类删除这些URL安全保护。
+例如，如果您的閘道器執行在`localhost:8080`上，則可以指向[http://localhost:8080/services/app1/api/foos](http://localhost:8080/services/app1/api/foos)來獲取微服務`app1`服務的foos資源。
+如果您嘗試使用Web瀏覽器執行此操作，請不要忘記REST資源在JHipster中是預設保護的，因此您需要傳送正確的JWT標頭（請參見下面的安全性要點），或在微服務的`MicroserviceSecurityConfiguration`類刪除這些URL安全保護。
 
-如果有多个运行同一服务的实例，则网关将从JHipster Registry获取这些实例，并将：
+如果有多個執行同一服務的實例，則閘道器將從JHipster Registry獲取這些實例，並將：
 
-- 使用[Spring Coud Load Balancer](https://spring.io/guides/gs/spring-cloud-loadbalancer/)负载均衡HTTP请求。
-- 使用[Netflix Hystrix](https://github.com/Netflix/hystrix)提供断路器，以便快速，安全地删除发生故障的实例。
+- 使用[Spring Coud Load Balancer](https://spring.io/guides/gs/spring-cloud-loadbalancer/)負載均衡HTTP請求。
+- 使用[Netflix Hystrix](https://github.com/Netflix/hystrix)提供斷路器，以便快速，安全地刪除發生故障的實例。
 
-每个网关都有一个特定的"admin > gateway"菜单，可以在其中监视打开的HTTP路由和微服务实例。
+每個閘道器都有一個特定的"admin > gateway"選單，可以在其中監視開啟的HTTP路由和微服務實例。
 
-如果有多个运行同一服务的实例，则网关将从JHipster Registry获取这些实例，并将：
-使用Netflix Ribbon负载均衡HTTP请求。
+如果有多個執行同一服務的實例，則閘道器將從JHipster Registry獲取這些實例，並將：
+使用Netflix Ribbon負載均衡HTTP請求。
 
 ## <a name="security"></a> 安全
 
-在此[安全文档页面]({{ site.url }}/security/)上详细介绍了标准JHipster安全选项。毕竟，保护微服务架构具有一些特定的调整和选项，在此进行详细介绍。
+在此[安全文件頁面]({{ site.url }}/security/)上詳細介紹了標準JHipster安全選項。畢竟，保護微服務架構具有一些特定的調整和選項，在此進行詳細介紹。
 
 ### JWT（JSON Web令牌）
 
-JWT（JSON Web令牌）是一种行业标准、易于使用的方法，用于保护微服务体系结构中的应用程序。
+JWT（JSON Web令牌）是一種行業標準、易於使用的方法，用於保護微服務體系結構中的應用程式。
 
-JHipster使用Okta提供的[JJWT library](https://github.com/jwtk/jjwt)来实现JWT。
+JHipster使用Okta提供的[JJWT library](https://github.com/jwtk/jjwt)來實現JWT。
 
-令牌由网关生成，并发送到底层微服务：由于它们共享一个公共密钥，因此微服务能够验证令牌并使用该令牌对用户进行身份验证。
+令牌由閘道器生成，併發送到底層微服務：由於它們共享一個公共金鑰，因此微服務能夠驗證令牌並使用該令牌對使用者進行身份驗證。
 
-这些令牌是自我描述的：它们具有身份验证和授权信息，因此微服务不需要查询数据库或外部系统。这对于确保可扩展的体系结构很重要。
-- 为了确保安全，必须在所有应用程序之间共享JWT秘密令牌。
-- 对于每个应用程序，默认令牌是唯一的，由JHipster生成。它存储在`.yo-rc.json`文件中。
-- 使用`src/main/resources/config/application.yml`文件中的`jhipster.security.authentication.jwt.secret`密钥配置令牌。
-- 要在所有应用程序之间共享此密钥，请将密钥从网关复制到所有微服务，或使用[JHipster Registry]({{ site.url }}/jhipster-registry/)的Spring Config Server或[JHipster的Consul K / V存储的特定配置]({{ site.url }}/consul/)进行共享。这是人们使用这些中心配置服务器的主要原因之一。
-- 推荐的做法是在开发和生产中使用其他密钥。
+這些令牌是自我描述的：它們具有身份驗證和授權訊息，因此微服務不需要查詢資料庫或外部系統。這對於確保可擴充套件的體系結構很重要。
+- 為了確保安全，必須在所有應用程式之間共享JWT秘密令牌。
+- 對於每個應用程式，預設令牌是唯一的，由JHipster生成。它儲存在`.yo-rc.json`檔案中。
+- 使用`src/main/resources/config/application.yml`檔案中的`jhipster.security.authentication.jwt.secret`金鑰設定令牌。
+- 要在所有應用程式之間共享此金鑰，請將金鑰從閘道器複製到所有微服務，或使用[JHipster Registry]({{ site.url }}/jhipster-registry/)的Spring Config Server或[JHipster的Consul K / V儲存的特定設定]({{ site.url }}/consul/)進行共享。這是人們使用這些中心設定服務器的主要原因之一。
+- 推薦的做法是在開發和生產中使用其他金鑰。
 
 
 ### OpenID Connect
 
-JHipster提供了OpenID Connect支持，如[我们的OpenID Connect文档]({{ site.url }}/security/#oauth2)中所述。
+JHipster提供了OpenID Connect支援，如[我們的OpenID Connect文件]({{ site.url }}/security/#oauth2)中所述。
 
-选择此选项时，默认情况下将使用Keycloak，并且可能要使用Docker Compose运行完整的微服务架构：请确保阅读我们的[Docker Compose文档]({{ site.url }}/docker-compose/)，并为Keycloak配置正确的`/etc/hosts`。
+選擇此選項時，預設情況下將使用Keycloak，並且可能要使用Docker Compose執行完整的微服務架構：請確保閱讀我們的[Docker Compose文件]({{ site.url }}/docker-compose/)，併為Keycloak設定正確的`/etc/hosts`。
 
-使用OpenID Connect时，JHipster网关会将OAuth2令牌发送到微服务，该微服务将接受这些令牌，因为它们也已连接到Keycloak服务。
+使用OpenID Connect時，JHipster閘道器會將OAuth2令牌傳送到微服務，該微服務將接受這些令牌，因為它們也已連線到Keycloak服務。
 
-与JWT不同，这些令牌不是自我描述的，而是有状态的，这导致以下问题：
+與JWT不同，這些令牌不是自我描述的，而是有狀態的，這導致以下問題：
 
-微服务中的性能问题：由于查找当前用户的安全信息非常普遍（否则，从一开始我们就不会使用任何安全选项），几乎每个微服务都会调用OpenID Connect服务器来获取该数据。因此，在正常设置中，每个微服务都会在每次收到请求时进行这些调用，这将很快会导致性能问题。
+微服務中的效能問題：由於查詢當前使用者的安全訊息非常普遍（否則，從一開始我們就不會使用任何安全選項），幾乎每個微服務都會呼叫OpenID Connect伺服器來獲取該資料。因此，在正常設定中，每個微服務都會在每次收到請求時進行這些呼叫，這將很快會導致效能問題。
 
-  - 如果在生成JHipster微服务时选择了缓存选项([这里是使用缓存文档]({{ site.url }}/using-cache/))，则将生成特定的`CachedUserInfoTokenServices`Spring Bean，它将缓存这些调用。正确设置后，这将消除性能问题。
-  - 如果您需要在“user info”请求获取更多信息，请使用`src/main/resources/application.yml`配置文件中的标准Spring Boot配置键值`security.oauth2.resource.userInfoUri`对其进行配置。
+  - 如果在生成JHipster微服務時選擇了快取選項([這裡是使用快取文件]({{ site.url }}/using-cache/))，則將生成特定的`CachedUserInfoTokenServices`Spring Bean，它將快取這些呼叫。正確設定後，這將消除效能問題。
+  - 如果您需要在『user info』請求獲取更多訊息，請使用`src/main/resources/application.yml`設定檔案中的標準Spring Boot設定鍵值`security.oauth2.resource.userInfoUri`對其進行設定。
 
-## <a name="documentation"></a> 自动文档
+## <a name="documentation"></a> 自動文件
 
-网关暴露了它所代理服务的Swagger API，许多工具依赖此特性，例如Swagger UI和swagger-codegen。
+閘道器暴露了它所代理服務的Swagger API，許多工具依賴此屬性，例如Swagger UI和swagger-codegen。
 
-网关的"admin > API"菜单具有特定的下拉列表，其中显示了网关的API以及已注册的微服务中的所有暴露API。
+閘道器的"admin > API"選單具有特定的下拉清單，其中顯示了閘道器的API以及已註冊的微服務中的所有暴露API。
 
-使用此下拉列表，所有微服务API文档已经自动生成，并可以通过网关对其进行测试。
+使用此下拉清單，所有微服務API文件已經自動生成，並可以透過閘道器對其進行測試。
 
-使用安全的API时，安全令牌会自动添加到Swagger UI界面，因此所有请求都可以直接使用。
+使用安全的API時，安全令牌會自動新增到Swagger UI介面，因此所有請求都可以直接使用。
 
 ## <a name="rate_limiting"></a> 限速
 
-这是一项高级特性，它使用[Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j)和[Hazelcast](https://hazelcast.com/)提供微服务上的服务质量。
+這是一項高階屬性，它使用[Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j)和[Hazelcast](https://hazelcast.com/)提供微服務上的服務質量。
 
-网关提供速率限制功能，因此可以限制REST请求的数量：
+閘道器提供速率限制功能，因此可以限制REST請求的數量：
 
-- 通过IP地址（对于匿名用户）
-- 通过用户登录（对于已登录的用户）
+- 透過IP地址（對於匿名使用者）
+- 透過使用者登入（對於已登入的使用者）
 
-然后，JHipster将使用[Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j)和[Hazelcast](https://hazelcast.com/)请求计数，并在超出限制时发送HTTP 429（请求过多）错误。每个用户的默认限制是每小时100,000个API调用。
+然後，JHipster將使用[Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j)和[Hazelcast](https://hazelcast.com/)請求計數，並在超出限制時傳送HTTP 429（請求過多）錯誤。每個使用者的預設限制是每小時100,000個API呼叫。
 
-这是一项重要功能，可以保护微服务架构免于被特定用户的请求所淹没。
+這是一項重要功能，可以保護微服務架構免於被特定使用者的請求所淹沒。
 
-网关在保护REST端点安全时，可以完全访问用户的安全信息，因此可以扩展它，以根据用户的安全角色提供特定的速率限制。
+閘道器在保護REST端點安全時，可以完全訪問使用者的安全訊息，因此可以擴充套件它，以根據使用者的安全角色提供特定的速率限制。
 
-要启用速率限制，请打开`application-dev.yml`或`application-prod.yml`文件，并将`enabled`设置为`true`：
+要啟用速率限制，請開啟`application-dev.yml`或`application-prod.yml`檔案，並將`enabled`設定為`true`：
 
     jhipster:
         gateway:
             rate-limiting:
                 enabled: true
 
-数据存储在Hazelcast中，因此，只要配置了Hazelcast分布式缓存，便可以扩展网关，该网关可以直接使用：
+資料儲存在Hazelcast中，因此，只要設定了Hazelcast分散式快取，便可以擴充套件閘道器，該閘道器可以直接使用：
 
-- 默认情况下，所有网关都配置了Hazelcast
-- 如果使用[JHipster Registry]({{ site.url }}/jhipster-registry/)，则网关的所有实例都应自动在分布式缓存中注册自己
+- 預設情況下，所有閘道器都設定了Hazelcast
+- 如果使用[JHipster Registry]({{ site.url }}/jhipster-registry/)，則閘道器的所有實例都應自動在分散式快取中註冊自己
 
-如果要添加更多规则或修改现有规则，则需要在`RateLimitingFilter`类中对其进行编码。修改示例可能是：
+如果要新增更多規則或修改現有規則，則需要在`RateLimitingFilter`類別中對其進行編碼。修改範例可能是：
 
-- 降低HTTP调用的限制
-- 增加每分钟或每天限制
-- 取消“admin”用户的所有限制
+- 降低HTTP呼叫的限制
+- 增加每分鐘或每天限制
+- 取消『admin』使用者的所有限制
 
-## <a name="acl"></a> 访问控制策略
+## <a name="acl"></a> 訪問控制策略
 
-默认情况下，所有已注册的微服务都可以通过网关来访问。如果要排除通过网关公开访问的特定API，可以使用网关的特定访问控制策略过滤器。可以使用`application-*.yml`文件中的`jhipster.gateway.authorized-microservices-endpoints`密钥对其进行配置：
+預設情況下，所有已註冊的微服務都可以透過閘道器來訪問。如果要排除透過閘道器公開訪問的特定API，可以使用閘道器的特定訪問控制策略過濾器。可以使用`application-*.yml`檔案中的`jhipster.gateway.authorized-microservices-endpoints`金鑰對其進行設定：
 
     jhipster:
         gateway:
             authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
                 app1: /api,/v2/api-docs # recommended dev configuration
 
-例如，如果您只希望微服务`bar`的 `/api/foo`API端点可用：
+例如，如果您只希望微服務`bar`的 `/api/foo`API端點可用：
 
     jhipster:
         gateway:

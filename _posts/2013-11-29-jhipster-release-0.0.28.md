@@ -1,18 +1,18 @@
 ---
 layout: default
-title: 发布 v0.0.28
+title: 發布 v0.0.28
 ---
 
 JHipster release 0.0.28
 ==================
 
 
-Maven配置文件"development"和"production"已改名为"dev"和"prod", 简化输入
+Maven設定檔案"development"和"production"已改名為"dev"和"prod", 簡化輸入
 
-"dev"模式, 没有添加额外的功能.
+"dev"模式, 沒有新增額外的功能.
 
 "prod"模式, 新增了以下功能:
 
-- 打包应用时候会自动触发完整的"grunt build"
-- 最小化、优化后的静态资源会写入"src/main/webapp/dist"目录
-- 更新了两个全新的Servlet filter: 一个管理"/dist"目录下的静态文件, 另一个添加HTTP头部缓存信息
+- 打包應用時候會自動觸發完整的"grunt build"
+- 最小化、最佳化後的靜態資源會寫入"src/main/webapp/dist"目錄
+- 更新了兩個全新的Servlet filter: 一個管理"/dist"目錄下的靜態檔案, 另一個新增HTTP頭部快取訊息

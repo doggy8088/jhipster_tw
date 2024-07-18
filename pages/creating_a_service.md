@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 创建一个服务
+title: 建立一個服務
 permalink: /creating-a-spring-service/
 redirect_from:
   - /creating_a_service.html
@@ -10,54 +10,54 @@ sitemap:
     lastmod: 2019-02-01T00:00:00-00:00
 ---
 
-# <i class="fa fa-bolt"></i> 创建一个Spring服务
+# <i class="fa fa-bolt"></i> 建立一個Spring服務
 
-## 介绍
+## 介紹
 
-_注意：此子生成器比创建完整CRUD实体的[实体子生成器]({{ site.url }}/creating-an-entity/)简单得多_
+_注意：此子產生器比建立完整CRUD實體的[實體子產生器]({{ site.url }}/creating-an-entity/)簡單得多_
 
-该子生成器生成一个Spring Service bean，您应该在此bean中编写应用程序的业务逻辑。
+該子產生器生成一個Spring Service bean，您應該在此bean中編寫應用程式的業務邏輯。
 
-生成"Bar"的Service bean, 运行：
+生成"Bar"的Service bean, 執行：
 
 `jhipster spring-service Bar`
 
-_这将生成一个`BarService`：很少的代码行，但是它们通常会带来很多疑问。我们尝试回答以下最常见的问题。_
+_這將生成一個`BarService`：很少的程式碼行，但是它們通常會帶來很多疑問。我們嘗試回答以下最常見的問題。_
 
-## 为什么服务类不是由“entity”生成器生成的？
+## 為什麼服務類別不是由『entity』產生器生成的？
 
-这里有两个主要的架构原则：
+這裡有兩個主要的架構原則：
 
-*   我们不想提倡创建无用的服务：如果您所需要的只是数据库上的基本CRUD，则不需要Service Bean。因此，默认情况下，JHipster不会生成它们。
+*   我們不想提倡建立無用的服務：如果您所需要的只是資料庫上的基本CRUD，則不需要Service Bean。因此，預設情況下，JHipster不會生成它們。
 
-*   我们认为Service Bean比repository更解耦。Service Bean将使用多个repository在它们之上提供业务逻辑。这就是为什么无法直接使用实体生成Service Bean的原因。
+*   我們認為Service Bean比repository更解耦。Service Bean將使用多個repository在它們之上提供業務邏輯。這就是為什麼無法直接使用實體生成Service Bean的原因。
 
-## 我们应该在Service Bean中使用接口吗？
+## 我們應該在Service Bean中使用介面嗎？
 
-简而言之: **No**.
+簡而言之: **No**.
 
-如果您想得到详细答案，这里是：
+如果您想得到詳細答案，這裡是：
 
-使用Spring的主要兴趣之一是AOP。这项技术使Spring可以在Bean之上添加新行为：例如，这就是事务或安全的工作方式。
+使用Spring的主要興趣之一是AOP。這項技術使Spring可以在Bean之上新增新行為：例如，這就是事務或安全的工作方式。
 
-为了添加这些行为，Spring需要在您的类上创建一个代理，并且有两种创建代理的方法：
+為了新增這些行為，Spring需要在您的類別上建立一個代理，並且有兩種建立代理的方法：
 
-*   如果您的类使用接口，则Spring将使用Java提供的标准机制来创建动态代理。
+*   如果您的類使用介面，則Spring將使用Java提供的標準機制來建立動態代理。
 
-*   如果您的类不使用接口，则Spring将使用CGLIB即时生成一个新类：这不是标准的Java机制，但其工作原理与标准机制一样。
+*   如果您的類不使用介面，則Spring將使用CGLIB即時生成一個新類：這不是標準的Java機制，但其工作原理與標準機制一樣。
 
-还会有人认为接口更适合编写测试，但是我们认为我们不应该为了测试的而修改我们的生产代码，而且所有新的模拟框架（例如EasyMock）都允许您创建非常好的单元测试，在没有任何接口的情况下。
+還會有人認為介面更適合編寫測試，但是我們認為我們不應該為了測試的而修改我們的生產程式碼，而且所有新的模擬框架（例如EasyMock）都允許您建立非常好的單元測試，在沒有任何介面的情況下。
 
-因此，最后，我们发现Service Bean的接口几乎没有用，这就是为什么我们不推荐它们的原因（但是我们还是为您保留了选择生成它们的选项！）。
+因此，最後，我們發現Service Bean的介面幾乎沒有用，這就是為什麼我們不推薦它們的原因（但是我們還是為您保留了選擇生成它們的選項！）。
 
-## 为什么要使用事务来获取惰性的JPA关系？
+## 為什麼要使用事務來獲取惰性的JPA關係？
 
-默认情况下，JPA使用一对多和多对多实体关系的惰性初始模式。如果使用此默认配置，则可能会看到可怕的`LazyInitializationException`：这意味着您试图在事务外部使用未初始化的关系。
+預設情況下，JPA使用一對多和多對多實體關係的惰性初始模式。如果使用此預設設定，則可能會看到可怕的`LazyInitializationException`：這意味著您試圖在事務外部使用未初始化的關係。
 
-由于生成的Service类默认具有`@Transactional`注解，因此其所有方法都是事务性的。这意味着您可以在这些业务方法中获取所有必需的惰性关系，而无不用担心遇见`LazyInitializationException`。
+由於生成的Service類預設具有`@Transactional`註解，因此其所有方法都是事務性的。這意味著您可以在這些業務方法中獲取所有必需的惰性關係，而無不用擔心遇見`LazyInitializationException`。
 
-_提示:_ 如果您不修改任何数据，请在方法上使用`@Transactional(readOnly = true)`。这是一个不错的性能优化（Hibernate不需要刷新其一级缓存，因为我们没有进行任何修改），并且通过某些JDBC驱动程序提高了质量（Oracle不允许您发送INSERT/UPDATE/DELETE语句）
+_提示:_ 如果您不修改任何資料，請在方法上使用`@Transactional(readOnly = true)`。這是一個不錯的效能最佳化（Hibernate不需要重新整理其一級快取，因為我們沒有進行任何修改），並且透過某些JDBC驅動程式提高了質量（Oracle不允許您傳送INSERT/UPDATE/DELETE語句）
 
-## 我们可以为Service Bean添加安全特性吗？
+## 我們可以為Service Bean新增安全屬性嗎？
 
-是!您的类或方法上添加Spring Security的 `@Secured`批注，然后使用提供的`AuthoritiesConstants`类即可限制对特定用户权限的访问。
+是!您的類或方法上新增Spring Security的 `@Secured`批注，然後使用提供的`AuthoritiesConstants`類即可限制對特定使用者許可權的訪問。

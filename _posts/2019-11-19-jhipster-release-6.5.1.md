@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 发布 v6.5.1
+title: 發布 v6.5.1
 ---
 
 JHipster release v6.5.1
@@ -11,64 +11,64 @@ This is a patch release, which corrects some issues with JDL, as we upgraded to 
 - Export JDL - [#10768](https://github.com/jhipster/generator-jhipster/issues/10768)
 - Some lazy / eager loading issues - [#10775](https://github.com/jhipster/generator-jhipster/pull/10775)
 
-关闭的工单与合并请求
+關閉的工單與合併請求
 ------------
-一如既往， __[您可以在此处查看所有已关闭的工单和合并请求](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A6.5.1+is%3Aclosed)__.
+一如既往， __[您可以在此處檢視所有已關閉的工單和合並請求](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A6.5.1+is%3Aclosed)__.
 
 更新方法
 ------------
 
-**自动升级**
+**自動升級**
 
-在原有的项目上使用 [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/)自动更新：
+在原有的專案上使用 [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/)自動更新：
 
-首先，升级JHipster版本：
+首先，升級JHipster版本：
 
 ```
 npm update -g generator-jhipster
 ```
 
-然后运行upgrade子生成器：
+然後執行upgrade子產生器：
 
 ```
 jhipster upgrade
 ```
 
-**手动升级**
+**手動升級**
 
-同样，需要先升级您的JHipster到最新版：
+同樣，需要先升級您的JHipster到最新版：
 
 ```
 npm update -g generator-jhipster
 ```
 
-对于已经存在的项目，它仍使用原来生成该项目时的JHipster版本。
-要升级项目，必须首先删除其`node_modules`文件夹，然后运行：
+對於已經存在的專案，它仍使用原來生成該專案時的JHipster版本。
+要升級專案，必須首先刪除其`node_modules`資料夾，然後執行：
 
 ```
 jhipster
 ```
 
-您还可以通过运行以下命令来更新项目及其所有实体：
+您還可以透過執行以下指令來更新專案及其所有實體：
 
 ```
 jhipster --with-entities
 ```
 
-您还可以通过再次运行entity子生成器（jhipster entity）来逐一更新实体，例如，如果您的实体名为_Foo_，则运行：
+您還可以透過再次執行entity子產生器（jhipster entity）來逐一更新實體，例如，如果您的實體名為_Foo_，則執行：
 
 ```
 jhipster entity Foo
 ```
 
-帮助和缺陷
+幫助和缺陷
 --------------
 
-如果您发现这个版本的任何问题, 请随时联系我们：
+如果您發現這個版本的任何問題, 請隨時聯絡我們：
 
-- 提交Bug请到 [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
-- 提交问题请到 [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+- 送出Bug請到 [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- 送出問題請到 [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
 
-如果您遇到的问题是紧急错误或安全问题，请：
+如果您遇到的問題是緊急錯誤或安全問題，請：
 
-- 在推特上联系[@jhipster](https://twitter.com/jhipster)
+- 在推特上聯系[@jhipster](https://twitter.com/jhipster)

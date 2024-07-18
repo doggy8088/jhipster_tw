@@ -11,30 +11,30 @@ sitemap:
 
 # <i class="fa fa-envelope"></i> 使用Kafka
 
-## 细节
+## 細節
 
-[Kafka](http://kafka.apache.org/)是一个流行的发布-订阅消息系统。JHipster对Kafka具有可选支持，它将：
+[Kafka](http://kafka.apache.org/)是一個流行的發布-訂閱訊息系統。JHipster對Kafka具有可選支援，它將：
 
-- 使用JHipster配置[Kafka clients](https://docs.confluent.io/5.3.1/clients/consumer.html#java-client)。
-- 在`application-*.yml`文件中添加必要的配置。
-- 生成Docker Compose配置文件，只需输入`docker-compose -f src/main/docker/kafka.yml up -d`，即可使用Kafka。
+- 使用JHipster設定[Kafka clients](https://docs.confluent.io/5.3.1/clients/consumer.html#java-client)。
+- 在`application-*.yml`檔案中新增必要的設定。
+- 生成Docker Compose設定檔案，只需輸入`docker-compose -f src/main/docker/kafka.yml up -d`，即可使用Kafka。
 
-## 必备条件
+## 必備條件
 
-生成一个新的应用程序，并确保在提示您要使用的技术时，选择`Asynchronous messages using Apache Kafka`。 一个Docker Compose配置文件将被生成，您可以使用以下命令启动Kafka：
+生成一個新的應用程式，並確保在提示您要使用的技術時，選擇`Asynchronous messages using Apache Kafka`。 一個Docker Compose設定檔案將被生成，您可以使用以下指令啟動Kafka：
 
 `docker-compose -f src/main/docker/kafka.yml up -d`
 
-## 消费者和生产者
+## 消費者和生產者
 
-消费者(`<appName>KafkaConsumer` class) 正在运行，可以适应您的需求。
-生产者(`<appName>KafkaProducer` class) 也是可用的，并且可以通过REST端点（`<appName> KafkaResource class`）进行调用。
+消費者(`<appName>KafkaConsumer` class) 正在執行，可以適應您的需求。
+生產者(`<appName>KafkaProducer` class) 也是可用的，並且可以透過REST端點（`<appName> KafkaResource class`）進行呼叫。
 
-## 运行应用
+## 執行應用
 
-在`SecurityConfiguration.java`配置中允许访问的端点：
+在`SecurityConfiguration.java`設定中允許訪問的端點：
 
 `.antMatchers("/api/<appName>-kafka/publish").permitAll()`
 
-如果您调用端点`http://localhost:8080/api/<appName>-kafka/publish?message=...`, 则应该看到记录到控制台的消息。
+如果您呼叫端點`http://localhost:8080/api/<appName>-kafka/publish?message=...`, 則應該看到記錄到控制台的訊息。
 

@@ -11,13 +11,13 @@ sitemap:
 
 # <i class="fa fa-database"></i> 使用Couchbase
 
-Couchbase是生成应用程序时可以选择的受支持数据库之一。
+Couchbase是生成應用程式時可以選擇的受支援資料庫之一。
 
-选择Couchbase时：
+選擇Couchbase時：
 
-*   Spring Data Couchbase将用于访问数据库。这非常接近Spring Data JPA，这就是为什么Couchbase支持非常接近（默认）JPA支持的原因 
-*   [Couchmove](https://github.com/differentway/couchmove)用于代替[Liquibase](http://www.liquibase.org/)管理数据库更改
-*   [实体子生成器]({{ site.url }}/creating-an-entity/)不会询问您实体关系，因为您无法在NoSQL数据库建立关系（至少不会在JPA建立关系）
-*   [Couchbase TestContainers](https://github.com/differentway/testcontainers-java-module-couchbase)用于启动数据库的容器化版本以运行单元测试。
+*   Spring Data Couchbase將用於訪問資料庫。這非常接近Spring Data JPA，這就是為什麼Couchbase支援非常接近（預設）JPA支援的原因 
+*   [Couchmove](https://github.com/differentway/couchmove)用於代替[Liquibase](http://www.liquibase.org/)管理資料庫更改
+*   [實體子產生器]({{ site.url }}/creating-an-entity/)不會詢問您實體關係，因為您無法在NoSQL資料庫建立關係（至少不會在JPA建立關係）
+*   [Couchbase TestContainers](https://github.com/differentway/testcontainers-java-module-couchbase)用於啟動資料庫的容器化版本以執行單元測試。
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

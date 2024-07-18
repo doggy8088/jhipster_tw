@@ -1,36 +1,36 @@
 ---
 layout: default
-title: 添加Querydsl支持
+title: 新增Querydsl支援
 sitemap:
 priority: 0.5
 lastmod: 2017-04-27T08:40:00-00:00
 ---
 
-# 添加Querydsl支持
+# 新增Querydsl支援
 
-__提示由 [@omrzljak](https://github.com/omrzljak) 提交, [@arnaud-deprez](https://github.com/arnaud-deprez) 更新__
+__提示由 [@omrzljak](https://github.com/omrzljak) 送出, [@arnaud-deprez](https://github.com/arnaud-deprez) 更新__
 
-在某些情况下，Spring Data [query possibilities](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries) 不能满足查询需求。 您可以使用 `@Query` 注解和 [write your own](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries.json-based) 。有些人喜欢编写类型安全的查询，例如 [Querydsl](http://www.Querydsl.com/) 。
+在某些情況下，Spring Data [query possibilities](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries) 不能滿足查詢需求。 您可以使用 `@Query` 註解和 [write your own](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries.json-based) 。有些人喜歡編寫型別安全的查詢，例如 [Querydsl](http://www.Querydsl.com/) 。
 
-## 生成的Predicate类
+## 生成的Predicate類
 
-Querydsl的重要部分是为查询生成的domain类，即Predicate。 对于spring-data-mongodb，它们是由Java注释后处理工具生成的。
+Querydsl的重要部分是為查詢生成的domain類，即Predicate。 對於spring-data-mongodb，它們是由Java註解後處理工具生成的。
 
-## Gradle插件
+## Gradle外掛
 
-还有Querydsl的Gradle插件，它支持spring-data-mongodb的配置。
+還有Querydsl的Gradle外掛，它支援spring-data-mongodb的設定。
 
-## Maven插件
+## Maven外掛
 
-还有一个Maven插件。 在文档[Maven集成](http://www.querydsl.com/static/querydsl/latest/reference/html/ch02.html#d0e132) 一章中全面介绍了Maven配置。 您还需要执行以下步骤。
+還有一個Maven外掛。 在文件[Maven整合](http://www.querydsl.com/static/querydsl/latest/reference/html/ch02.html#d0e132) 一章中全面介紹了Maven設定。 您還需要執行以下步驟。
 
-**注意**: 不要包含`org.slf4j`依赖，因为它已包含在Spring Boot中。
+**注意**: 不要包含`org.slf4j`依賴，因為它已包含在Spring Boot中。
 
-## 变化内容
+## 變化內容
 
 ### build.gradle
 
-在 `build.gradle`中，将依赖项添加到`Querydsl plugin`
+在 `build.gradle`中，將依賴項新增到`Querydsl plugin`
 
 ```groovy
 buildscript {
@@ -44,13 +44,13 @@ buildscript {
 
 apply from: 'gradle/querydsl.gradle'
 ```
-定义 `Querydsl version` 在 `gradle.properties`中。
+定義 `Querydsl version` 在 `gradle.properties`中。
 
 ```properties
 querydsl_version=4.1.4
 ```
 
-然后创建一个文件 `gradle/querydsl.gradle` ，内容为：
+然後建立一個檔案 `gradle/querydsl.gradle` ，內容為：
 
 ```groovy
 apply plugin: "com.ewerk.gradle.plugins.querydsl"
@@ -75,24 +75,24 @@ dependencies {
 }
 ```
 
-__注意__ 我们使用MongoDB，但Querydsl插件还支持[更多选项](https://github.com/ewerk/gradle-plugins/tree/master/Querydsl-plugin) 。
+__注意__ 我們使用MongoDB，但Querydsl外掛還支援[更多選項](https://github.com/ewerk/gradle-plugins/tree/master/Querydsl-plugin) 。
 
-如果您运行`gradle build`，您将看到这样的输出
+如果您執行`gradle build`，您將看到這樣的輸出
 `Note: Generating net.jogat.names.domain.QName for [net.jogat.names.domain.Name]`
 
-对于使用@Document注释的每个域类，Querydsl插件将生成一个Predicate类。
+對於使用@Document註解的每個域類，Querydsl外掛將生成一個Predicate類。
 
-## 修改Repository类
+## 修改Repository類
 
-如果您有一个实体类，例如`Name`，那么您也有一个`NameRepository`类。 您必须更改每个Repository类以从`QueryDslPredicateExecutor`扩展。
+如果您有一個實體類，例如`Name`，那麼您也有一個`NameRepository`類。 您必須更改每個Repository類以從`QueryDslPredicateExecutor`擴充套件。
 
     public interface NameRepository extends MongoRepository<Name, String>, QueryDslPredicateExecutor<Name> {
 
-这将通过支持Querydsl的其他方法扩展您的Repository类（[参见](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries.type-safe) ）
+這將透過支援Querydsl的其他方法擴充套件您的Repository類（[參見](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries.type-safe) ）
 
-## Web支持
+## Web支援
 
-要扩展剩余控制器以支持参数化请求，您必须在方法参数中添加以`org.springframework.data.querydsl.binding.QuerydslPredicate`注解的`com.mysema.query.types.Predicate`：
+要擴充套件剩餘控制器以支援引數化請求，您必須在方法引數中新增以`org.springframework.data.querydsl.binding.QuerydslPredicate`註解的`com.mysema.query.types.Predicate`：
 
     @RestController
     @RequestMapping("/api")
@@ -118,7 +118,7 @@ __注意__ 我们使用MongoDB，但Querydsl插件还支持[更多选项](https:
         ...
     }
 
-同样在 `NameResourceIntTest` 你必须支持 `QuerydslPredicateArgumentResolver`:
+同樣在 `NameResourceIntTest` 你必須支援 `QuerydslPredicateArgumentResolver`:
 
     public class NameResourceIntTest {
         ...
@@ -138,11 +138,11 @@ __注意__ 我们使用MongoDB，但Querydsl插件还支持[更多选项](https:
         ...
     }
 
-可以在 [相关文档](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#core.web.type-safe) 中找到更多详细信息。
+可以在 [相關文件](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#core.web.type-safe) 中找到更多詳細訊息。
 
-## 编写类型安全的查询
+## 編寫型別安全的查詢
 
-Gradle或Maven插件生成了QName类，该类可用于编写Name.class的查询。 这是Java示例：
+Gradle或Maven外掛生成了QName類，該類別可用於編寫Name.class的查詢。 這是Java範例：
 
 ```java
 QName name = QName.name;

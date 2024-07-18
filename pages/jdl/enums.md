@@ -1,27 +1,27 @@
 ---
 layout: default
-title: JHipster 领域语言 (JDL) - 枚举
+title: JHipster 領域語言 (JDL) - 列舉
 permalink: /jdl/enums
 sitemap:
     priority: 0.5
     lastmod: 2019-10-27T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster 领域语言 (JDL) - 枚举
+# <i class="fa fa-star"></i> JHipster 領域語言 (JDL) - 列舉
 
 ## 概要
 
-1. [语法](#语法)
-1. [示例](#示例)
-   1. [简单例子](#简单例子)
-   1. [声明值](#声明值)
-   1. [注释](#注释)
+1. [語法](#語法)
+1. [範例](#範例)
+   1. [簡單例子](#簡單例子)
+   1. [宣告值](#宣告值)
+   1. [註解](#註解)
 
 ---
 
-### 语法
+### 語法
 
-枚举声明如下：
+列舉宣告如下：
 
 ```
 enum [<enum name>] {
@@ -29,15 +29,15 @@ enum [<enum name>] {
 }
 ```
 
-  - 枚举项是必须定义的
-    - 并且必须使用大写键
-  - 枚举项的值是可选的，并且必须用括号括起来
+  - 列舉項是必須定義的
+    - 並且必須使用大寫鍵
+  - 列舉項的值是可選的，並且必須用括號括起來
 
 ---
 
-### 示例
+### 範例
 
-### 简单例子
+### 簡單例子
 
 ```jdl
 enum Country {
@@ -61,7 +61,7 @@ entity A {
 
 #### With values
 
-从JHipster Core v6开始，枚举值可以具有显式值：
+從JHipster Core v6開始，列舉值可以具有顯式值：
 
 ```jdl
 enum Country {
@@ -73,16 +73,16 @@ enum Country {
 
 ---
 
-#### 注释
+#### 註解
 
-就像关系，实体和字段一样，枚举也可以使用相同的规则进行注释。
+就像關係，實體和欄位一樣，列舉也可以使用相同的規則進行註解。
 
-稍后，JHipster会将注释作为Javadoc注释添加。 JDL拥有自己的注释类型：
+稍後，JHipster會將註解作為Javadoc註解新增。 JDL擁有自己的註解型別：
   - // an ignored comment
   - /** not an ignored comment */
 
-因此，以`//`开头的任何内容都被视为JDL的内部注释，因此不会被视为Javadoc。
-请注意，在解析时，以`＃`开头的JDL Studio指令将被忽略。
+因此，以`//`開頭的任何內容都被視為JDL的內部註解，因此不會被視為Javadoc。
+請注意，在解析時，以`＃`開頭的JDL Studio指令將被忽略。
 
 ```jdl
 /** This comment will be taken into account */

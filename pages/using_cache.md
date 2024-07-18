@@ -1,25 +1,25 @@
 ---
 layout: default
-title: 使用缓存
+title: 使用快取
 permalink: /using-cache/
 sitemap:
     priority: 0.7
     lastmod: 2017-02-10T18:40:00-00:00
 ---
 
-# <i class="fa fa-line-chart"></i> 使用缓存
+# <i class="fa fa-line-chart"></i> 使用快取
 
-缓存可以在JHipster中用于两个级别：
+快取可以在JHipster中用於兩個級別：
 
-- 使用Spring Cache抽象，这是生成应用程序时的一个特定问题，并且使用Spring Boot `@EnableCaching`注解。这需要根据您的特定业务需求进行调整，并且比Hibernate 2级缓存更高级。
-- 作为Hibernate 2级缓存，缓存解决方案可以极大地提高应用程序的性能，这就是人们通常使用JHipster所做的。请注意，如果您选择使用Spring Cache，则此选项仅适用于SQL数据库。
+- 使用Spring Cache抽象，這是生成應用程式時的一個特定問題，並且使用Spring Boot `@EnableCaching`註解。這需要根據您的特定業務需求進行調整，並且比Hibernate 2級快取更高階。
+- 作為Hibernate 2級快取，快取解決方案可以極大地提高應用程式的效能，這就是人們通常使用JHipster所做的。請注意，如果您選擇使用Spring Cache，則此選項僅適用於SQL資料庫。
 
-Spring Cache和Hibernate 2级缓存将使用相同的缓存解决方案，但不能在同一级别上使用：我们不建议对同一对象同时使用这两个缓存，因为这会使缓存失效问题更加复杂。相反，我们建议您使用：
+Spring Cache和Hibernate 2級快取將使用相同的快取解決方案，但不能在同一級別上使用：我們不建議對同一物件同時使用這兩個快取，因為這會使快取失效問題更加複雜。相反，我們建議您使用：
 
-- Spring Cache用于更高级别或聚合的对象，就像您通常使用的DTO一样
-- 用于映射到数据库的实体的Hibernate 2级缓存，以减少SQL请求的数量
+- Spring Cache用於更高階別或聚合的物件，就像您通常使用的DTO一樣
+- 用於對映到資料庫的實體的Hibernate 2級快取，以減少SQL請求的數量
 
-JHipster支持以下缓存实现：
+JHipster支援以下快取實現：
 1. Ehcache，
 2. Caffeine，
 3. Hazelcast，
@@ -27,46 +27,46 @@ JHipster支持以下缓存实现：
 5. Memcached，
 6. Redis。
 
-它们都在下面详细说明。
+它們都在下面詳細說明。
 
-## 通用配置
+## 通用設定
 
-缓存是在`CacheConfiguration`类中配置的，也可以使用JHipster[通用应用程序属性]({{ site.url }}/common-application-properties/)进行调整。
+快取是在`CacheConfiguration`類別中設定的，也可以使用JHipster[通用應用程式屬性]({{ site.url }}/common-application-properties/)進行調整。
 
-## 使用Ehcache缓存
+## 使用Ehcache快取
 
-[Ehcache](http://www.ehcache.org/)是​​JHipster生成monoliths应用的默认缓存。Ehcache启动速度非常快，因此它是"常规"单体应用的完美解决方案。
+[Ehcache](http://www.ehcache.org/)是​​JHipster生成monoliths應用的預設快取。Ehcache啟動速度非常快，因此它是"常規"單體應用的完美解決方案。
 
-使用JHipster，Ehcache无法作为分布式缓存使用，因为它没有允许以编程方式添加新节点的API
+使用JHipster，Ehcache無法作為分散式快取使用，因為它沒有允許以程式設計方式新增新節點的API
 
-Ehcache是​​在`CacheConfiguration` Spring配置bean中配置的，该配置bean在JHipster[通用应用程序属性]({{ site.url }}/common-application-properties/)中定义了2个属性（`time-to-live-seconds`和`max-entries`）。可以在应用程序的特定`ApplicationProperties` Spring配置bean中添加更多属性。
+Ehcache是​​在`CacheConfiguration` Spring設定bean中設定的，該設定bean在JHipster[通用應用程式屬性]({{ site.url }}/common-application-properties/)中定義了2個屬性（`time-to-live-seconds`和`max-entries`）。可以在應用程式的特定`ApplicationProperties` Spring設定bean中新增更多屬性。
 
-默认情况下，在`dev`和`prod`模式下，`time-to-live-seconds`的默认值均为3600秒（1小时），在`dev`模式下`max-entries`的默认值为100项，在生产模式下的默认值为1000项。
+預設情況下，在`dev`和`prod`模式下，`time-to-live-seconds`的預設值均為3600秒（1小時），在`dev`模式下`max-entries`的預設值為100項，在生產模式下的預設值為1000項。
 
-这些值应根据您的特定业务需求进行调整，并且JHipster监视屏幕可以帮助您更好地了解应用程序中的缓存使用情况。另请参阅Ehcache文档以微调这些值。
+這些值應根據您的特定業務需求進行調整，並且JHipster監視螢幕可以幫助您更好地瞭解應用程式中的快取使用情況。另請參閱Ehcache文件以微調這些值。
 
-## 使用Caffeine缓存
+## 使用Caffeine快取
 
-[Caffeine](https://github.com/ben-manes/caffeine)是一种[高性能](https://github.com/ben-manes/caffeine/wiki/Benchmarks)、[接近最佳](https://github.com/ben-manes/caffeine/wiki/Efficiency)的缓存库，是EHcache的替代品，可用于JHipster中的monoliths应用。
+[Caffeine](https://github.com/ben-manes/caffeine)是一種[高效能](https://github.com/ben-manes/caffeine/wiki/Benchmarks)、[接近最佳](https://github.com/ben-manes/caffeine/wiki/Efficiency)的快取函式庫，是EHcache的替代品，可用於JHipster中的monoliths應用。
 
-与Ehcache类似，Caffeine无法用作分布式缓存。
+與Ehcache類似，Caffeine無法用作分散式快取。
 
-Jhipster会为Caffeine生成与Ehcache相同的默认配置。但是，您可能希望添加其他选项以根据需要进行微调。Caffeine缓存配置是在`CacheConfiguration` Spring配置bean中完成的，而您的应用程序特定的属性可以添加到`ApplicationProperties` bean中。您可能会发现以下三个文件对于定义自己的Caffeine配置很有用。
+Jhipster會為Caffeine生成與Ehcache相同的預設設定。但是，您可能希望新增其他選項以根據需要進行微調。Caffeine快取設定是在`CacheConfiguration` Spring設定bean中完成的，而您的應用程式特定的屬性可以新增到`ApplicationProperties` bean中。您可能會發現以下三個檔案對於定義自己的Caffeine設定很有用。
 
-- 我们在`CacheConfiguration` bean中使用[`CaffeineConfiguration`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/CaffeineConfiguration.java)类来添加Caffeine属性。
-- 您可能会发现[`TypesafeConfigurator`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/TypesafeConfigurator.java)以及 [`reference.conf`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/resources/reference.conf)作为对所有受支持的Caffeine属性的引用。
+- 我們在`CacheConfiguration` bean中使用[`CaffeineConfiguration`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/CaffeineConfiguration.java)類來新增Caffeine屬性。
+- 您可能會發現[`TypesafeConfigurator`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/TypesafeConfigurator.java)以及 [`reference.conf`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/resources/reference.conf)作為對所有受支援的Caffeine屬性的引用。
 
-## 使用Hazelcast缓存
+## 使用Hazelcast快取
 
-[Hazelcast](https://hazelcast.com/)可以用作本地缓存（如Ehcache），但也可以用作分布式缓存。结果是：
+[Hazelcast](https://hazelcast.com/)可以用作本地快取（如Ehcache），但也可以用作分散式快取。結果是：
 
-- 这是微服务的默认选项，因为我们希望微服务能够扩展
-- 这是网关的默认选项，因为我们希望它们能够扩展，并且因为Hazelcast可以用于分布[网关速率限制信息]({{ site.url }}/api-gateway/#rate_limiting)
-- 当在monolith中使用时，Hazelcast需要具有[JHipster Registry]({{ site.url }}/jhipster-registry/)选项才能扩展
+- 這是微服務的預設選項，因為我們希望微服務能夠擴充套件
+- 這是閘道器的預設選項，因為我們希望它們能夠擴充套件，並且因為Hazelcast可以用於分佈[閘道器速率限制訊息]({{ site.url }}/api-gateway/#rate_limiting)
+- 當在monolith中使用時，Hazelcast需要具有[JHipster Registry]({{ site.url }}/jhipster-registry/)選項才能擴充套件
 
-对于扩展应用程序，Hazelcast将使用配置的服务发现来查找新节点并水平扩展。对于微服务和网关，这将与JHipster Registry和Consul一起使用，而对于monolith，则仅与JHipster Registry一起使用。
+對於擴充套件應用程式，Hazelcast將使用設定的服務發現來查詢新節點並水平擴充套件。對於微服務和閘道器，這將與JHipster Registry和Consul一起使用，而對於monolith，則僅與JHipster Registry一起使用。
 
-添加新节点后，它将在服务发现中注册自己（例如，它将在JHipster Registry中可用），并寻找相同类型的其他节点。如果找到一个或多个相同类型的节点，它将使用它们创建一个集群缓存：您应该在每个节点的日志中看到一条消息，如以下示例所示：
+新增新節點後，它將在服務發現中註冊自己（例如，它將在JHipster Registry中可用），並尋找相同型別的其他節點。如果找到一個或多個相同型別的節點，它將使用它們建立一個叢集快取：您應該在每個節點的日誌中看到一條訊息，如以下範例所示：
 
     [172.18.0.10]:5701 [dev] [3.7]
     Members [4] {
@@ -76,62 +76,62 @@ Jhipster会为Caffeine生成与Ehcache相同的默认配置。但是，您可能
     Member [172.18.0.11]:5701 - 6114ae28-56cd-4840-a575-4d73a6003744
     }
 
-为了更好地使用Hazelcast，JHipster包括对Hazelcast管理中心的支持：
+為了更好地使用Hazelcast，JHipster包括對Hazelcast管理中心的支援：
 
-- 请注意，您只能免费监控2个节点，因为这是商业产品。但这已经足以测试您的应用程序。
-- 在`application-dev.yml`和`application-prod.yml`文件中，参考JHipster[常用应用程序属性]({{ site.url }}/common-application-properties/)，通过键`jhipster.cache.hazelcast.management-center`对其进行配置。请注意，默认情况下它是关闭的。
-- JHipster生成了Docker Compose配置以运行Hazelcast管理中心。请阅读我们的[Docker Compose文档]({{ site.url }}/docker-compose/)，然后使用`docker-compose -f src/main/docker/hazelcast-management-center.yml up -d`运行该应用程序。
+- 請注意，您只能免費監控2個節點，因為這是商業產品。但這已經足以測試您的應用程式。
+- 在`application-dev.yml`和`application-prod.yml`檔案中，參考JHipster[常用應用程式屬性]({{ site.url }}/common-application-properties/)，透過鍵`jhipster.cache.hazelcast.management-center`對其進行設定。請注意，預設情況下它是關閉的。
+- JHipster生成了Docker Compose設定以執行Hazelcast管理中心。請閱讀我們的[Docker Compose文件]({{ site.url }}/docker-compose/)，然後使用`docker-compose -f src/main/docker/hazelcast-management-center.yml up -d`執行該應用程式。
 
-## 使用Infinispan缓存
+## 使用Infinispan快取
 
-[Infinispan](http://infinispan.org/)是一种高性能的缓存解决方案，可以用作内存中的本地缓存以及群集缓存。它支持多种缓存模式，
+[Infinispan](http://infinispan.org/)是一種高效能的快取解決方案，可以用作記憶體中的本地快取以及群集快取。它支援多種快取模式，
 
   - [本地](http://infinispan.org/docs/stable/user_guide/user_guide.html#local_mode)
   - [invalidation](http://infinispan.org/docs/stable/user_guide/user_guide.html#invalidation_mode)
-  - [分布式](http://infinispan.org/docs/stable/user_guide/user_guide.html#replicated_mode)
-  - [复制](http://infinispan.org/docs/stable/user_guide/user_guide.html#distribution_mode)
+  - [分散式](http://infinispan.org/docs/stable/user_guide/user_guide.html#replicated_mode)
+  - [複製](http://infinispan.org/docs/stable/user_guide/user_guide.html#distribution_mode)
 
-通过JHipster，Infinispan可以被用于：
+透過JHipster，Infinispan可以被用於：
 
-- 作为Spring Cache抽象的实现
-- 作为Hibernate 2级缓存
+- 作為Spring Cache抽象的實現
+- 作為Hibernate 2級快取
 
-以下是预配置的默认配置：
+以下是預設定的預設設定：
 
-- 实体以invalidation缓存模式运行
-- 对于特定于应用程序的缓存，预定义了三种缓存配置
-  - **local-app-data** 用于缓存节点本地的数据
-  - **dist-app-data** 用于跨节点的分布式数据缓存（由分布式副本数确定的副本数）
-  - **repl-app-data** 用于跨节点复制数据
+- 實體以invalidation快取模式執行
+- 對於特定於應用程式的快取，預定義了三種快取設定
+  - **local-app-data** 用於快取節點本地的資料
+  - **dist-app-data** 用於跨節點的分散式資料快取（由分散式副本數確定的副本數）
+  - **repl-app-data** 用於跨節點複製資料
 
-可以使用JHipster[通用应用程序属性]({{ site.url }}/common-application-properties/)，微调缓存中每个独立操作模式的对象逐出，生存时间和最大条目数，以及分布式模式的副本数。微调`jhipster.cache.infinispan`中的属性以用于特定于应用程序的缓存，并微调`spring.jpa.properties`以用于Hibernate的第二级缓存。
+可以使用JHipster[通用應用程式屬性]({{ site.url }}/common-application-properties/)，微調快取中每個獨立操作模式的物件逐出，生存時間和最大條目數，以及分散式模式的副本數。微調`jhipster.cache.infinispan`中的屬性以用於特定於應用程式的快取，並微調`spring.jpa.properties`以用於Hibernate的第二級快取。
 
-如果启用了JHipster Registry，将在Registry中注册节点列表。如果未启用JHipster Registry，则节点发现将基于Infinispan Jar中打包的`config-file`中定义的默认传输设置。Infinispan原生发现支持大多数平台（例如Kubernets/OpenShift，AWS，Azure和Google）。
+如果啟用了JHipster Registry，將在Registry中註冊節點清單。如果未啟用JHipster Registry，則節點發現將基於Infinispan Jar中打包的`config-file`中定義的預設傳輸設定。Infinispan原生發現支援大多數平台（例如Kubernets/OpenShift，AWS，Azure和Google）。
 
-尽管Infinispan 9.0.0.Final GA和更高版本，通过使用本机KUBE_PING发现，增加了对在Kubernetes和OpenShift上运行Infinispan嵌入式缓存应用程序的支持，但Hibernate依赖项尚未更新至9.x版本，因此不支持在Kubernetes和OpenShift本机发现。但是，您可以通过使用JHipster Registry进行实例发现来运行应用程序。
+儘管Infinispan 9.0.0.Final GA和更高版本，透過使用本機KUBE_PING發現，增加了對在Kubernetes和OpenShift上執行Infinispan嵌入式快取應用程式的支援，但Hibernate依賴項尚未更新至9.x版本，因此不支援在Kubernetes和OpenShift本機發現。但是，您可以透過使用JHipster Registry進行實例發現來執行應用程式。
 
-## 使用Memcached缓存
+## 使用Memcached快取
 
-[Memcached](https://memcached.org/)是一个开源分布式缓存。它与JHipster支持的其他缓存实现完全不同：
+[Memcached](https://memcached.org/)是一個開源分散式快取。它與JHipster支援的其他快取實現完全不同：
 
-- Memcached不能用作Hibernate 2级缓存，它仅支持Spring Cache抽象。
-- Memcached在远程服务下运行，没有本地缓存​​。这样，您的对象始终会通过网络进行序列化/反序列化，这意味着如果您的对象集很小，放入内存中，效率反而可能会降低。
-- 它非常易于扩展，并且运营成本低。大多数大型云提供商（如Heroku，GCP或AWS）都支持Memcached。这样，拥有分布式（且便宜）的Memcached集群比使用其他缓存实现要容易得多。
+- Memcached不能用作Hibernate 2級快取，它僅支援Spring Cache抽象。
+- Memcached在遠端服務下執行，沒有本地快取​​。這樣，您的物件始終會通過網路進行序列化/反序列化，這意味著如果您的物件集很小，放入記憶體中，效率反而可能會降低。
+- 它非常易於擴充套件，並且運營成本低。大多數大型雲提供商（如Heroku，GCP或AWS）都支援Memcached。這樣，擁有分散式（且便宜）的Memcached叢集比使用其他快取實現要容易得多。
 
-JHipster将流行的[Xmemcached](https://github.com/killme2008/xmemcached) Java客户端用于Memcached，并使用通常的JHipster[通用应用程序属性]({{ site.url }}/common-application-properties/)来配置其最重要的属性。
+JHipster將流行的[Xmemcached](https://github.com/killme2008/xmemcached) Java用戶端用於Memcached，並使用通常的JHipster[通用應用程式屬性]({{ site.url }}/common-application-properties/)來設定其最重要的屬性。
 
-请注意，每个高速缓存必须在`CacheConfiguration`配置Bean中配置为特定的Spring Bean。
+請注意，每個快取記憶體必須在`CacheConfiguration`設定Bean中設定為特定的Spring Bean。
 
-由于Memcached需要在其类加载器中对对象进行序列化/反序列化，因此在使用Spring Boot devtools（使用特定的类加载器对应用程序类进行热重装）时，该功能不起作用。这就是在开发人员模式下默认禁用Memcached的原因。
+由於Memcached需要在其類載入器中對物件進行序列化/反序列化，因此在使用Spring Boot devtools（使用特定的類載入器對應用程式類進行熱重裝）時，該功能不起作用。這就是在開發人員模式下預設停用Memcached的原因。
 
-JHipster依然如往日一样提供了Docker Compose配置，因此您可以轻松地在计算机上启动Memcached服务器。为了使用它，请运行`docker-compose -f src/main/docker/memcached.yml up -d`。
+JHipster依然如往日一樣提供了Docker Compose設定，因此您可以輕鬆地在電腦上啟動Memcached伺服器。為了使用它，請執行`docker-compose -f src/main/docker/memcached.yml up -d`。
 
-## 使用Redis缓存
+## 使用Redis快取
 
-[Redis](https://redis.io/)是一个开源的内存数据结构存储，可以用作高性能缓存解决方案。当前，它在生成器JHipster中作为单个服务器节点实现，但也可以作为分布式缓存使用。
+[Redis](https://redis.io/)是一個開源的記憶體資料結構儲存，可以用作高效能快取解決方案。當前，它在產生器JHipster中作為單個伺服器節點實現，但也可以作為分散式快取使用。
 
-JHipster使用[Redisson](https://redisson.org/)作为Redis Java客户端主要有两个原因：
-- Redis强烈推荐
-- 它提供了一个的JCache（JSR-107）的实现
+JHipster使用[Redisson](https://redisson.org/)作為Redis Java用戶端主要有兩個原因：
+- Redis強烈推薦
+- 它提供了一個的JCache（JSR-107）的實現
 
-由于我们在可用时使用JCache实现，因此这两者都可以与其他缓存保持一致，并在Spring缓存和Hibernate 2级缓存之间共享相同的Redis连接。
+由於我們在可用時使用JCache實現，因此這兩者都可以與其他快取保持一致，並在Spring快取和Hibernate 2級快取之間共享相同的Redis連線。

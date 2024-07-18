@@ -1,32 +1,32 @@
 ---
 layout: default
-title: JHipster领域语言 (JDL) - 实体和属性
+title: JHipster領域語言 (JDL) - 實體和屬性
 permalink: /jdl/entities-fields
 sitemap:
     priority: 0.5
     lastmod: 2019-10-27T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster领域语言 (JDL) - 实体和属性
+# <i class="fa fa-star"></i> JHipster領域語言 (JDL) - 實體和屬性
 
 ## 概要
 
-1. [语法](#语法)
-1. [示例](#示例)
-   1. [简单例子](#简单例子)
-   1. [自定义表名](#自定义表名)
-   1. [属性](#属性)
-   1. [属性校验](#属性校验)
-   1. [声明二进制](#声明二进制)
-   1. [正则表达式](#正则表达式)
-   1. [注释](#注释)
-1. [字段类型和校验](#字段类型和校验)
+1. [語法](#語法)
+1. [範例](#範例)
+   1. [簡單例子](#簡單例子)
+   1. [自定義表名](#自定義表名)
+   1. [屬性](#屬性)
+   1. [屬性校驗](#屬性校驗)
+   1. [宣告二進位](#宣告二進位)
+   1. [正則表示式](#正則表示式)
+   1. [註解](#註解)
+1. [欄位型別和校驗](#欄位型別和校驗)
 
 ---
 
-### 语法
+### 語法
 
-实体声明如下：
+實體宣告如下：
 ```
 [<entity javadoc>]
 [<entity annotation>*]
@@ -37,40 +37,40 @@ entity <entity name> [(<table name>)] {
 }
 ```
 
-  - `<entity name>` 实体名称，
-  - `<field name>` 实体属性名称，
-  - `<field type>` JHipster支持的属性类型，
-  - 以下为可选项：
-    - `<entity javadoc>` 实体描述，
-    - `<entity annotation>`  实体的选项（有关可用选项的完整列表，请参见[选项][]），
-    - `<table name>` 数据库表名称（如果要指定与实体名称自动转换不同的名称），
-    - `<field javadoc>` 属性描述，
-    - `<field annotation>` 属性的选项，
-    - `<validation>` 属性的校验规则。
+  - `<entity name>` 實體名稱，
+  - `<field name>` 實體屬性名稱，
+  - `<field type>` JHipster支援的屬性型別，
+  - 以下為可選項：
+    - `<entity javadoc>` 實體描述，
+    - `<entity annotation>`  實體的選項（有關可用選項的完整清單，請參見[選項][]），
+    - `<table name>` 資料庫表名稱（如果要指定與實體名稱自動轉換不同的名稱），
+    - `<field javadoc>` 屬性描述，
+    - `<field annotation>` 屬性的選項，
+    - `<validation>` 屬性的校驗規則。
 
 ---
 
-### 示例
+### 範例
 
-### 简单例子
+### 簡單例子
 
 ```jdl
 entity A
 ```
 
-这等效于：
+這等效於：
 
 ```jdl
 entity A(a) {}
 ```
 
-前者是一种较简单的形式，没有指定"主体"（字段的大括号）和表名。
+前者是一種較簡單的形式，沒有指定"主體"（欄位的大括號）和表名。
 
 ---
 
-#### 自定义表名
+#### 自定義表名
 
-也可以指定自定义表名称：
+也可以指定自定義表名稱：
 
 ```jdl
  entity A(my_super_entity)
@@ -78,7 +78,7 @@ entity A(a) {}
 
 ---
 
-#### 属性
+#### 屬性
 
 ```jdl
 entity A {
@@ -89,7 +89,7 @@ entity A {
 
 ---
 
-#### 属性校验
+#### 屬性校驗
 
 ```jdl
 entity A {
@@ -100,21 +100,21 @@ entity A {
 
 ---
 
-#### 声明二进制
+#### 宣告二進位
 
-JHipster提供了一个不错的选择，因为可以在图像类型或任何二进制类型之间进行选择。 JDL允许您执行相同的操作。
-使用编辑器创建一个自定义类型（请参阅DataType），并根据以下约定为其命名：
-  - `AnyBlob` 或 `Blob` 创建一个"任意"的二进制类型的字段；
-  - `ImageBlob` 创建一个图像的字段。
-  - `TextBlob` 为CLOB（长文本）创建一个字段。
+JHipster提供了一個不錯的選擇，因為可以在影象型別或任何二進位型別之間進行選擇。 JDL允許您執行相同的操作。
+使用編輯器建立一個自定義類型（請參閱DataType），並根據以下約定為其命名：
+  - `AnyBlob` 或 `Blob` 建立一個"任意"的二進位型別的欄位；
+  - `ImageBlob` 建立一個影象的欄位。
+  - `TextBlob` 為CLOB（長文字）建立一個欄位。
 
-而且，您可以根据需要创建任意数量的数据类型。
+而且，您可以根據需要建立任意數量的資料型別。
 
 ---
 
-#### 正则表达式
+#### 正則表示式
 
-这是一个确定的验证（仅适用于String类型），其语法为：
+這是一個確定的驗證（僅適用於String型別），其語法為：
 
 ```jdl
 entity A {
@@ -122,16 +122,16 @@ entity A {
 }
 ```
 
-让我们分解一下：
-  - `pattern` 是用于声明正则表达式验证的关键字（使用常规括号）
-  - `/.../` 该模式在两个斜杠内声明
-  - `\` 反斜杆不需要进行转义
+讓我們分解一下：
+  - `pattern` 是用於宣告正則表示式驗證的關鍵字（使用常規括號）
+  - `/.../` 該模式在兩個斜槓內宣告
+  - `\` 反斜杆不需要進行轉義
 
 ---
 
-#### 注释
+#### 註解
 
-可以在JDL中对实体和字段进行注释，并且注释会生成文档（Javadoc或JSDoc，取决于后端）。
+可以在JDL中對實體和欄位進行註解，並且註解會生成文件（Javadoc或JSDoc，取決於後端）。
 
 ```jdl
 /**
@@ -149,14 +149,14 @@ entity A {
 }
 ```
 
-这些注释稍后将由JHipster添加为Javadoc注释。 JDL拥有自己的注释类型：
+這些註解稍後將由JHipster新增為Javadoc註解。 JDL擁有自己的註解型別：
   - // an ignored comment
   - /** not an ignored comment */
 
-因此，以`//`开头的任何内容都被视为JDL的内部注释，因此不会被视为Javadoc。
-请注意，在解析期间，以`＃`开头的JDL Studio指令将被忽略。
+因此，以`//`開頭的任何內容都被視為JDL的內部註解，因此不會被視為Javadoc。
+請注意，在解析期間，以`＃`開頭的JDL Studio指令將被忽略。
 
-注释的另一种形式是以下注释：
+註解的另一種形式是以下註解：
 ```
 entity A {
   name String /** My super field */
@@ -164,28 +164,28 @@ entity A {
 }
 ```
 
-在这里，A的名称将用 `My super field`注释，B则用 `My other super field`注释。
+在這裡，A的名稱將用 `My super field`註解，B則用 `My other super field`註解。
 
-是的，逗号不是强制性的，但最好不要使用逗号，以免在代码中出错。
-**如果您想混合使用逗号和以下注释，请当心！**
+是的，逗號不是強制性的，但最好不要使用逗號，以免在程式碼中出錯。
+**如果您想混合使用逗號和以下註解，請當心！**
 ```
 entity A {
   name String, /** My comment */
   count Integer
 }
 ```
-A的名字将没有注释（because the count will）。
+A的名字將沒有註解（because the count will）。
 
 ---
 
-### 字段类型和校验
+### 欄位型別和校驗
 
-每个字段类型都有其自己的校验列表。 以下是JDL支持的类型：
+每個欄位型別都有其自己的校驗清單。 以下是JDL支援的型別：
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>JDL类型</th>
-    <th>校验规则</th>
+    <th>JDL型別</th>
+    <th>校驗規則</th>
   </tr>
   <tr>
     <td>String</td>
@@ -257,4 +257,4 @@ A的名字将没有注释（because the count will）。
   </tr>
 </table>
 
-[选项]: 选项#可用选项 "选项"
+[選項]: 選項#可用選項 "選項"

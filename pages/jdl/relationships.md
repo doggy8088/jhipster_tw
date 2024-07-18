@@ -1,61 +1,61 @@
 ---
 layout: default
-title: JHipster 领域语言 (JDL) - 关联关系
+title: JHipster 領域語言 (JDL) - 關聯關係
 permalink: /jdl/relationships
 sitemap:
     priority: 0.5
     lastmod: 2019-11-03T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster 领域语言 (JDL) - 关联关系
+# <i class="fa fa-star"></i> JHipster 領域語言 (JDL) - 關聯關係
 
 ## 概要
 
-1. [关联类型](#关系类型)
-1. [关系方法](#关系方法)
-1. [多个关系体](#多个关系体)
-1. [语法](#语法)
-1. [示例](#示例)
-   1. [简单例子](#简单例子)
-   1. [关系属性名](#关系属性名)
-   1. [与属性（字段）联合](#与属性（字段）联合)
+1. [關聯型別](#關係型別)
+1. [關係方法](#關係方法)
+1. [多個關係體](#多個關係體)
+1. [語法](#語法)
+1. [範例](#範例)
+   1. [簡單例子](#簡單例子)
+   1. [關係屬性名](#關係屬性名)
+   1. [與屬性（欄位）聯合](#與屬性（欄位）聯合)
    1. [方法使用](#方法使用)
-   1. [非空设置](#非空设置)
-   1. [自反关系](#自反关系)
-   1. [注释](#注释)
+   1. [非空設定](#非空設定)
+   1. [自反關係](#自反關係)
+   1. [註解](#註解)
 
 ---
 
-### 关系类型
+### 關係型別
 
-在`relationship`关键字之后是以下内容。
+在`relationship`關鍵字之後是以下內容。
 
-有四种关系类型：
+有四種關係型別：
   - `OneToOne`
   - `OneToMany`
   - `ManyToOne`
   - `ManyToMany`
 
-要了解有关关系以及可能实现的更多信息，可以前往[关联关系](/managing_relationships).
+要了解有關關係以及可能實現的更多訊息，可以前往[關聯關係](/managing_relationships).
 
-关于复数名称的说明：JHipster会处理它们，这样您就不必在关系中处理了。
-
----
-
-### 关系方法
-
-在源实体和目标实体之后是关系方法，与`with`关键字一起使用。
-
-支持的方法：
-  - `jpaDerivedIdentifier`: `@MapsId` 用于关联关系 (**仅适用于OneToOne**)
+關於複數名稱的說明：JHipster會處理它們，這樣您就不必在關係中處理了。
 
 ---
 
-### 多个关系体
+### 關係方法
 
-如果您厌倦了JDL文件中具有相同类型的关系声明，请不用担心！ 有一个解决方案。
+在源實體和目標實體之後是關係方法，與`with`關鍵字一起使用。
 
-以这个JDL示例为例：
+支援的方法：
+  - `jpaDerivedIdentifier`: `@MapsId` 用於關聯關係 (**僅適用於OneToOne**)
+
+---
+
+### 多個關係體
+
+如果您厭倦了JDL檔案中具有相同型別的關係宣告，請不用擔心！ 有一個解決方案。
+
+以這個JDL範例為例：
 ```jdl
 relationship OneToOne {
   A to B
@@ -71,7 +71,7 @@ relationship OneToOne {
 }
 ```
 
-该解决方案由具有每一种关系体内的关系的声明，如下所示：
+該解決方案由具有每一種關係體內的關係的宣告，如下所示：
 ```jdl
 relationship OneToOne {
   A to B,
@@ -81,37 +81,37 @@ relationship OneToOne {
 }
 ```
 
-在以下情况下，此语法非常有用：
-  - 你有许多相同类型的关系，
-  - 你想知道这些关系是什么，
-  - 你不想浪费时间在JDL文件中寻找它们
+在以下情況下，此語法非常有用：
+  - 你有許多相同型別的關係，
+  - 你想知道這些關係是什麼，
+  - 你不想浪費時間在JDL檔案中尋找它們
 
 ---
 
-### 语法
+### 語法
 
-关系声明如下：
+關係宣告如下：
 ```
 relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
   <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]+
 }
 ```
 
-  - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` 是你的关系类型
-  - `<from entity>` 是关系的实体所有者的名称：源实体，
-  - `<to entity>` 是关系要到达的实体的名称：目的实体，
-  - `<relationship name>` 是具有另一端类型的属性名称，
-  - `<display field>` 是应显示在选择框中的字段名称（默认值：`id`），
-  - `required` 引入的关系属性是否不能为空。
-  - `with jpaDerivedIdentifier` 或 `@MapsId` 用于关联关系 (仅适用于一对一（one-to-one）
-  - 而且您可以拥有多个关系主体
-    - 可以查看 [多关系主体](#多关系主体) 部分以获取更多信息！
+  - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` 是你的關係型別
+  - `<from entity>` 是關係的實體所有者的名稱：源實體，
+  - `<to entity>` 是關係要到達的實體的名稱：目的實體，
+  - `<relationship name>` 是具有另一端型別的屬性名稱，
+  - `<display field>` 是應顯示在選擇框中的欄位名稱（預設值：`id`），
+  - `required` 引入的關係屬性是否不能為空。
+  - `with jpaDerivedIdentifier` 或 `@MapsId` 用於關聯關係 (僅適用於一對一（one-to-one）
+  - 而且您可以擁有多個關係主體
+    - 可以檢視 [多關係主體](#多關係主體) 部分以獲取更多訊息！
 
 ---
 
-### 示例
+### 範例
 
-### 简单例子
+### 簡單例子
 
 ```jdl
 relationship OneToOne {
@@ -119,18 +119,18 @@ relationship OneToOne {
 }
 ```
 
-请注意，此示例与以下示例相同：
+請注意，此範例與以下範例相同：
 ```jdl
 relationship OneToOne {
   A{b} to B
 }
 ```
 
-不指定引入属性名是使用具有单向关系的简短形式。
+不指定引入屬性名是使用具有單向關係的簡短形式。
 
 ---
 
-#### 关系属性名
+#### 關係屬性名
 
 ```jdl
 relationship ManyToMany {
@@ -138,13 +138,13 @@ relationship ManyToMany {
 }
 ```
 
-这是一种双向关系，这意味着两个实体将在另一个实体的"实例"下生成实体。
+這是一種雙向關係，這意味著兩個實體將在另一個實體的"實例"下生成實體。
 
 ---
 
-#### 与属性（字段）联合
+#### 與屬性（欄位）聯合
 
-用于指定实体中的哪一列用于join联接（默认为`id`）。
+用於指定實體中的哪一列用於join聯接（預設為`id`）。
 
 ```jdl
 relationship OneToOne {
@@ -152,7 +152,7 @@ relationship OneToOne {
 }
 ```
 
-它大致翻译为SQL： `JOIN B b with a.name = b.name`
+它大致翻譯為SQL： `JOIN B b with a.name = b.name`
 
 ---
 
@@ -166,9 +166,9 @@ relationship OneToOne {
 
 ---
 
-#### 非空的设置
+#### 非空的設定
 
-用于使至少需要一个关系。
+用於使至少需要一個關係。
 
 ```jdl
 relationship ManyToMany {
@@ -190,9 +190,9 @@ relationship ManyToMany {
 
 ---
 
-#### 自反关系
+#### 自反關係
 
-自反关系是指源实体和目标实体相同的关系。
+自反關係是指源實體和目標實體相同的關係。
 
 ```jdl
 relationship ManyToMany {
@@ -202,16 +202,16 @@ relationship ManyToMany {
 
 ---
 
-#### 关于自反性关系中非空设置的说明
+#### 關於自反性關係中非空設定的說明
 
-如前所述 [此外](https://github.com/jhipster/generator-jhipster/issues/11495)，不支持与同一实体的非空设置。 问题是，一个child必须**总是**有一个父母，而parent又必须也有一个child，等等。
-一个可能的解决方法是拥有显式的根实体和子实体。
+如前所述 [此外](https://github.com/jhipster/generator-jhipster/issues/11495)，不支援與同一實體的非空設定。 問題是，一個child必須**總是**有一個父母，而parent又必須也有一個child，等等。
+一個可能的解決方法是擁有顯式的根實體和子實體。
 
 ----
 
-#### 注释
+#### 註解
 
-可以为关系添加注释：
+可以為關係新增註解：
 
 ```jdl
 relationship OneToOne {
@@ -223,10 +223,10 @@ relationship OneToOne {
 }
 ```
 
-此处应用了相同的注释规则。
-这些注释稍后将由JHipster添加为Javadoc注释。 JDL拥有自己的注释类型：
+此處應用了相同的註解規則。
+這些註解稍後將由JHipster新增為Javadoc註解。 JDL擁有自己的註解型別：
   - // an ignored comment
   - /** not an ignored comment */
 
-因此，以`//`开头的任何内容都被视为JDL的内部注释，因此不会被视为Javadoc。
-请注意，在解析期间，以`＃`开头的JDL Studio指令将被忽略。
+因此，以`//`開頭的任何內容都被視為JDL的內部註解，因此不會被視為Javadoc。
+請注意，在解析期間，以`＃`開頭的JDL Studio指令將被忽略。
